@@ -1,0 +1,22 @@
+# Datos y credenciales locales
+.env
+.env.*
+!.env.example
+.claude/settings.local.json
+*.pem
+*.key
+
+# Entornos y archivos generados de trabajo
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/
+
+# Material audiovisual no destinado a publicación
+*.mp4
+*.mov
+*.mp3
+*:Zone.Identifier
+
+# El PDF final de plan/ sí se versiona.
