@@ -66,9 +66,33 @@ registrada para retomar; no reanuda implementación ni cierra C.
 - F: guion y contingencia.
 - G: transparencia y preparación del checklist.
 
-Las solicitudes D–G se enviaron sobre `b413c74`; no ha llegado su devolución.
+Las solicitudes D–G se enviaron sobre `b413c74`; D ya tiene devolución y
+correcciones pendientes. E–G siguen esperando devolución.
 Registrar para cada pieza la versión realmente leída, correcciones y veredicto.
 Una aprobación general no sustituye las revisiones individuales solicitadas.
+
+### Revisión D recibida después de la pausa
+
+Claude leyó `brief_pitch.md` y revisó el render del PDF de una página de
+`b413c74/e0bfb6a`. Veredicto: correcto y honesto, pero incompleto; tres ajustes
+pendientes, sin aprobar las otras piezas:
+
+- D1: añadir evidencia breve del problema, contrastada con el informe: cifras
+  SIES y testimonio chileno, distinguiendo observación de causalidad y segundo
+  año de primer año. No convertir no matrícula en abandono definitivo.
+- D2: explicitar alcance, posibles adoptantes y un piloto propuesto. Una carrera
+  vespertina/cuatro semanas es propuesta, no acuerdo institucional. Extender a
+  otras asignaturas o cuidadores requiere evaluación: no es cobertura actual
+  ni flexibilización automática por Ley 21.790.
+- D3: cierre más concreto ligado a Camila; conservar que dos asistencias más
+  alcanzan el mínimo solo bajo los supuestos, sin garantizar aprobar y sin
+  presentar el personaje ficticio como un caso real resuelto.
+- Mejora menor: antes/después de IA con relato completo que sí declare días y
+  hora. «Me cambiaron el turno de la pega» por sí solo no permite extraerlos;
+  preguntar fecha e inicio ausentes. Las rutas son consultas condicionadas.
+
+Revisar que siga siendo una página legible al integrar estos cambios. No se
+ha modificado el brief durante la pausa ni se marca D cerrado.
 
 ## 4. Antes de entregar al participante
 
