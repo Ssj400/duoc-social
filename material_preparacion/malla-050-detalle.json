@@ -1,0 +1,56 @@
+{
+  "carrera": {
+    "nombre": "Ingeniería en Informática mención Desarrollo de Software (Duoc UC)",
+    "fuente": "https://malla.duoc.cl/mallas/informatica-telecomunicaciones/050-ing-informatica-dessoftware.html",
+    "consultada": "2026-11-06",
+    "nota": "Extraído de los atributos data-* de la página pública. La malla NO trae descripción de contenidos de cada ramo: solo nombre, semestre, línea, horas, créditos, formato y prerrequisitos."
+  },
+  "malla": [
+    { "id": "malla:FPY1101", "codigo": "FPY1101", "nombre": "Fundamentos de Programación", "semestre": 1, "categoria": "Especialidad", "linea": "Desarrollo de Soluciones de Software", "horas": 126, "sct": 5, "formato": "Presencial", "prerrequisitos": [], "habilita": ["DSY1102"], "certificacion": "Desarrollador Full Stack" },
+    { "id": "malla:BIY1101", "codigo": "BIY1101", "nombre": "Bases de Innovación", "semestre": 1, "categoria": "Especialidad", "linea": "Gestión de Requisitos", "horas": 72, "sct": 3, "formato": "Presencial", "prerrequisitos": [], "habilita": [] },
+    { "id": "malla:DSY1101", "codigo": "DSY1101", "nombre": "Introducción a Cloud Computing", "semestre": 1, "categoria": "Especialidad", "linea": "Desarrollo de Soluciones de Software", "horas": 72, "sct": 3, "formato": "Presencial", "prerrequisitos": [], "habilita": [] },
+    { "id": "malla:MAT1111", "codigo": "MAT1111", "nombre": "Nivelación Matemática", "semestre": 1, "categoria": "Formación General", "horas": 108, "sct": 4, "formato": "Presencial", "prerrequisitos": [], "habilita": ["MAT2121"] },
+    { "id": "malla:PLC1110", "codigo": "PLC1110", "nombre": "Habilidades de Comunicación", "semestre": 1, "categoria": "Formación General", "horas": 72, "sct": 3, "formato": "Presencial", "prerrequisitos": [], "habilita": [] },
+
+    { "id": "malla:DSY1102", "codigo": "DSY1102", "nombre": "Desarrollo Orientado a Objetos", "semestre": 2, "categoria": "Especialidad", "linea": "Desarrollo de Soluciones de Software", "horas": 90, "sct": 4, "formato": "Presencial", "prerrequisitos": ["FPY1101"], "habilita": ["DSY1103", "DSY1105", "DSY1104"], "certificacion": "Desarrollador Full Stack" },
+    { "id": "malla:BDY1101", "codigo": "BDY1101", "nombre": "Base de Datos Aplicada I", "semestre": 2, "categoria": "Especialidad", "linea": "Gestión de Requisitos", "horas": 90, "sct": 4, "formato": "Presencial", "prerrequisitos": [], "habilita": ["BDY1102"] },
+    { "id": "malla:RQY1101", "codigo": "RQY1101", "nombre": "Ingeniería de Requisitos", "semestre": 2, "categoria": "Especialidad", "linea": "Gestión de Requisitos", "horas": 72, "sct": 3, "formato": "Presencial", "prerrequisitos": [], "habilita": ["RQY1102"] },
+    { "id": "malla:FCE1100", "codigo": "FCE1100", "nombre": "Fundamentos de Antropología", "semestre": 2, "categoria": "Formación Sello", "horas": 36, "sct": 2, "formato": "Presencial", "prerrequisitos": [], "habilita": [] },
+    { "id": "malla:INU3100", "codigo": "INU3100", "nombre": "Inglés Elemental I", "semestre": 2, "categoria": "Formación General", "horas": 72, "sct": 3, "formato": "Presencial", "prerrequisitos": [], "habilita": ["INU4100", "INU5100"] },
+    { "id": "malla:MAT2121", "codigo": "MAT2121", "nombre": "Matemática Aplicada", "semestre": 2, "categoria": "Formación General", "horas": 90, "sct": 3, "formato": "Presencial", "prerrequisitos": ["MAT1111"], "habilita": [] },
+
+    { "id": "malla:DSY1103", "codigo": "DSY1103", "nombre": "Desarrollo Full Stack I", "semestre": 3, "categoria": "Especialidad", "linea": "Desarrollo de Soluciones de Software", "horas": 126, "sct": 5, "formato": "Presencial", "prerrequisitos": ["DSY1102"], "habilita": [], "certificacion": "Desarrollador Full Stack" },
+    { "id": "malla:BDY1102", "codigo": "BDY1102", "nombre": "Base de Datos Aplicada II", "semestre": 3, "categoria": "Especialidad", "linea": "Gestión de Requisitos", "horas": 90, "sct": 4, "formato": "Presencial", "prerrequisitos": ["BDY1101"], "habilita": ["BDY1103"], "certificacion": "Desarrollador Full Stack" },
+    { "id": "malla:RQY1102", "codigo": "RQY1102", "nombre": "Ingeniería de Software", "semestre": 3, "categoria": "Especialidad", "linea": "Gestión de Requisitos", "horas": 90, "sct": 4, "formato": "Presencial", "prerrequisitos": ["RQY1101"], "habilita": [] },
+    { "id": "malla:INU4100", "codigo": "INU4100", "nombre": "Inglés Elemental II", "semestre": 3, "categoria": "Formación General", "horas": 72, "sct": 3, "formato": "Presencial", "prerrequisitos": ["INU3100"], "habilita": ["INU5100"] },
+
+    { "id": "malla:DSY1105", "codigo": "DSY1105", "nombre": "Desarrollo de Aplicaciones Móviles", "semestre": 4, "categoria": "Especialidad", "linea": "Desarrollo de Soluciones de Software", "horas": 90, "sct": 4, "formato": "Presencial", "prerrequisitos": ["DSY1102"], "habilita": [] },
+    { "id": "malla:DSY1104", "codigo": "DSY1104", "nombre": "Desarrollo Full Stack II", "semestre": 4, "categoria": "Especialidad", "linea": "Desarrollo de Soluciones de Software", "horas": 108, "sct": 4, "formato": "Presencial", "prerrequisitos": ["DSY1102"], "habilita": [], "certificacion": "Desarrollador Full Stack" },
+    { "id": "malla:BDY1103", "codigo": "BDY1103", "nombre": "Taller de Base de Datos", "semestre": 4, "categoria": "Especialidad", "linea": "Gestión de Requisitos", "horas": 72, "sct": 3, "formato": "Presencial", "prerrequisitos": ["BDY1102"], "habilita": [] },
+    { "id": "malla:EAY4470", "codigo": "EAY4470", "nombre": "Ética para el Trabajo", "semestre": 4, "categoria": "Formación Sello", "horas": 36, "sct": 2, "formato": "Presencial", "prerrequisitos": [], "habilita": [] },
+    { "id": "malla:MAT4141", "codigo": "MAT4141", "nombre": "Estadística Descriptiva", "semestre": 4, "categoria": "Formación General", "horas": 72, "sct": 3, "formato": "Presencial", "prerrequisitos": [], "habilita": [] },
+    { "id": "malla:INU5100", "codigo": "INU5100", "nombre": "Inglés Intermedio I", "semestre": 4, "categoria": "Formación General", "horas": 72, "sct": 3, "formato": "Presencial", "prerrequisitos": ["INU3100", "INU4100"], "habilita": [] },
+
+    { "id": "malla:GPY1101", "codigo": "GPY1101", "nombre": "Evaluación de Proyectos de Software", "semestre": 5, "categoria": "Especialidad", "linea": "Evaluación y Gestión de Proyectos de Software", "horas": 90, "sct": 4, "formato": "Presencial", "prerrequisitos": [], "habilita": ["GPY1102"] },
+    { "id": "malla:DSY1106", "codigo": "DSY1106", "nombre": "Desarrollo Full Stack III", "semestre": 5, "categoria": "Especialidad", "linea": "Desarrollo de Soluciones de Software", "horas": 144, "sct": 6, "formato": "Presencial", "prerrequisitos": [], "habilita": ["ISY1102"] },
+    { "id": "malla:ISY1101", "codigo": "ISY1101", "nombre": "Introducción a Herramientas DevOps", "semestre": 5, "categoria": "Especialidad", "linea": "Ingeniería de Software", "horas": 90, "sct": 4, "formato": "Presencial", "prerrequisitos": [], "habilita": [] },
+
+    { "id": "malla:GPY1102", "codigo": "GPY1102", "nombre": "Gestión de Proyectos de Software", "semestre": 6, "categoria": "Especialidad", "linea": "Evaluación y Gestión de Proyectos de Software", "horas": 90, "sct": 4, "formato": "Presencial, FOL", "prerrequisitos": ["GPY1101"], "habilita": [] },
+    { "id": "malla:DSY1107", "codigo": "DSY1107", "nombre": "Desarrollo Cloud Native I", "semestre": 6, "categoria": "Especialidad", "linea": "Desarrollo de Soluciones de Software", "horas": 144, "sct": 6, "formato": "Presencial", "prerrequisitos": [], "habilita": [] },
+    { "id": "malla:ISY1102", "codigo": "ISY1102", "nombre": "Seguridad y Calidad en el Desarrollo de Software", "semestre": 6, "categoria": "Especialidad", "linea": "Ingeniería de Software", "horas": 90, "sct": 4, "formato": "Presencial", "prerrequisitos": ["DSY1106"], "habilita": [] },
+
+    { "id": "malla:ISY1103", "codigo": "ISY1103", "nombre": "Arquitecturas TI Contemporáneas", "semestre": 7, "categoria": "Especialidad", "linea": "Ingeniería de Software", "horas": 90, "sct": 4, "formato": "Presencial", "prerrequisitos": [], "habilita": ["TTY4617"] },
+    { "id": "malla:DSY1108", "codigo": "DSY1108", "nombre": "Desarrollo Cloud Native II", "semestre": 7, "categoria": "Especialidad", "linea": "Desarrollo de Soluciones de Software", "horas": 144, "sct": 6, "formato": "Presencial", "prerrequisitos": [], "habilita": ["TSY1101"] },
+    { "id": "malla:ISY1104", "codigo": "ISY1104", "nombre": "BPM Aplicado", "semestre": 7, "categoria": "Especialidad", "linea": "Ingeniería de Software", "horas": 90, "sct": 4, "formato": "Presencial, FOL", "prerrequisitos": [], "habilita": [] },
+    { "id": "malla:EAY4615", "codigo": "EAY4615", "nombre": "Ética Profesional", "semestre": 7, "categoria": "Formación Sello", "horas": 36, "sct": 2, "formato": "Presencial", "prerrequisitos": [], "habilita": [] },
+
+    { "id": "malla:TSY1101", "codigo": "TSY1101", "nombre": "Taller Aplicado de Software", "semestre": 8, "categoria": "Especialidad", "linea": "Desarrollo de Soluciones de Software", "horas": 144, "sct": 6, "formato": "Presencial", "prerrequisitos": ["DSY1108"], "habilita": [] },
+    { "id": "malla:TTY4617", "codigo": "TTY4617", "nombre": "Taller de Tecnologías de Vanguardia", "semestre": 8, "categoria": "Especialidad", "linea": "Desarrollo de Soluciones de Software", "horas": 90, "sct": 4, "formato": "Presencial, FOL", "prerrequisitos": ["ISY1103"], "habilita": [] },
+    { "id": "malla:PPY4616", "codigo": "PPY4616", "nombre": "Práctica Profesional", "semestre": 8, "categoria": "Especialidad", "horas": 180, "sct": 4, "formato": "Presencial", "prerrequisitos": [], "habilita": [] }
+  ],
+  "transversales_sin_codigo": [
+    { "nombre": "Formación Cristiana", "semestres": "3° a 7°", "categoria": "Formación Sello", "sct": 1, "tipo": "optativo" },
+    { "nombre": "Electivo de Capacidades y Competencias Globales", "semestres": "3° a 7°", "categoria": "Formación Optativa", "sct": 2, "tipo": "optativo" },
+    { "nombre": "Formación Disciplinar e Interdisciplinar", "semestres": "3° a 7°", "categoria": "Formación Optativa", "sct": 9, "tipo": "optativo" }
+  ]
+}

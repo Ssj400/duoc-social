@@ -3,6 +3,7 @@
 Para quien implementa la integración. Complementa [diseno.md](diseno.md) (pantallas,
 tipos, rutas). **Proveedor: Claude (Anthropic) con la clave que entregó la
 organización**; donde `diseno.md` dice Groq/Gemini, vale esto.
+RAG (`buscar`), extensión `queAyuda` de la llamada 2 y guía de prueba: [rag.md](rag.md).
 
 ## Resumen
 

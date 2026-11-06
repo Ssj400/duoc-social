@@ -9,6 +9,7 @@ Equipo fusionado; idea reportada: **simulación de la carrera para explorar expe
 
 - [Contexto, requisitos y guardas](AGENTS.md).
 - [Antecedentes y límites de evidencia](antecedentes.md).
+- [IA: llamadas, prompts y respaldos](ia.md) · [RAG y guía de prueba](rag.md).
 - [Bases oficiales](material_preparacion/Bases_Hackathon_IA_Congreso_Social_UC_2026-1.pdf).
 - [Reglas de trabajo](CONTRIBUTING.md).
 
