@@ -4,71 +4,35 @@ Para quien presenta. Ritmo: ~2,5 palabras por segundo. Ensayar con cronómetro d
 veces. Entre corchetes, lo que se hace; en cursiva, lo que se dice.
 
 ## 1 · Portada (0:00–0:15)
+Somos educadex. Queremos que un estudiante de primer año pueda vivir sus próximos semestres antes de llegar a ellos, y conversarlo con alguien a tiempo.
 
-*Somos educadex. Queremos que un estudiante de primer año pueda vivir sus próximos
-semestres antes de llegar a ellos, y conversarlo con alguien a tiempo.*
+## 2 · Problema (0:15–0:45)
+De quienes entraron a la educación superior en 2025, el 22,1% no siguió en su institución al año siguiente, según el SIES. Ojo: no todos abandonan, algunos se cambian. Una causa frecuente en primer año es vocacional: descubrir tarde cómo es la carrera de verdad. Y la deserción se concentra en el tercer semestre: si esperamos esas notas para reaccionar, la decisión ya está tomada.
 
-## 2 · El problema (0:15–0:50)
+## 3 · Paradoja (0:45–1:00)
+Predecir y etiquetar a alguien "en riesgo" lo estigmatiza. Esperar a que repruebe llega tarde. Nosotros no predecimos a nadie: le damos al estudiante una forma segura de explorar.
 
-*De quienes entraron a la educación superior en 2025, el 22,1 % no siguió en su
-institución al año siguiente, según el SIES. Ojo: no todos abandonan; algunos se cambian.
-Una de las causas frecuentes en primer año es vocacional: descubrir tarde cómo es la
-carrera de verdad. Y un estudio chileno muestra que la deserción se concentra en el
-tercer semestre. Si esperamos esas notas para reaccionar, la decisión ya está tomada.*
+## 4 · Solución (1:00–1:20)
+educadex es una simulación de la carrera: escenas de la malla oficial contadas por tutores. El estudiante juega, la IA le ayuda a poner en palabras lo que no calzó, y él decide si lo conversa con su tutor.
 
-## 3 · La paradoja (0:50–1:10)
+## 5 · Cómo funciona (1:20–2:00) (narrar sobre las 4 capturas)
+- **Juega:** ¿qué harías tú? No hay respuestas correctas. Marca lo que le sorprendió.
+- **Descubre:** la IA le propone sus brechas: "esperabas programar solo; en Ingeniería de Software gran parte del trabajo es conversar". Él confirma, edita o borra.
+- **Decide:** comparte solo las brechas, no su motivo. Puede retirar el permiso cuando quiera.
+- **Acompaña:** el tutor ve solo lo compartido y acuerda un paso con fecha.
 
-*Hay dos respuestas típicas, y las dos fallan. Predecir y etiquetar a alguien como
-«en riesgo» lo estigmatiza. Esperar a que repruebe llega tarde. Nosotros no
-predecimos a nadie: le damos al estudiante una forma segura de explorar.*
+## 6 · IA con propósito (2:00–2:30)
+¿Por qué IA? Ningún tutor tiene tiempo de escribir escenas de juego con opciones y consecuencias. Con IA, 4 líneas se vuelven una escena en segundos, anclada a la malla oficial, y el tutor la aprueba. Un validador rechaza ramos o citas inventadas, y si la IA falla, la app sigue funcionando.
 
-## 4 · La solución (1:10–1:35)
+## 7 · Ética (2:30–3:05)
+Hay 4 decisiones humanas: el tutor aprueba, el estudiante confirma, decide si comparte y el tutor acuerda el paso. No hay puntajes ni porcentajes de afinidad. El motivo lo elige el estudiante; la IA ni siquiera recibe su nombre, género, sede o jornada. Probamos el mismo caso firmado por Camila y por Matías: resultados equivalentes, en una muestra pequeña. Todo son datos ficticios.
 
-*educadex es una simulación de la carrera. Las escenas salen de la malla oficial y de
-la experiencia de tutores. El estudiante juega, marca qué le sorprendió, y la IA le
-ayuda a poner en palabras lo que no calzó. Después él decide si lo conversa con su tutor.*
+## 8 · Impacto y cierre (3:05–3:35)
+Operar esto es simple: cada tutor escribe 4 líneas por ramo y aprueba. Funciona con cualquier carrera que tenga su malla pública. Proponemos un piloto en una carrera, semanas 2 a 6 del primer semestre, midiendo simulaciones, conversaciones con tutores y decisiones informadas, incluida la de cambiarse.
+_La IA no te dice si esta carrera es para ti. Te muestra cómo es, y te deja llegar a esa conversación con información._ Les dejamos educadex funcionando.
 
-## 5 · Demo (1:35–2:50)
-
-[Video o demo en vivo. Si falla la red: diapositiva 5 con las capturas, sin
-reintentar en vivo.]
-
-- *El tutor escribe cuatro líneas sobre un ramo de tercer semestre y la IA propone una
-  escena con sus fuentes. Nada se publica sin que él la apruebe.*
-- *El estudiante juega: ¿qué harías tú? No hay respuestas correctas. Marca lo que le
-  sorprendió.*
-- *La IA le propone sus brechas: «esperabas programar solo; en Ingeniería de Software
-  gran parte del trabajo es conversar». Él confirma, edita o borra.*
-- *Elige compartir solo las brechas, no su motivo. Puede retirar el permiso cuando
-  quiera.*
-- *El tutor ve solo lo compartido y acuerda un paso con fecha.*
-
-## 6 · IA con propósito (2:50–3:30)
-
-*¿Por qué IA? Porque ningún tutor tiene tiempo de escribir escenas de juego con
-opciones y consecuencias. Con IA, cuatro líneas se vuelven una escena en segundos,
-anclada a la malla oficial; un validador rechaza ramos o citas inventadas, y si la
-IA falla, la app sigue funcionando sin ella.*
-
-## 7 · Ética por diseño (3:30–4:15)
-
-*Hay cuatro decisiones humanas: el tutor aprueba, el estudiante confirma, el estudiante
-decide si comparte y el tutor acuerda el paso. No hay puntajes ni porcentajes de
-afinidad. El motivo lo elige el estudiante; la IA nunca lo adivina, y ni siquiera recibe
-su nombre, género, sede o jornada. Probamos el mismo caso firmado por Camila y por
-Matías y los resultados fueron equivalentes; es una muestra pequeña y lo decimos.
-Todo lo que ven son datos ficticios.*
-
-## 8 · Impacto y cierre (4:15–5:00)
-
-*Para una institución, operar esto es simple: cada tutor escribe cuatro líneas por
-ramo y aprueba. Funciona con cualquier carrera que tenga su malla pública. Proponemos un
-piloto en una carrera, en las semanas 2 a 6 del primer semestre, midiendo simulaciones
-completadas, conversaciones con tutores y decisiones informadas, incluida la de
-cambiarse de carrera.*
-
-*La IA no te dice si esta carrera es para ti. Te muestra cómo es, y te deja llegar a
-esa conversación con información. Gracias.*
+## 9 · VIDEO (3:35–4:46)
+Pasar a la diapositiva 9: el video (71 s) parte solo. No hablar encima. Al terminar queda en loop durante las preguntas. Si no parte: volver a la diapositiva 5 y no reintentar.
 
 ## Preguntas probables (respuestas de 15–20 segundos)
 
