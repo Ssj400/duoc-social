@@ -66,16 +66,17 @@ export default function CasoCliente({ id }: { id: string }) {
   const lab = (e: string) => ESTADOS[e as Caso["estado"]];
   const eti = "block space-y-1 font-semibold text-slate-800";
   return (
-    <div className="space-y-5">
+    <div className="space-y-6">
       <Link href="/tutor" className="font-semibold text-violet-700 hover:underline">← Casos</Link>
       <div className="space-y-1"><Eyebrow>Caso compartido</Eyebrow><h1 className="text-2xl font-extrabold tracking-tight text-slate-900">{caso.alias}</h1></div>
       <p className="rounded-2xl bg-slate-100 p-4 text-sm text-slate-600">{TXT_NO_DIAGNOSTICO}</p>
+      <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
       <section className="space-y-3">
         <h2 className="font-extrabold tracking-tight text-slate-900 text-lg">Brechas (con escena y fuente)</h2>
         <ul className="space-y-3">
           {caso.brechas.map((b) => (
             <li key={b.id}>
-              <Card className="space-y-2">
+              <Card className="space-y-2 shadow-lg shadow-violet-100">
                 <p className="text-slate-800">{b.texto}</p>
                 <p className="text-sm flex gap-1.5 flex-wrap items-center">Escena {b.escenaId} · {b.estado} · fuentes: {b.citas.map((c) => <SourceChip key={c} icono={c.startsWith("malla:") ? "📘" : "📎"}>{c.startsWith("malla:") ? (malla.find((r) => r.id === c)?.nombre ?? c) : c}</SourceChip>)}</p>
               </Card>
@@ -86,7 +87,8 @@ export default function CasoCliente({ id }: { id: string }) {
           <p><strong>Motivo (compartido por el estudiante):</strong> {caso.motivos.length ? caso.motivos.map((m) => NOM_MOTIVO[m]).join(", ") : "ninguno marcado"}{caso.motivoOtro ? ` · ${caso.motivoOtro}` : ""}</p>
         )}
       </section>
-      <Card className="space-y-3">
+      <div className="space-y-5">
+      <Card className="space-y-3 shadow-lg shadow-violet-100">
         <h2 className="font-extrabold tracking-tight text-slate-900 text-lg">Plantilla de siguiente paso</h2>
         <div className="flex gap-2 flex-wrap">
           {PLANTILLAS.map((p) => <Chip key={p.id} selected={sel === p.id} onClick={() => elegir(p)}>{p.t}</Chip>)}
@@ -110,7 +112,7 @@ export default function CasoCliente({ id }: { id: string }) {
       <label className={eti}>Notas del tutor (no modifican lo que declaró el estudiante)
         <textarea className={campo} rows={2} value={notas} onChange={(e) => setNotas(e.target.value)} />
       </label>
-      <Card className="space-y-4">
+      <Card className="space-y-4 shadow-lg shadow-violet-100">
         <p>Seguimiento: <strong className="text-slate-900">{ESTADOS[caso.estado]}</strong> (Nuevo → Gestión iniciada → Ayuda recibida)</p>
         <ol className="flex items-center gap-2" aria-hidden>
           {PASOS.map((e, i) => (
@@ -126,6 +128,8 @@ export default function CasoCliente({ id }: { id: string }) {
         </div>
         <p className="text-sm">Gestión iniciada no es lo mismo que ayuda recibida. Cambiarse de carrera también es un buen resultado.</p>
       </Card>
+      </div>
+      </div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { malla } from "@/lib/malla-cliente";
 import { api, ICONOS, nuevoRequestId, rotuloEscena, TIPOS, TXT_FALLBACK } from "@/lib/cliente";
-import { Button, Card, Chip, Badge, SceneCard, SourceChip, claseCampo } from "@/components/ui";
+import { Button, Card, Chip, Badge, Eyebrow, SceneCard, SourceChip, claseCampo } from "@/components/ui";
 import type { Escena, Opcion, Plantilla } from "@/lib/tipos";
 
 const campo = claseCampo;
@@ -66,12 +66,17 @@ export default function PaginaPlantilla() {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 flex items-center gap-2">Plantilla de escena <Badge tono="amber">Demo</Badge></h1>
-        <Link href="/tutor" className="text-sm font-semibold text-violet-700 hover:underline">Ver casos</Link>
-      </div>
+      <header className="space-y-2">
+        <div className="flex items-center justify-between gap-3">
+          <Eyebrow>PARA TUTORES Y JEFES DE CARRERA</Eyebrow>
+          <Link href="/tutor" className="text-sm font-semibold text-violet-700 hover:underline">Ver casos</Link>
+        </div>
+        <h1 className="flex flex-wrap items-center gap-3 text-3xl font-extrabold tracking-tight text-slate-900">Convierte tu experiencia en una escena <Badge tono="amber">Demo</Badge></h1>
+        <p className="max-w-2xl text-slate-600">Escribe 4 líneas; Dex (IA) propone la escena y tú decides si se publica.</p>
+      </header>
       {publicada && <p role="status" className="rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 p-4">Escena publicada. Ya la ve el estudiante.</p>}
-      <Card className="space-y-4">
+      <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
+      <Card className="space-y-4 shadow-lg shadow-violet-100">
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="block space-y-1 font-semibold text-slate-800">Ramo
           <select className={campo} value={p.id} onChange={(e) => { setP(plantillas.find((x) => x.id === e.target.value) ?? p); g.setEscena(null); g.setFallback(false); }}>
@@ -110,6 +115,10 @@ export default function PaginaPlantilla() {
       </Button>
       </Card>
 
+      <div className="space-y-6 lg:sticky lg:top-24">
+      {!g.escena && !g.fallback && (
+        <div className="hidden lg:grid place-items-center rounded-3xl border-2 border-dashed border-violet-200 bg-violet-50/50 p-10 text-center text-slate-500">La vista previa de la escena aparecerá aquí.</div>
+      )}
       {g.escena && (
         <section aria-label="Vista previa" className="space-y-3">
           <h2 className="font-extrabold tracking-tight text-slate-900 text-lg">Vista previa (editable)</h2>
@@ -144,6 +153,8 @@ export default function PaginaPlantilla() {
           <Button className="w-full" onClick={publicarManual}>Publicar escena</Button>
         </section>
       )}
+      </div>
+      </div>
     </div>
   );
 }

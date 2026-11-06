@@ -60,7 +60,6 @@ export function RutaCliente({ ramos, carrera, fuente, consultada }: {
   const [ramoId, setRamoId] = useState<string | null>(null);
   const ramo = delSemestre.find((r) => r.id === ramoId) ?? delSemestre[0];
   const [pestana, setPestana] = useState<"general" | "experiencias">("general");
-  const [menu, setMenu] = useState(false);
   const carga = delSemestre.reduce((s, r) => s + r.horas, 0);
   const sct = delSemestre.reduce((s, r) => s + r.sct, 0);
   const conEscena = ramos.find((r) => r.experiencias.length > 0);
@@ -70,44 +69,10 @@ export function RutaCliente({ ramos, carrera, fuente, consultada }: {
   const m: Modo = modo ?? "estudiante";
 
   return (
-    <div style={FUENTE} className="min-h-screen bg-[#f8fafc] text-[#1e1b4b]">
+    <div style={FUENTE} className="text-[#1e1b4b]">
       {modo === null && <Bienvenida alElegir={setModo} />}
 
-      <header className="sticky top-0 z-30 border-b border-[#e2e8f0] bg-[#f8fafc]/95 backdrop-blur">
-        <div className="mx-auto flex h-[76px] items-center justify-between px-5">
-          <button className="flex items-center gap-3" aria-label="Ir al inicio" onClick={() => setModo(null)}>
-            <span className="grid h-10 w-10 place-items-center rounded-xl bg-[#5b21b6] text-white"><I.Brujula /></span>
-            <span className="text-left">
-              <span className="block text-[18px] font-extrabold leading-none tracking-[-0.03em]">RUTA</span>
-              <span className="mt-1 block text-[9px] font-bold tracking-[0.2em] text-[#6d5bb0]">SIMULADOR ACADÉMICO</span>
-            </span>
-          </button>
-          <div className="hidden items-center gap-2 sm:flex">
-            <Pildora activa={m === "estudiante"} onClick={() => setModo("estudiante")}><I.Persona width={14} height={14} />Mi ruta</Pildora>
-            <Pildora activa={m === "explorar"} onClick={() => setModo("explorar")}><I.Brujula width={14} height={14} />Explorar</Pildora>
-            <Link href="/estudiante" className="ml-2 rounded-full bg-[#5b21b6] px-4 py-2 text-xs font-bold text-white">Jugar simulación</Link>
-          </div>
-          <button className="p-2 sm:hidden" aria-label={menu ? "Cerrar menú" : "Abrir menú"} onClick={() => setMenu(!menu)}>
-            {menu ? <I.Cerrar /> : <I.Menu />}
-          </button>
-        </div>
-        {menu && (
-          <div className="border-t border-[#e2e8f0] px-5 py-4 sm:hidden">
-            <p className="mb-3 text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#687b77]">Elige cómo mirar</p>
-            <div className="grid grid-cols-2 gap-2">
-              {(["estudiante", "explorar"] as const).map((x) => (
-                <button key={x} onClick={() => { setModo(x); setMenu(false); }}
-                  className={`rounded-xl border px-4 py-3 text-sm font-bold ${m === x ? "border-[#5b21b6] bg-[#5b21b6] text-white" : "border-[#ddd6fe] bg-white text-[#5b21b6]"}`}>
-                  {x === "estudiante" ? "Mi ruta" : "Explorar"}
-                </button>
-              ))}
-            </div>
-            <Link href="/estudiante" className="mt-2 block rounded-xl bg-[#c4b5fd] px-4 py-3 text-center text-sm font-extrabold text-[#5b21b6]">Jugar simulación</Link>
-          </div>
-        )}
-      </header>
-
-      <main className="mx-auto px-5 pb-12 pt-8">
+      <main className="mx-auto w-full max-w-6xl px-5 pb-12 pt-4">
         <section className="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end">
           <div>
             <div className="mb-3 flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.15em] text-[#7c3aed]">
@@ -142,7 +107,7 @@ export function RutaCliente({ ramos, carrera, fuente, consultada }: {
           ))}
         </nav>
 
-        <section className="grid gap-6 md:grid-cols-[300px_minmax(0,1fr)]">
+        <section className="grid gap-6 md:grid-cols-[300px_minmax(0,1fr)] lg:grid-cols-[340px_minmax(0,1fr)] lg:gap-8">
           <aside className="h-fit rounded-[24px] border border-[#e2e8f0] bg-white p-5 shadow-[0_15px_40px_rgba(25,58,52,0.04)]">
             <div className="mb-5 flex items-center justify-between">
               <div>
@@ -337,19 +302,10 @@ function Bienvenida({ alElegir }: { alElegir: (m: Modo) => void }) {
           <span className="grid h-10 w-10 place-items-center rounded-xl bg-[#ede9fe] text-[#6d28d9]"><I.Brujula /></span>
           <span className="mt-5 block text-lg font-extrabold text-[#5b21b6]">Explorar la malla</span>
           <span className="mt-1 block text-xs leading-5 text-[#667975]">Conoce cómo es la carrera por dentro, semestre a semestre.</span>
-          <span className="mt-4 flex items-center gap-2 text-xs font-extrabold text-[#7c3aed]">Explorar la carrera <I.Flecha width={14} height={14} /></span>
+          <span className="mt-4 flex items-center gap-2 text-xs font-extrabold text-[#7c3aed]">Ver la malla <I.Flecha width={14} height={14} /></span>
         </button>
       </div>
     </div>
-  );
-}
-
-function Pildora({ activa, onClick, children }: { activa: boolean; onClick: () => void; children: ReactNode }) {
-  return (
-    <button onClick={onClick} aria-pressed={activa}
-      className={`flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold transition ${activa ? "bg-[#ede9fe] text-[#5b21b6]" : "border border-[#ddd6fe] bg-white text-[#5b21b6]"}`}>
-      {children}
-    </button>
   );
 }
 
