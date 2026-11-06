@@ -7,3 +7,30 @@
 body {
   font-family: var(--font-sans);
 }
+
+body {
+  background-image: radial-gradient(60rem 30rem at 10% -10%, rgba(139, 92, 246, 0.10), transparent 60%),
+    radial-gradient(50rem 28rem at 100% 0%, rgba(99, 102, 241, 0.08), transparent 60%);
+  background-attachment: fixed;
+}
+
+@keyframes entrar { from { opacity: 0; transform: translateY(18px) scale(0.98); } to { opacity: 1; transform: none; } }
+@keyframes revelar { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+@keyframes rebote { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes pulso { 0% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.55); } 70%, 100% { box-shadow: 0 0 0 12px rgba(124, 58, 237, 0); } }
+@keyframes pop { 0% { opacity: 0; transform: translateY(16px) scale(0.8); } 12% { opacity: 1; transform: scale(1.06); } 20% { transform: scale(1); } 85% { opacity: 1; } 100% { opacity: 0; transform: translateY(-8px); } }
+@keyframes brillo { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+
+.anim-entrar { animation: entrar 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.anim-revelar { animation: revelar 0.4s ease-out both; }
+.anim-rebote { animation: rebote 2.4s ease-in-out infinite; }
+.anim-pulso { animation: pulso 1.8s ease-out infinite; }
+.anim-pop { animation: pop 4s ease-out both; }
+.anim-brillo { animation: brillo 3s ease-in-out infinite; }
+.patron { background-image: radial-gradient(rgba(255, 255, 255, 0.55) 1.5px, transparent 1.5px); background-size: 16px 16px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-entrar, .anim-revelar, .anim-rebote, .anim-pulso, .anim-brillo { animation: none !important; }
+  .anim-pop { animation-duration: 0.01s !important; animation-delay: 4s !important; }
+  * { transition-duration: 0.01ms !important; }
+}

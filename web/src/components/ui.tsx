@@ -4,7 +4,7 @@ import type { ReactNode, ButtonHTMLAttributes } from "react";
 const FOCO = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2";
 
 export function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <div className={`rounded-3xl bg-white border border-slate-100 shadow-sm p-5 ${className}`}>{children}</div>;
+  return <div className={`rounded-3xl bg-white border border-slate-100 shadow-md shadow-violet-100/50 p-5 ${className}`}>{children}</div>;
 }
 
 export function Eyebrow({ children, className = "text-violet-600" }: { children: ReactNode; className?: string }) {
@@ -13,13 +13,13 @@ export function Eyebrow({ children, className = "text-violet-600" }: { children:
 
 type Variante = "primary" | "secondary" | "ghost" | "white";
 const VARIANTES: Record<Variante, string> = {
-  primary: "bg-violet-600 hover:bg-violet-700 text-white font-semibold px-5 py-3 shadow-sm",
-  secondary: "bg-white border border-slate-200 hover:border-violet-300 text-slate-800 font-semibold px-5 py-3",
+  primary: "bg-gradient-to-b from-violet-500 to-violet-700 hover:from-violet-600 hover:to-violet-800 text-white font-semibold px-5 py-3 shadow-lg shadow-violet-300/50 hover:-translate-y-0.5 active:translate-y-0",
+  secondary: "bg-white border border-slate-200 hover:border-violet-300 hover:-translate-y-0.5 hover:shadow-md text-slate-800 font-semibold px-5 py-3",
   ghost: "text-slate-600 hover:bg-slate-100 font-medium px-4 py-2",
   white: "bg-white text-violet-700 hover:bg-violet-50 font-bold px-5 py-3 shadow-sm",
 };
 export const claseBoton = (v: Variante = "primary", extra = "") =>
-  `inline-flex items-center justify-center gap-2 rounded-2xl transition disabled:opacity-50 disabled:cursor-not-allowed ${FOCO} ${VARIANTES[v]} ${extra}`;
+  `inline-flex items-center justify-center gap-2 rounded-2xl transition-all disabled:opacity-50 disabled:cursor-not-allowed ${FOCO} ${VARIANTES[v]} ${extra}`;
 
 export function Button({ variant = "primary", className = "", ...p }: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: Variante }) {
   return <button {...p} className={claseBoton(variant, className)} />;
@@ -31,7 +31,7 @@ export function LinkButton({ href, variant = "primary", children, className = ""
 export function Chip({ selected, children, ...p }: ButtonHTMLAttributes<HTMLButtonElement> & { selected?: boolean }) {
   return (
     <button type="button" aria-pressed={selected} {...p}
-      className={`rounded-full border px-4 py-2 text-base font-medium transition ${FOCO} ${selected ? "bg-violet-600 text-white border-violet-600" : "bg-white text-slate-700 border-slate-200 hover:border-violet-300"}`}>
+      className={`rounded-full border px-4 py-2 text-base font-medium transition ${FOCO} ${selected ? "bg-violet-600 text-white border-violet-600 shadow-md shadow-violet-300/60" : "bg-white text-slate-700 border-slate-200 hover:border-violet-300"}`}>
       {children}
     </button>
   );
@@ -56,12 +56,12 @@ export function SourceChip({ children, icono = "📎" }: { children: ReactNode; 
 }
 
 export function IconoIA() {
-  return <span aria-hidden className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-violet-600 text-white text-lg">✨</span>;
+  return <span aria-hidden className="anim-rebote grid h-10 w-10 shrink-0 place-items-center rounded-full bg-gradient-to-br from-violet-400 to-indigo-700 text-white text-lg shadow-lg shadow-violet-300/60 ring-4 ring-violet-100">✨</span>;
 }
 
 export function DexCard({ eyebrow, title, children }: { eyebrow: string; title: string; children?: ReactNode }) {
   return (
-    <div className="rounded-3xl bg-violet-50 border border-violet-100 p-5 flex gap-4">
+    <div className="rounded-3xl bg-gradient-to-br from-violet-50 to-white border border-violet-100 shadow-md shadow-violet-100/60 p-5 flex gap-4">
       <IconoIA />
       <div className="space-y-1">
         <Eyebrow>{eyebrow}</Eyebrow>
@@ -79,25 +79,27 @@ export function Titulo({ children }: { children: ReactNode }) {
 export const claseCampo = "w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-800 font-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400";
 
 export const BANDA: Record<string, string> = {
-  clase: "bg-sky-100 border-sky-200",
-  laboratorio: "bg-violet-100 border-violet-200",
-  prueba: "bg-amber-100 border-amber-200",
-  practica: "bg-emerald-100 border-emerald-200",
-  equipo: "bg-fuchsia-100 border-fuchsia-200",
+  clase: "from-sky-200 via-sky-100 to-indigo-100 border-sky-200",
+  laboratorio: "from-violet-300 via-violet-200 to-fuchsia-100 border-violet-200",
+  prueba: "from-amber-200 via-amber-100 to-orange-100 border-amber-200",
+  practica: "from-emerald-200 via-emerald-100 to-teal-100 border-emerald-200",
+  equipo: "from-fuchsia-200 via-pink-100 to-violet-100 border-fuchsia-200",
 };
 
 export function SceneCard({ tipo, icono, momento, titulo, children, narracion }: {
   tipo: string; icono: string; momento: string; titulo: ReactNode; narracion?: ReactNode; children?: ReactNode;
 }) {
   return (
-    <div className="rounded-3xl bg-white border border-slate-100 shadow-sm overflow-hidden">
-      <div className={`flex items-center justify-between border-b px-5 py-6 ${BANDA[tipo] ?? "bg-slate-100 border-slate-200"}`}>
-        <span className="text-6xl" aria-hidden>{icono}</span>
-        <span className="rounded-full bg-amber-100 text-amber-800 border border-amber-200 px-3 py-1 text-xs font-bold">Simulación</span>
+    <div className="anim-entrar rounded-3xl bg-white border border-slate-100 shadow-xl shadow-violet-200/50 overflow-hidden">
+      <div className={`relative overflow-hidden flex items-center justify-between border-b bg-gradient-to-br px-6 py-7 ${BANDA[tipo] ?? "from-slate-200 to-slate-100 border-slate-200"}`}>
+        <span aria-hidden className="patron absolute inset-0 opacity-60" />
+        <span aria-hidden className="anim-brillo absolute -right-8 -top-10 h-40 w-40 rounded-full bg-white/60 blur-2xl" />
+        <span className="relative text-7xl drop-shadow-lg" aria-hidden>{icono}</span>
+        <span className="relative rounded-full bg-amber-100 text-amber-800 border border-amber-200 px-3 py-1 text-xs font-bold shadow-sm">Simulación</span>
       </div>
-      <div className="p-5 space-y-3">
+      <div className="p-5 lg:p-7 space-y-3">
         <Eyebrow>{momento}</Eyebrow>
-        <div className="text-xl font-extrabold tracking-tight text-slate-900">{titulo}</div>
+        <div className="text-xl lg:text-2xl font-extrabold tracking-tight text-slate-900">{titulo}</div>
         {narracion && <div className="text-lg leading-relaxed text-slate-700">{narracion}</div>}
         {children}
       </div>

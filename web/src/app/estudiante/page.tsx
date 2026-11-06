@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { malla } from "@/lib/malla-cliente";
 import { api, detenerNarracion, ICONOS, narrar, nuevoRequestId, rotuloEscena } from "@/lib/cliente";
 import catalogo from "@/data/catalogo.json";
+import { DexGuia, CaminoSemestres, EstanteInsignias, ToastInsignia, type EstacionEstado, type InsigniaDef } from "@/components/game";
 import { Button, Card, Chip, DexCard, Eyebrow, SceneCard, SourceChip, Titulo, claseCampo } from "@/components/ui";
 import type { Brecha, Caso, Escena, Etiqueta, Motivo, Reaccion, Respuesta, RecomendadoUI } from "@/lib/tipos";
 
@@ -161,11 +162,14 @@ function Recorrido({ rec, etiquetas, alTerminar }: { rec: ReturnType<typeof useR
             const re = REACCIONES.find((x) => x.r === r.reaccion)?.t ?? "";
             return (
               <li key={r.escenaId} className="relative">
-                <span className="absolute -left-[41px] top-4 grid h-8 w-8 place-items-center rounded-full bg-violet-600 text-white text-sm font-bold ring-4 ring-slate-50">{n + 1}</span>
-                <Card className="space-y-1">
+                <span className="absolute -left-[41px] top-4 grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-violet-500 to-violet-700 text-white text-sm font-bold ring-4 ring-slate-50">{n + 1}</span>
+                <Card className="space-y-1 flex items-center gap-4">
+                  <span aria-hidden className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl border-2 border-dashed border-violet-300 bg-violet-50 text-3xl -rotate-6">{re.split(" ")[0]}</span>
+                  <div className="space-y-1">
                   <strong className="text-slate-900">{e.titulo}</strong>
                   <div>Elegiste: {op?.texto}</div>
                   <div className="text-lg">{re}</div>
+                  </div>
                 </Card>
               </li>
             );
@@ -180,29 +184,22 @@ function Recorrido({ rec, etiquetas, alTerminar }: { rec: ReturnType<typeof useR
   const n = visitadas.length + 1;
   return (
     <section className="space-y-4" aria-live="polite">
-      <div className="flex items-center justify-between gap-2 text-sm">
-        <ol className="flex items-center gap-1.5">
-          {["Sem 1", "Sem 2", "Sem 3"].map((s, i) => (
-            <li key={s} className="flex items-center gap-1.5">
-              <span className={`h-3 w-3 rounded-full ${i === 2 ? "bg-violet-600" : "bg-violet-200"}`} aria-hidden />
-              <span className={i === 2 ? "font-bold text-slate-900" : "text-slate-500"}>{i === 2 ? "● " : ""}{s}{i < 2 ? " ─" : ""}</span>
-            </li>
-          ))}
-        </ol>
+      <div className="flex items-center justify-between gap-2 text-sm lg:hidden">
+        <span className="font-bold text-violet-700">3er semestre</span>
         <span className="font-semibold text-slate-700">Escena {n} de {total}</span>
       </div>
       <div><span className="inline-flex rounded-full bg-violet-50 border border-violet-100 text-violet-700 px-3 py-1 text-xs font-bold">🧭 Exploraste {visitadas.length} {visitadas.length === 1 ? "situación" : "situaciones"}</span></div>
-      <SceneCard tipo={actual.tipo} icono={ICONOS[actual.tipo]}
+      <SceneCard key={actual.id} tipo={actual.tipo} icono={ICONOS[actual.tipo]}
         momento={`3er semestre · ${actual.momento} · ${nombreRamo(actual.ramoId)} · ${actual.tipo}`}
         titulo={<h1>{actual.titulo}</h1>} narracion={<p>{actual.narracion}</p>}>
         <Button variant="secondary" className="!rounded-full !px-4 !py-2 text-sm" onClick={() => narrar(`${actual.narracion}`)} aria-label="Escuchar la escena">🔊 Escuchar</Button>
       </SceneCard>
       <p className="font-extrabold tracking-tight text-slate-900 text-lg">¿Qué harías?</p>
-      <ul className="space-y-3">
+      <ul key={actual.id} className="space-y-3 anim-entrar">
         {actual.opciones.map((o, i) => (
           <li key={o.id}>
             <button disabled={!!eleccion} onClick={() => rec.elegir(o.id)} aria-pressed={eleccion === o.id}
-              className={`w-full text-left flex gap-3 items-start rounded-2xl border-2 p-4 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 ${eleccion === o.id ? "border-violet-600 bg-violet-50" : "border-slate-200 bg-white hover:border-violet-300"} ${eleccion && eleccion !== o.id ? "opacity-60" : ""}`}>
+              className={`w-full text-left flex gap-3 items-start rounded-2xl border-2 p-4 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 ${eleccion === o.id ? "border-violet-600 bg-violet-50 shadow-lg shadow-violet-300/60 ring-4 ring-violet-100" : "border-slate-200 bg-white hover:border-violet-300 hover:-translate-y-0.5 hover:shadow-lg"} ${eleccion && eleccion !== o.id ? "opacity-60" : ""}`}>
               <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-violet-100 text-violet-700 font-bold text-sm">{i + 1}</span>
               <span className="text-slate-800">{o.texto}</span>
             </button>
@@ -211,7 +208,7 @@ function Recorrido({ rec, etiquetas, alTerminar }: { rec: ReturnType<typeof useR
       </ul>
       {op && (
         <div className="space-y-4">
-          <Card className="space-y-3 !bg-violet-50 !border-violet-100">
+          <Card className="anim-revelar space-y-3 !bg-violet-50 !border-violet-100">
             <p className="text-slate-700"><strong>Lo que suele pasar:</strong> {op.loQueSuelePasar}</p>
             <p className="flex gap-2 flex-wrap items-center text-sm">Fuente: {actual.citas.map((c) => <SourceChip key={c} icono={c.startsWith("malla:") ? "📘" : "📎"}>{c.startsWith("malla:") ? `malla · ${nombreRamo(c)}` : "experiencia del tutor"}</SourceChip>)}</p>
             <p className="text-sm text-slate-500">{rotuloEscena("un tutor (ficticio)")}</p>
@@ -222,7 +219,7 @@ function Recorrido({ rec, etiquetas, alTerminar }: { rec: ReturnType<typeof useR
               const [emo, ...txt] = x.t.split(" ");
               return (
                 <button key={x.r} onClick={() => rec.reaccionar(x.r)} aria-pressed={rec.reaccionActual === x.r} aria-label={x.t}
-                  className={`flex flex-col items-center gap-1 rounded-2xl border-2 px-2 py-3 text-center text-xs font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 ${rec.reaccionActual === x.r ? "border-violet-600 bg-violet-600 text-white" : "border-slate-200 bg-white text-slate-700 hover:border-violet-300"}`}>
+                  className={`flex flex-col items-center gap-1 rounded-2xl border-2 px-2 py-3 text-center text-xs font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 ${rec.reaccionActual === x.r ? "border-violet-600 bg-violet-600 text-white shadow-lg shadow-violet-300/60 scale-105" : "border-slate-200 bg-white text-slate-700 hover:border-violet-300 hover:-translate-y-0.5 hover:shadow-lg"}`}>
                   <span className="text-3xl" aria-hidden>{emo}</span><span>{txt.join(" ")}</span>
                 </button>
               );
@@ -377,14 +374,90 @@ function Compartir({ brechas, motivo }: { brechas: Brecha[]; motivo: { motivos: 
   );
 }
 
+const SEM_DEFS: Omit<InsigniaDef, "ganada">[] = [
+  { id: "primera", icono: "🧭", titulo: "Primera escena" },
+  { id: "lab", icono: "🧪", titulo: "Visitaste un laboratorio" },
+  { id: "equipo", icono: "🤝", titulo: "Trabajo en equipo" },
+  { id: "completo", icono: "🗺️", titulo: "Recorrido completo" },
+];
+
+function Estacion({ rec }: { rec: ReturnType<typeof useRecorrido> }) {
+  if (rec.respuestas.length === 0) return <p className="text-xs text-slate-500">Aquí irán tus sellos, uno por escena.</p>;
+  return (
+    <div>
+      <Eyebrow>Tu recorrido</Eyebrow>
+      <ol className="mt-3 flex flex-wrap gap-2">
+        {rec.respuestas.map((r, n) => {
+          const e = rec.escenas.find((x) => x.id === r.escenaId);
+          const emo = REACCIONES.find((x) => x.r === r.reaccion)?.t.split(" ")[0] ?? "";
+          return (
+            <li key={r.escenaId} title={e?.titulo} className="flex flex-col items-center gap-1 rounded-2xl border-2 border-dashed border-violet-300 bg-violet-50 px-3 py-2 text-xs font-bold text-violet-700 -rotate-2">
+              <span aria-hidden className="text-2xl">{emo}</span>Escena {n + 1}
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  );
+}
+
 export default function PaginaEstudiante() {
   const rec = useRecorrido();
   const [fase, setFase] = useState<"onboarding" | "recorrido" | "brechas" | "compartir">("onboarding");
   const [etiquetas, setEtiquetas] = useState<string[]>([]);
   const [conf, setConf] = useState<{ brechas: Brecha[]; motivo: { motivos: Motivo[]; otro: string } } | null>(null);
   const alTerminar = useCallback(() => setFase("brechas"), []);
-  if (fase === "onboarding") return <Onboarding alEmpezar={(e) => { setEtiquetas(e); setFase("recorrido"); }} />;
-  if (fase === "recorrido") return <Recorrido rec={rec} etiquetas={etiquetas} alTerminar={alTerminar} />;
-  if (fase === "brechas" || !conf) return <Brechas rec={rec} alContinuar={(brechas, motivo) => { setConf({ brechas, motivo }); setFase("compartir"); }} />;
-  return <Compartir brechas={conf.brechas} motivo={conf.motivo} />;
+
+  // Insignias: solo por escenas vistas y su tipo, nunca por la opción elegida ni la reacción.
+  const vistas = [...rec.visitadas, ...(rec.actual && fase === "recorrido" ? [rec.actual.id] : [])];
+  const tipos = vistas.map((id) => rec.escenas.find((e) => e.id === id)?.tipo);
+  const ganadas: Record<string, boolean> = {
+    primera: vistas.length > 0, lab: tipos.includes("laboratorio"), equipo: tipos.includes("equipo"), completo: rec.terminado,
+  };
+  const insignias: InsigniaDef[] = SEM_DEFS.map((d) => ({ ...d, ganada: ganadas[d.id] }));
+  const nGanadas = insignias.filter((b) => b.ganada).length;
+  const [prevN, setPrevN] = useState(0);
+  const [toast, setToast] = useState<InsigniaDef | null>(null);
+  if (nGanadas !== prevN) { // se ajusta durante el render: sin efectos ni temporizadores
+    setPrevN(nGanadas);
+    if (nGanadas > prevN) setToast(insignias.filter((b) => b.ganada).slice(-1)[0] ?? null);
+  }
+
+  const estados: EstacionEstado[] = rec.terminado || fase === "brechas" || fase === "compartir"
+    ? ["hecha", "hecha", "hecha", "actual"]
+    : ["hecha", "hecha", "actual", "futura"];
+
+  const dex = fase === "onboarding" ? "Elige lo que quieras; también puedes no marcar nada."
+    : fase === "recorrido" && !rec.terminado ? (!rec.eleccion ? "¿Qué harías tú en esta situación?" : !rec.reaccionActual ? "Marca cómo te hizo sentir; no hay respuestas correctas." : "Cuando quieras, pasa a la siguiente escena.")
+    : fase === "compartir" ? "Tú decides qué compartir y con quién."
+    : "Revisa lo que noté: tú decides qué queda.";
+
+  let paso;
+  if (fase === "onboarding") paso = <Onboarding alEmpezar={(e) => { setEtiquetas(e); setFase("recorrido"); }} />;
+  else if (fase === "recorrido") paso = <Recorrido rec={rec} etiquetas={etiquetas} alTerminar={alTerminar} />;
+  else if (fase === "brechas" || !conf) paso = <Brechas rec={rec} alContinuar={(brechas, motivo) => { setConf({ brechas, motivo }); setFase("compartir"); }} />;
+  else paso = <Compartir brechas={conf.brechas} motivo={conf.motivo} />;
+
+  return (
+    <div className="grid gap-6 lg:grid-cols-[1fr_320px] lg:items-start">
+      <div className="space-y-4 min-w-0 lg:order-1">
+        <div className="lg:hidden space-y-3">
+          <CaminoSemestres estados={estados} />
+          <DexGuia>{dex}</DexGuia>
+        </div>
+        {paso}
+        <details className="lg:hidden rounded-2xl bg-white border border-violet-100 px-4 py-3 shadow-sm">
+          <summary className="cursor-pointer font-bold text-violet-700">Insignias de exploración ({nGanadas}/{insignias.length})</summary>
+          <div className="mt-3 space-y-4"><EstanteInsignias insignias={insignias} /><Estacion rec={rec} /></div>
+        </details>
+      </div>
+      <aside aria-label="Tu camino" className="hidden lg:block lg:order-2 sticky top-6 space-y-6 rounded-3xl bg-white/90 border border-violet-100 p-5 shadow-xl shadow-violet-200/50">
+        <DexGuia>{dex}</DexGuia>
+        <div><Eyebrow>Camino de semestres</Eyebrow><div className="mt-4"><CaminoSemestres estados={estados} vertical /></div></div>
+        <EstanteInsignias insignias={insignias} />
+        <Estacion rec={rec} />
+      </aside>
+      <ToastInsignia insignia={toast} />
+    </div>
+  );
 }
