@@ -1,14 +1,15 @@
 # Puente: qué queremos hacer y cómo lo haríamos
 
-Plan explicado para conversar con el equipo · 6 de noviembre de 2026
+Plan explicado para revisión del participante · 6 de noviembre de 2026
+
+Si tienes dos minutos, lee esta primera página y la sección 10. El resto
+desarrolla el recorrido y queda como consulta para ti y para el equipo.
 
 ## La idea, sin lenguaje técnico
 
-Imagina que estás estudiando y trabajando. Te cambian el turno y ahora sales
-cuando tus clases ya terminaron. Quieres seguir estudiando, pero no sabes cuánto
-te afectará faltar, qué alternativas permite tu institución ni a quién pedirle
-ayuda. Buscar un reglamento no necesariamente te resuelve esa duda: primero
-tienes que saber qué buscar y después entender si lo que encontraste aplica a ti.
+Imagina que estás estudiando y trabajando. Te cambian el turno y ya no puedes
+ir a ciertas clases. Quieres continuar, pero no sabes cuánto te afectará faltar,
+qué alternativas permite tu institución ni a quién pedirle ayuda.
 
 **Puente sería una aplicación que te ayuda a ordenar ese problema y llevarlo a
 una conversación útil con tu tutor o coordinación de carrera.** Te explica qué
@@ -16,26 +17,31 @@ pasaría con tu asistencia si el conflicto continúa, busca opciones respaldadas
 en el reglamento y te ayuda a preparar el siguiente paso. Tú decides qué contar
 y qué compartir; una persona revisa contigo las alternativas.
 
-No queremos hacer una pantalla que simplemente diga «este estudiante está en
-riesgo». Queremos que la persona salga diciendo: «entiendo qué me está pasando,
-sé qué puedo consultar y tengo claro quién me acompañará y cuándo».
+Un ejemplo: Camila tiene **88% de asistencia** y su porcentaje se ve bien. Pero
+su nuevo turno le impediría ir a las ocho clases que quedan: si las pierde,
+terminaría con **66,7%**. Bajo el requisito de 70% y los supuestos de este caso,
+eso implica reprobar por inasistencia aunque tenga buenas notas. Dos asistencias
+más le permitirían cumplir ese mínimo, no garantizar aprobar. Puente le muestra
+esa diferencia y la ayuda a conversarla con su tutor antes de decidir.
 
 ## Qué mostraríamos en la hackatón
 
-Un recorrido corto y completo: una estudiante cuenta su cambio de turno; la
-aplicación muestra un problema de asistencia que todavía puede conversar; le
-explica opciones con sus fuentes; ella autoriza un resumen; el tutor lo revisa
-y acuerdan una acción. Después se ve cómo se comprobaría si recibió ayuda.
+Un recorrido completo: estudiante cuenta el cambio → entiende la proyección y
+las opciones → autoriza un resumen → tutor revisa → acuerdan un paso → comprueban
+si recibió ayuda. No una pantalla que solo diga «estudiante en riesgo».
 
 **Eso es lo que proponemos construir. Todavía no está construido.** Para mostrarlo
 usaremos una estudiante, horarios y registros ficticios, junto con normas reales
 que ya revisamos. No necesitamos conectarnos a los sistemas académicos para
 demostrar la idea.
 
-En las páginas siguientes explicamos el caso, las pantallas, el papel de la IA,
-el trabajo del equipo, la demostración y las decisiones que aún debemos tomar.
-La intención es que puedas juzgar si la idea te convence, no que tengas que
-descifrar una especificación de software.
+## Por qué esta propuesta responde al desafío
+
+La alerta explicable es la proyección de asistencia y su cuenta; la acción es
+una hoja de ruta y una consulta preparada con el tutor; la integración es la
+ficha de revisión y seguimiento. Ética e impacto suman 50% de la evaluación:
+permisos separados, tutor que corrige y comprobar ayuda recibida apuntan a esas
+prioridades. Es una estrategia para demostrar valor, no una promesa de ganar.
 
 # 1. Qué problema estamos intentando resolver
 
@@ -84,8 +90,8 @@ seguirían necesitando una vía humana.
 
 Camila es un personaje ficticio. Está en primer año y trabaja. En nuestro ejemplo
 tiene una asignatura teórica los martes y jueves de 18:30 a 21:00. Le anuncian
-un nuevo turno que esos mismos días termina a las 21:30: no es llegar un poco
-tarde, es no poder asistir a esas clases.
+un turno de tarde de 16:00 a 21:30 esos mismos días: cubre todo el horario de
+clase. No es llegar un poco tarde, es no poder asistir.
 El turno comienza antes de la clase del 10 de noviembre y se mantiene durante
 las ocho sesiones restantes; ese es un supuesto explícito del ejemplo.
 
@@ -97,16 +103,19 @@ peso: 25 ya ocurrieron y quedan ocho hasta el 3 de diciembre. Camila asistió a
 ## Qué descubre la aplicación
 
 Si pierde las ocho clases restantes, terminaría con **22 asistencias de 33:
-66,7%**. El reglamento establece 70% para actividades teóricas cuando el programa
-no fija un porcentaje específico. En ese ejemplo se necesitan 24 asistencias,
-porque 23 de 33 todavía queda bajo 70%. [2]
+66,7%**. El reglamento exige 70% en actividades teóricas cuando el programa no
+fija otro porcentaje: incumplir la asistencia exigida significa **reprobar por
+inasistencia aunque tenga buenas notas**. Bajo los supuestos de este caso,
+Camila necesita 24 asistencias; 23 de 33 todavía queda bajo 70%. Le faltan dos. [2]
 
 Ese es el aviso útil: aunque su porcentaje actual se ve bien, el nuevo turno
 puede cambiar el resultado. La aplicación podría decirle:
 
-> «Con este horario no podrías asistir a las ocho clases que quedan. Si eso
-> ocurre, tu asistencia terminaría bajo el mínimo que estamos usando en este
-> ejemplo. Revisemos los datos y qué puedes conversar con tu coordinación».
+> «Con tu nuevo turno no podrías asistir a las ocho clases que quedan. Si las
+> pierdes, terminarías con 66,7%, bajo el 70% que confirmamos para tu asignatura.
+> Eso podría llevarte a reprobar por inasistencia aunque tengas buenas notas.
+> Con dos asistencias más alcanzarías ese mínimo. Revisa los datos y veamos
+> qué opciones puedes conversar con tu coordinación».
 
 Con dos asistencias adicionales superaría ese mínimo bajo los supuestos del
 caso. Eso abre una pregunta concreta: ¿es posible negociar dos cambios de turno?
@@ -114,14 +123,11 @@ No afirmamos que dependa solo de Camila ni que su empleador vaya a aceptarlo.
 
 ## Qué no estamos afirmando con las cifras
 
-Son datos inventados para explicar el funcionamiento. El 5 de diciembre figura
-en el calendario como hito de estado de reprobación por inasistencia, pero no
-demuestra por sí solo cuándo termina de contar la asistencia de cada asignatura.
-En una situación real hay que confirmar el horario completo, si cuentan otras
-actividades y cuál es el requisito del curso. [3]
-
-Puente no declararía que Camila reprobó. Mostraría una consecuencia posible para
-conversarla antes, con datos que ella y coordinación puedan corregir.
+Los datos son ficticios: en un caso real se confirman calendario completo,
+actividades computables y requisito del curso. El 5 de diciembre es la fecha
+publicada de estado de reprobación por inasistencia, no prueba del cierre del
+cómputo individual. Puente muestra una consecuencia posible, no declara que
+Camila ya reprobó. [3]
 
 # 3. Qué vería la estudiante, paso a paso
 
@@ -262,6 +268,13 @@ equipo. Cuando proponga una opción deberá mostrar de dónde sale, qué condici
 tiene y qué sigue pendiente. Después puede ayudar a escribir una consulta clara,
 sin convertir su redacción en una decisión institucional.
 
+Por ejemplo, Camila escribe: «Desde el 10 de noviembre trabajaré de forma
+permanente los martes y jueves de 16:00 a 21:30». La IA propone esos días, horas
+y fecha para que los confirme. Luego puede relacionar la situación con una
+consulta de nota pendiente si afecta evaluaciones, o con el cambio de jornada
+del próximo período, explicando sus condiciones. Si Camila no da una fecha o
+un horario, debe preguntarlo: no completar lo que falta.
+
 ## Las cuentas no las hace el modelo de lenguaje
 
 La superposición de horarios y los porcentajes se calculan con reglas de software
@@ -376,7 +389,8 @@ Puede no compartir o detener usos futuros; no prometeremos borrar de la memoria
 de otra persona lo que ya leyó.
 
 El enlace a agenda psicológica es solo eso: un enlace. Puente no llenaría sus
-formularios ni enviaría el relato a ACHS o IMED. Abrir un servicio externo es
+formularios ni enviaría el relato al sistema externo de agendamiento o validación
+de identidad (ACHS/IMED). Abrir un servicio externo es
 una decisión aparte de la estudiante y tiene sus propias condiciones.
 
 ## Si necesita ayuda inmediata
@@ -408,9 +422,12 @@ documentos y cuentas del ejemplo, no una aplicación que todavía no existe.
 
 ## La historia del pitch
 
-Abrimos con una idea sencilla: «Camila quiere seguir estudiando. El problema no
-es que no le importe: le cambiaron el turno». En una frase conectamos el caso
-con la investigación, sin convertir un personaje ficticio en una entrevista real.
+Abrimos con el contraste: «Camila tiene 88% de asistencia y quiere continuar.
+Le cambian el turno: si pierde las ocho clases que quedan, terminaría con 66,7%.
+Bajo las condiciones de este caso, eso significa reprobar por inasistencia aunque
+tenga buenas notas». Después explicamos que dos asistencias más alcanzarían ese
+mínimo, no garantizarían aprobar. Conectamos el caso con la investigación sin
+convertir un personaje ficticio en una entrevista real.
 
 Después mostramos 90 segundos de recorrido: Camila cuenta el cambio; entiende
 la proyección; ve opciones y condiciones; autoriza un resumen; el tutor corrige
@@ -431,7 +448,7 @@ tiempo disponible para responder y un procedimiento seguro de datos. Primero
 mediríamos si la gente entiende sus opciones, cuánto trabajo exige al tutor y
 si efectivamente recibe apoyo.
 
-## Las decisiones que te propongo revisar ahora
+## Decisiones pendientes para revisar
 
 - **El foco:** ¿te convence abordar un cambio laboral concreto, en lugar de
   intentar predecir todas las causas de abandono?
@@ -441,11 +458,13 @@ si efectivamente recibe apoyo.
   una decisión real de revisión, sin prometer un cupo?
 - **El alcance:** ¿estás de acuerdo con tres vistas y un recorrido pequeño,
   dejando integraciones para después?
+- **La factibilidad:** ¿te ves construyendo ese recorrido en Next.js en 135
+  minutos, sin código previo? Si no, ¿qué recortamos primero o cómo se reparte
+  el desarrollo con el equipo?
 
-Mi recomendación es mantener ese foco y no agregar más funciones hasta que
-estas cuatro decisiones estén claras. Con tu revisión y la del equipo, recién
-cerramos qué vamos a construir. Este documento explica la propuesta; no supone
-que ya decidiste implementarla.
+La recomendación es mantener ese foco y no agregar funciones hasta aclarar
+esas decisiones contigo y con el equipo. Después se cierra qué construir;
+este documento no supone que ya decidiste implementarlo.
 
 # Fuentes para revisar sin interrumpir la lectura
 
@@ -467,7 +486,8 @@ pp. 11–12. Justificaciones: 33–34, pp. 12–13. Retiro: 47, p. 16. Postergac
 [página oficial](https://www.duoc.cl/reglamento-academico/):
 [PDF de 2026](https://www.duoc.cl/wp-content/uploads/2026/08/NUEVO-REGLAMENTO-ACADEMICO_20260525.pdf).
 
-**[3] Calendario presencial Duoc UC 2026, versión 8.** Plazos e hito de RI:
+**[3] Calendario presencial Duoc UC 2026, versión 8.** Plazos y fecha de estado
+de reprobación por inasistencia:
 tablas de pp. 1–2. No trasladar estas fechas a Duoc Online.
 [Página por modalidad](https://www.duoc.cl/calendario-academico/) y
 [PDF presencial](https://www.duoc.cl/wp-content/uploads/2026/05/Calendario_Acade%CC%81mico_Base_2026_v8.pdf).

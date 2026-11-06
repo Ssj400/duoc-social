@@ -37,9 +37,23 @@ entorno virtual está en `README.md`.
 - Cronograma: 60 minutos antes de almuerzo y 75 después; 135 en total. El bloque
   de 25 minutos de IA ocupa 15 antes y 10 después de la pausa.
 
-## Qué falta
+## Revisión externa de claridad y correcciones integradas
 
-Revisión de Claude conforme a las condiciones del participante: tono cercano,
-explicación del plan completa y comprensible, no lenguaje interno para agentes.
-Integrar sus correcciones antes de mostrar el documento al participante.
-No se atribuyen pruebas funcionales del MVP ni resultados de impacto.
+Claude leyó el texto completo y revisó el PDF de `40eed42` conforme al encargo
+del participante: tono cercano, explicación completa, sin lenguaje interno para
+agentes. Confirmó una mejora sustancial y pidió tres correcciones antes de entrega:
+
+- Explicar la consecuencia de incumplir asistencia: RI aunque haya buenas notas,
+  sujeta al requisito aplicable y a los supuestos confirmados del caso.
+- Mostrar desde la primera página el contraste entre 88% actual y 66,7% proyectado.
+- Quitar lenguaje de documento del mensaje de la aplicación y acortar salvedades.
+
+Se integraron las tres. También se añadió conexión con la rúbrica, ejemplo
+concreto de IA sin inferir datos ausentes, voz consistente, pregunta de
+factibilidad, descripción del turno que cubre toda la clase y guía de lectura
+breve. Nunca se afirma que dos asistencias garanticen aprobar.
+
+Un revisor independiente volvió a leer el archivo corregido: sin bloqueos
+documentales. PDF recompilado: conserva doce páginas y se revisó la primera
+con el nuevo resumen. Queda la revisión personal del participante; no se
+atribuyen pruebas funcionales del MVP ni resultados de impacto.
