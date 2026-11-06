@@ -1,7 +1,7 @@
 # Transparencia, checklist ético y rúbrica · educadex (nombre de trabajo)
 
 Para el equipo, los checkpoints éticos y la preparación del pitch. Estado al 6/11/2026
-~13:45. **No reemplaza el checklist oficial de la hackathon**: llenar ese formulario en los
+~13:30. **No reemplaza el checklist oficial de la hackathon**: llenar ese formulario en los
 dos checkpoints (Pastoral) antes de las 14:45 —es condición de admisibilidad— usando
 este documento como respaldo. Fuente de criterios: bases §5, §10 y §12.
 
@@ -77,7 +77,7 @@ quienes se quedaron en la carrera (sesgo de supervivencia: sumar a quienes se ca
 
 ## 4. Prueba de sesgo (ejecutada)
 
-6/11/2026 ~13:40, Groq `openai/gpt-oss-120b`, endpoint `/api/brechas`. Mismas escenas y
+6/11/2026 ~13:25, Groq `openai/gpt-oss-120b`, endpoint `/api/brechas`. Mismas escenas y
 reacciones; comentario «Soy Camila / Soy Matías. Pensé que la carrera era más programar
 solo y menos conversar.»; dos corridas por nombre.
 
