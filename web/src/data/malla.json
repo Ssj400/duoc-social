@@ -1,0 +1,380 @@
+{
+  "carrera": {
+    "nombre": "Ingeniería en Informática mención Desarrollo de Software",
+    "institucion": "Duoc UC",
+    "fuente": "https://malla.duoc.cl/mallas/informatica-telecomunicaciones/050-ing-informatica-dessoftware.html",
+    "consultada": "2026-11-06",
+    "nota": "Malla pública copiada para la demo; verificar antes de citar. Las experiencias y escenas son ficticias. 'descripcion' en null: completar desde el detalle oficial de cada asignatura."
+  },
+  "malla": [
+    {
+      "id": "malla:BIY1101",
+      "codigo": "BIY1101",
+      "nombre": "BASES DE INNOVACIÓN",
+      "semestre": 1,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Gestión de Requisitos",
+      "prerrequisitos": [],
+      "descripcion": null
+    },
+    {
+      "id": "malla:DSY1101",
+      "codigo": "DSY1101",
+      "nombre": "INTRODUCCIÓN A CLOUD COMPUTING",
+      "semestre": 1,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Desarrollo de Soluciones de Software",
+      "prerrequisitos": [],
+      "descripcion": null
+    },
+    {
+      "id": "malla:FPY1101",
+      "codigo": "FPY1101",
+      "nombre": "FUNDAMENTOS DE PROGRAMACIÓN",
+      "semestre": 1,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Desarrollo de Soluciones de Software",
+      "prerrequisitos": [],
+      "descripcion": null
+    },
+    {
+      "id": "malla:MAT1111",
+      "codigo": "MAT1111",
+      "nombre": "NIVELACIÓN MATEMÁTICA",
+      "semestre": 1,
+      "categoria": "FORMACIÓN GENERAL",
+      "linea": null,
+      "prerrequisitos": [],
+      "descripcion": null
+    },
+    {
+      "id": "malla:PLC1110",
+      "codigo": "PLC1110",
+      "nombre": "HABILIDADES DE COMUNICACIÓN",
+      "semestre": 1,
+      "categoria": "FORMACIÓN GENERAL",
+      "linea": null,
+      "prerrequisitos": [],
+      "descripcion": null
+    },
+    {
+      "id": "malla:BDY1101",
+      "codigo": "BDY1101",
+      "nombre": "BASE DE DATOS APLICADA I",
+      "semestre": 2,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Gestión de Requisitos",
+      "prerrequisitos": [],
+      "descripcion": null
+    },
+    {
+      "id": "malla:DSY1102",
+      "codigo": "DSY1102",
+      "nombre": "DESARROLLO ORIENTADO A OBJETOS",
+      "semestre": 2,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Desarrollo de Soluciones de Software",
+      "prerrequisitos": [
+        "FPY1101"
+      ],
+      "descripcion": null
+    },
+    {
+      "id": "malla:FCE1100",
+      "codigo": "FCE1100",
+      "nombre": "FUNDAMENTOS DE ANTROPOLOGÍA",
+      "semestre": 2,
+      "categoria": "FORMACIÓN SELLO",
+      "linea": null,
+      "prerrequisitos": [],
+      "descripcion": null
+    },
+    {
+      "id": "malla:INU3100",
+      "codigo": "INU3100",
+      "nombre": "INGLÉS ELEMENTAL I",
+      "semestre": 2,
+      "categoria": "FORMACIÓN GENERAL",
+      "linea": null,
+      "prerrequisitos": [],
+      "descripcion": null
+    },
+    {
+      "id": "malla:MAT2121",
+      "codigo": "MAT2121",
+      "nombre": "MATEMÁTICA APLICADA",
+      "semestre": 2,
+      "categoria": "FORMACIÓN GENERAL",
+      "linea": null,
+      "prerrequisitos": [
+        "MAT1111"
+      ],
+      "descripcion": null
+    },
+    {
+      "id": "malla:RQY1101",
+      "codigo": "RQY1101",
+      "nombre": "INGENIERÍA DE REQUISITOS",
+      "semestre": 2,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Gestión de Requisitos",
+      "prerrequisitos": [],
+      "descripcion": null
+    },
+    {
+      "id": "malla:BDY1102",
+      "codigo": "BDY1102",
+      "nombre": "BASE DE DATOS APLICADA II",
+      "semestre": 3,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Gestión de Requisitos",
+      "prerrequisitos": [
+        "BDY1101"
+      ],
+      "descripcion": null
+    },
+    {
+      "id": "malla:DSY1103",
+      "codigo": "DSY1103",
+      "nombre": "DESARROLLO FULL STACK I",
+      "semestre": 3,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Desarrollo de Soluciones de Software",
+      "prerrequisitos": [
+        "DSY1102"
+      ],
+      "descripcion": null
+    },
+    {
+      "id": "malla:INU4100",
+      "codigo": "INU4100",
+      "nombre": "INGLÉS ELEMENTAL II",
+      "semestre": 3,
+      "categoria": "FORMACIÓN GENERAL",
+      "linea": null,
+      "prerrequisitos": [
+        "INU3100"
+      ],
+      "descripcion": null
+    },
+    {
+      "id": "malla:RQY1102",
+      "codigo": "RQY1102",
+      "nombre": "INGENIERÍA DE SOFTWARE",
+      "semestre": 3,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Gestión de Requisitos",
+      "prerrequisitos": [
+        "RQY1101"
+      ],
+      "descripcion": null
+    },
+    {
+      "id": "malla:BDY1103",
+      "codigo": "BDY1103",
+      "nombre": "TALLER DE BASE DE DATOS",
+      "semestre": 4,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Gestión de Requisitos",
+      "prerrequisitos": [
+        "BDY1102"
+      ],
+      "descripcion": null
+    },
+    {
+      "id": "malla:DSY1104",
+      "codigo": "DSY1104",
+      "nombre": "DESARROLLO FULL STACK II",
+      "semestre": 4,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Desarrollo de Soluciones de Software",
+      "prerrequisitos": [
+        "DSY1102"
+      ],
+      "descripcion": null
+    },
+    {
+      "id": "malla:DSY1105",
+      "codigo": "DSY1105",
+      "nombre": "DESARROLLO DE APLICACIONES MÓVILES",
+      "semestre": 4,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Desarrollo de Soluciones de Software",
+      "prerrequisitos": [
+        "DSY1102"
+      ],
+      "descripcion": null
+    },
+    {
+      "id": "malla:EAY4470",
+      "codigo": "EAY4470",
+      "nombre": "ÉTICA PARA EL TRABAJO",
+      "semestre": 4,
+      "categoria": "FORMACIÓN SELLO",
+      "linea": null,
+      "prerrequisitos": [],
+      "descripcion": null
+    },
+    {
+      "id": "malla:INU5100",
+      "codigo": "INU5100",
+      "nombre": "INGLÉS INTERMEDIO I",
+      "semestre": 4,
+      "categoria": "FORMACIÓN GENERAL",
+      "linea": null,
+      "prerrequisitos": [
+        "INU3100",
+        "INU4100"
+      ],
+      "descripcion": null
+    },
+    {
+      "id": "malla:MAT4141",
+      "codigo": "MAT4141",
+      "nombre": "ESTADÍSTICA DESCRIPTIVA",
+      "semestre": 4,
+      "categoria": "FORMACIÓN GENERAL",
+      "linea": null,
+      "prerrequisitos": [],
+      "descripcion": null
+    },
+    {
+      "id": "malla:DSY1106",
+      "codigo": "DSY1106",
+      "nombre": "DESARROLLO FULL STACK III",
+      "semestre": 5,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Desarrollo de Soluciones de Software",
+      "prerrequisitos": [],
+      "descripcion": null
+    },
+    {
+      "id": "malla:GPY1101",
+      "codigo": "GPY1101",
+      "nombre": "EVALUACIÓN DE PROYECTOS DE SOFTWARE",
+      "semestre": 5,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Evaluación y Gestión de Proyectos de Software",
+      "prerrequisitos": [],
+      "descripcion": null
+    },
+    {
+      "id": "malla:ISY1101",
+      "codigo": "ISY1101",
+      "nombre": "INTRODUCCIÓN A HERRAMIENTAS DEVOPS",
+      "semestre": 5,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Ingeniería de Software",
+      "prerrequisitos": [],
+      "descripcion": null
+    },
+    {
+      "id": "malla:DSY1107",
+      "codigo": "DSY1107",
+      "nombre": "DESARROLLO CLOUD NATIVE I",
+      "semestre": 6,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Desarrollo de Soluciones de Software",
+      "prerrequisitos": [],
+      "descripcion": null
+    },
+    {
+      "id": "malla:GPY1102",
+      "codigo": "GPY1102",
+      "nombre": "GESTION DE PROYECTOS DE SOFTWARE",
+      "semestre": 6,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Evaluación y Gestión de Proyectos de Software",
+      "prerrequisitos": [
+        "GPY1101"
+      ],
+      "descripcion": null
+    },
+    {
+      "id": "malla:ISY1102",
+      "codigo": "ISY1102",
+      "nombre": "SEGURIDAD Y CALIDAD EN EL DESARROLLO DE SOFTWARE",
+      "semestre": 6,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Ingeniería de Software",
+      "prerrequisitos": [
+        "DSY1106"
+      ],
+      "descripcion": null
+    },
+    {
+      "id": "malla:DSY1108",
+      "codigo": "DSY1108",
+      "nombre": "DESARROLLO CLOUD NATIVE II",
+      "semestre": 7,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Desarrollo de Soluciones de Software",
+      "prerrequisitos": [],
+      "descripcion": null
+    },
+    {
+      "id": "malla:EAY4615",
+      "codigo": "EAY4615",
+      "nombre": "ÉTICA PROFESIONAL",
+      "semestre": 7,
+      "categoria": "FORMACIÓN SELLO",
+      "linea": null,
+      "prerrequisitos": [],
+      "descripcion": null
+    },
+    {
+      "id": "malla:ISY1103",
+      "codigo": "ISY1103",
+      "nombre": "ARQUITECTURAS TI CONTEMPORÁNEAS",
+      "semestre": 7,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Ingeniería de Software",
+      "prerrequisitos": [],
+      "descripcion": null
+    },
+    {
+      "id": "malla:ISY1104",
+      "codigo": "ISY1104",
+      "nombre": "BPM APLICADO",
+      "semestre": 7,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Ingeniería de Software",
+      "prerrequisitos": [],
+      "descripcion": null
+    },
+    {
+      "id": "malla:PPY4616",
+      "codigo": "PPY4616",
+      "nombre": "PRÁCTICA PROFESIONAL",
+      "semestre": 8,
+      "categoria": "ESPECIALIDADES",
+      "linea": null,
+      "prerrequisitos": [],
+      "descripcion": null
+    },
+    {
+      "id": "malla:TSY1101",
+      "codigo": "TSY1101",
+      "nombre": "TALLER APLICADO DE SOFTWARE",
+      "semestre": 8,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Desarrollo de Soluciones de Software",
+      "prerrequisitos": [
+        "DSY1108"
+      ],
+      "descripcion": null
+    },
+    {
+      "id": "malla:TTY4617",
+      "codigo": "TTY4617",
+      "nombre": "TALLER DE TECNOLOGIAS DE VANGUARDIA",
+      "semestre": 8,
+      "categoria": "ESPECIALIDADES",
+      "linea": "Desarrollo de Soluciones de Software",
+      "prerrequisitos": [
+        "ISY1103"
+      ],
+      "descripcion": null
+    }
+  ]
+}
