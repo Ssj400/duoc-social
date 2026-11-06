@@ -7,6 +7,9 @@ y pruebas: [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Documento de trabajo
 
+- [Materiales de preparación y pitch](plan/preparacion/README.md): plan corto,
+  brief, diapositivas editables, guion y respaldo. Borradores para revisión
+  separada antes de entrega; [estado de cada pieza](plan/preparacion/estado.md).
 - [Plan técnico: paneles, arquitectura y contratos (PDF)](plan/Plan_tecnico_Puente.pdf),
   [fuente editable](plan/tecnico/plan_tecnico.md) y
   [diagramas para abrir en navegador](plan/tecnico/diagramas.html).
@@ -48,6 +51,9 @@ python -m venv .venv
 .venv/bin/python plan/compilar_plan_explicado.py
 .venv/bin/python plan/compilar_plan_tecnico.py
 ```
+
+Para la presentación editable y sus PDF se requieren además
+`plan/requirements-pitch.txt`; instrucciones en `plan/preparacion/README.md`.
 
 El generador del brief produce v0.3 por defecto; `--version v0.2` permite
 regenerar la versión histórica.

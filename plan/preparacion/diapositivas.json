@@ -1,0 +1,91 @@
+{
+  "title": "Puente · Pitch provisional",
+  "status": "Maqueta documental; MVP no implementado",
+  "slides": [
+    {
+      "title": "Tiene 88%. Su turno cambió.",
+      "seconds": 30,
+      "source": "Reglamento Duoc 07/2026, art. 30 · Caso sintético",
+      "blocks": [
+        {"text":"Camila quiere seguir estudiando. Su nuevo turno coincide con clases.","x":0.65,"y":1.5,"w":12,"h":1.0,"size":26},
+        {"text":"88%","x":0.7,"y":2.65,"w":5.4,"h":1.15,"size":64,"bold":true,"color":"teal"},
+        {"text":"Hoy: 22 de 25 asistencias","x":0.7,"y":3.85,"w":5.4,"h":0.8,"size":24},
+        {"text":"66,7%","x":7.0,"y":2.65,"w":5.5,"h":1.15,"size":64,"bold":true,"color":"amber"},
+        {"text":"Si pierde las ocho restantes: 22/33","x":7.0,"y":3.85,"w":5.5,"h":0.9,"size":24},
+        {"text":"Requisito: 70%. Mínimo: 24 de 33 asistencias. Dos más alcanzan ese mínimo, no garantizan aprobar.","x":0.65,"y":5.15,"w":12,"h":1.0,"size":24},
+        {"text":"Incumplir la asistencia exigida puede causar reprobación aunque haya buenas notas.","x":0.65,"y":6.25,"w":12,"h":0.38,"size":18}
+      ],
+      "notes":"0:00–0:30. Camila es un personaje ficticio de primer año. Situamos el caso al inicio del 10/11/2026: 25 sesiones previas, 22 asistidas y ocho futuras; 33 computables bajo los supuestos del caso. Su turno de martes y jueves, 16:00–21:30, cubre toda la clase. Si pierde las ocho, queda en 22/33. El artículo 30 establece 70% cuando el programa no fija otro porcentaje; incumplir asistencia puede causar reprobación aunque tenga buenas notas. En un caso real hay que confirmar unidad, calendario completo y excepciones. Dos asistencias más alcanzan 24/33, no aseguran aprobar. El 5/12 es un hito, no prueba del cierre del cómputo. Fuente: https://www.duoc.cl/reglamento-academico/. No afirmar que los sistemas existentes sean incapaces de detectar este caso."
+    },
+    {
+      "title": "No otra alerta. Un siguiente paso.",
+      "seconds": 25,
+      "source": "Diseño propuesto · no adopción institucional confirmada",
+      "blocks": [
+        {"text":"Entender","x":0.65,"y":2.0,"w":3.8,"h":0.9,"size":28,"bold":true,"fill":"pale"},
+        {"text":"Qué pasó y qué datos faltan","x":0.65,"y":3.05,"w":3.8,"h":1.0,"size":24},
+        {"text":"Opciones","x":4.75,"y":2.0,"w":3.8,"h":0.9,"size":28,"bold":true,"fill":"pale"},
+        {"text":"Fuentes y condiciones, no promesas","x":4.75,"y":3.05,"w":3.8,"h":1.3,"size":24},
+        {"text":"Tutor","x":8.85,"y":2.0,"w":3.8,"h":0.9,"size":28,"bold":true,"fill":"pale"},
+        {"text":"Responsable, fecha y seguimiento","x":8.85,"y":3.05,"w":3.8,"h":1.0,"size":24},
+        {"text":"La meta: una consulta revisada y un próximo paso comprensible.","x":0.65,"y":5.1,"w":12,"h":1.0,"size":28,"bold":true}
+      ],
+      "notes":"0:30–0:55. La persona no necesita otra etiqueta de riesgo: necesita comprender qué puede consultar y quién la acompaña. Hay antecedentes de alertas y acompañamiento en UC y Duoc; no afirmar originalidad absoluta. El chequeo propuesto es universal y voluntario, pero no elimina sesgos de acceso o respuesta. La cuenta es condicional, no una probabilidad de abandono. El recorrido conecta contexto, explicación, consulta, revisión humana y seguimiento. No afirmar adopción ni un responsable real asignado."
+    },
+    {
+      "title": "Recorrido propuesto · maqueta",
+      "seconds": 90,
+      "source": "Maqueta conceptual · no es una aplicación funcional ni IA en vivo",
+      "blocks": [
+        {"text":"1. Contar y confirmar","x":0.65,"y":1.8,"w":5.8,"h":0.8,"size":28,"bold":true,"fill":"pale"},
+        {"text":"Camila revisa días, horas y permiso de IA.","x":0.65,"y":2.75,"w":5.8,"h":0.9,"size":24},
+        {"text":"2. Entender y consultar","x":6.85,"y":1.8,"w":5.8,"h":0.8,"size":28,"bold":true,"fill":"pale"},
+        {"text":"Ve la cuenta y opciones con condiciones.","x":6.85,"y":2.75,"w":5.8,"h":0.9,"size":24},
+        {"text":"3. Autorizar y revisar","x":0.65,"y":4.05,"w":5.8,"h":0.8,"size":28,"bold":true,"fill":"pale"},
+        {"text":"Elige qué compartir; el tutor puede corregir.","x":0.65,"y":5.0,"w":5.8,"h":0.9,"size":24},
+        {"text":"4. Acordar y seguir","x":6.85,"y":4.05,"w":5.8,"h":0.8,"size":28,"bold":true,"fill":"pale"},
+        {"text":"Una gestión iniciada no es ayuda recibida.","x":6.85,"y":5.0,"w":5.8,"h":0.9,"size":24}
+      ],
+      "notes":"0:55–2:25, 90 segundos. Modo actual: MAQUETA. Decir: mostramos cómo proponemos que funcione; no es una aplicación ni IA en vivo. Dedicar 15 segundos a contar y al permiso, 30 a confirmar datos y mostrar cuenta/opciones, 30 a autorizar el resumen y revisar con tutor, 15 al seguimiento de prueba. No representar texto precargado como generado. Si para el evento existe una versión funcional congelada y probada, mostrarla y actualizar los rótulos a esa realidad; no quitar la advertencia solo por estética. Mostrar una condición: el artículo 34 no cubre automáticamente un turno permanente y el 48 no dispensa asistencia. Retiro ordinario cerrado el 12/9, nota pendiente del 9/11 al 21/12, cambio de jornada futuro desde 28/12. Sin cupos garantizados. La maqueta no sustituye el MVP ni acredita admisibilidad."
+    },
+    {
+      "title": "IA para entender. Reglas para calcular.",
+      "seconds": 40,
+      "source": "Comparación base: formulario con las mismas reglas · pendiente",
+      "blocks": [
+        {"text":"IA","x":0.65,"y":1.9,"w":3.8,"h":0.7,"size":32,"bold":true,"color":"teal"},
+        {"text":"Interpreta el relato.\nPropone opciones con fuentes.\nPrepara un borrador.","x":0.65,"y":2.8,"w":3.8,"h":2.1,"size":24},
+        {"text":"Reglas","x":4.75,"y":1.9,"w":3.8,"h":0.7,"size":32,"bold":true,"color":"teal"},
+        {"text":"Calculan horarios y asistencia.\nNo inventan datos faltantes.","x":4.75,"y":2.8,"w":3.8,"h":2.1,"size":24},
+        {"text":"Personas","x":8.85,"y":1.9,"w":3.8,"h":0.7,"size":32,"bold":true,"color":"teal"},
+        {"text":"Confirman datos.\nCorrigen opciones.\nDeciden el siguiente paso.","x":8.85,"y":2.8,"w":3.8,"h":2.1,"size":24},
+        {"text":"La ventaja de la IA todavía debe medirse.","x":0.65,"y":5.45,"w":12,"h":0.8,"size":28,"bold":true}
+      ],
+      "notes":"2:25–3:05. Proponemos dos llamadas acotadas: interpretar el relato y explicar opciones/preparar un borrador desde textos oficiales precargados. Sin navegación libre ni agentes que tramiten. Las cuentas usan reglas y datos confirmados. Una cita real no garantiza interpretación correcta: hacen falta revisión y abstención. Todavía no hay evaluación frente al formulario. Si se ejecuta, informar muestra, método y resultados reales; no sustituir un pendiente por una meta. No inventar porcentajes de extracción ni ahorro."
+    },
+    {
+      "title": "La estudiante decide qué compartir.",
+      "seconds": 40,
+      "source": "Medidas propuestas · no protocolo institucional validado",
+      "blocks": [
+        {"text":"Usar IA y compartir con tutor son permisos distintos.","x":0.8,"y":1.75,"w":11.7,"h":1.05,"size":28,"bold":true},
+        {"text":"Puede revisar, no compartir y retirar nuevos accesos.","x":0.8,"y":3.0,"w":11.7,"h":0.95,"size":28},
+        {"text":"Hay alternativa humana y apoyo sin depender del modelo.","x":0.8,"y":4.25,"w":11.7,"h":0.95,"size":28},
+        {"text":"Datos sintéticos · Sin diagnóstico ni cupos garantizados","x":0.8,"y":5.65,"w":11.7,"h":0.6,"size":22,"color":"teal"}
+      ],
+      "notes":"3:05–3:45. No responder al chequeo no genera una etiqueta. La estudiante confirma el resumen exacto y su destinatario; retirar permiso no borra lo ya leído. Para menores, la propuesta es vía humana sin IA externa hasta acuerdo institucional. El acceso a apoyo no depende del modelo: no prometemos detección de crisis ni un protocolo clínico validado. Agenda externa sin prellenado ni transmisión del caso. Solo datos sintéticos; el selector de roles no autentica. El checklist se declara aprobado únicamente con evidencia de dos validaciones antes de las 14:45: esta diapositiva no lo reemplaza."
+    },
+    {
+      "title": "Queremos medir ayuda, no mensajes.",
+      "seconds": 45,
+      "source": "Caso ficticio · propuesta sin piloto ni efecto demostrado en retención",
+      "blocks": [
+        {"text":"¿Entiende el siguiente paso?","x":0.8,"y":1.75,"w":11.7,"h":0.8,"size":30,"bold":true},
+        {"text":"¿Cuánto trabajo y corrección requiere?","x":0.8,"y":2.95,"w":11.7,"h":0.8,"size":30},
+        {"text":"¿La estudiante confirma que recibió apoyo?","x":0.8,"y":4.15,"w":11.7,"h":0.8,"size":30},
+        {"text":"Antes de piloto: responsable, capacidad y condiciones seguras.","x":0.8,"y":5.65,"w":11.7,"h":0.7,"size":24,"color":"teal"}
+      ],
+      "notes":"3:45–4:30. Cierre: no queremos una alerta que se quede en pantalla; queremos comprobar si entender una dificultad a tiempo y acompañar su siguiente paso ayuda. Hoy es propuesta: no hay piloto ni resultados de retención. Si para el evento hay MVP probado, separar pruebas funcionales de impacto. Necesitamos responsable institucional, capacidad, tratamiento seguro de datos, consentimiento y procedimiento. Una pausa o cambio informado puede ser un buen resultado: no retener a cualquier costo. No atribuir adopción. Terminar a los 4:30 deja 30 segundos de margen. Declarar modelos y herramientas realmente usados según las reglas. El respaldo no reemplaza el MVP ni los dos checkpoints."
+    }
+  ]
+}

@@ -8,12 +8,13 @@ implementación no encargada ni atribuir resultados todavía inexistentes.
 | Pieza | Qué debe resolver | Estado |
 | --- | --- | --- |
 | Plan explicado | Entender idea, recorrido, alcance y demo sin jerga | Claude revisó; correcciones de claridad integradas |
-| Plan técnico | Paneles, API, datos, permisos, IA, reglas y despliegue | Borrador completo y comprobaciones internas; por enviar a Claude |
-| Diagramas | Ubicación de componentes, pantallas y flujos | PDF/HTML desde una fuente; por enviar como revisión separada |
-| Plan de desarrollo corto | Orden, responsables propuestos, pruebas y recortes | Por redactar y contrastar conjuntamente con Claude |
-| Brief para pitch | Mensaje central y resumen de presentación | Por preparar y revisar de forma separada |
-| Presentación provisional | Diapositivas editables y PDF de respaldo | Por preparar y revisar de forma separada |
-| Guion y contingencia de demo | Tiempo, fallos y afirmaciones permitidas | Por preparar y revisar de forma separada |
+| Plan técnico (A) | Paneles, API, datos, permisos, IA, reglas y despliegue | Enviado a Claude sobre `f194b72`; pendiente devolución |
+| Diagramas (B) | Ubicación de componentes, pantallas y flujos | Revisión separada enviada sobre `f194b72`; pendiente devolución |
+| Plan de desarrollo corto (C) | Orden, responsables propuestos, pruebas y recortes | Borrador de dos páginas preparado para revisión individual y aporte conjunto; aún no acordado |
+| Brief para pitch (D) | Mensaje central y resumen de presentación | Borrador de una página preparado para revisión individual |
+| Presentación provisional (E) | Diapositivas editables y PDF de respaldo | Seis diapositivas con notas, preparadas para revisión individual |
+| Guion y contingencia de demo (F) | Tiempo, fallos y afirmaciones permitidas | Borrador/PDF preparado para revisión individual |
+| Transparencia y preparación ética (G) | Distinguir herramientas, producto y validación oficial | Plantilla de apoyo preparada para revisión individual |
 
 La aprobación de una pieza no aprueba las otras. Cada revisión debe identificar
 la pieza y versión/commit, distinguir lectura de fuente/render y registrar qué

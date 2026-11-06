@@ -203,7 +203,8 @@ button:focus-visible,a:focus-visible{outline:3px solid #2467b0;outline-offset:3p
     HTML.write_text("\n".join(parts), encoding="utf-8")
 
 
-def build_pdf(diagrams):
+def build_pdf(diagrams, source=SOURCE, output=OUTPUT,
+              title="Puente · Plan técnico y paneles", footer=None):
     pdfmetrics.registerFont(TTFont("TechMono", "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"))
     body = ParagraphStyle("TechBody", fontName="DejaVu", fontSize=9.8, leading=14.1,
                           spaceAfter=8, textColor=colors.HexColor(INK))
@@ -233,12 +234,12 @@ def build_pdf(diagrams):
         canvas.saveState()
         canvas.setFont("DejaVu", 7)
         canvas.setFillColor(colors.HexColor(INK))
-        canvas.drawString(45, 23, "PUENTE · Plan técnico propuesto · 6 noviembre 2026 · No implementado")
+        canvas.drawString(45, 23, footer or "PUENTE · Plan técnico propuesto · 6 noviembre 2026 · No implementado")
         canvas.drawRightString(A4[0] - 45, 23, str(doc.page))
         canvas.restoreState()
 
-    doc = TechDoc(str(OUTPUT), pagesize=A4, leftMargin=45, rightMargin=45,
-                  topMargin=43, bottomMargin=43, title="Puente · Plan técnico y paneles")
+    doc = TechDoc(str(output), pagesize=A4, leftMargin=45, rightMargin=45,
+                  topMargin=43, bottomMargin=43, title=title)
     flow, paragraph = [], []
     kind = "body"
 
@@ -251,7 +252,7 @@ def build_pdf(diagrams):
             paragraph.clear()
         kind = "body"
 
-    lines = SOURCE.read_text(encoding="utf-8").splitlines()
+    lines = source.read_text(encoding="utf-8").splitlines()
     i = 0
     while i < len(lines):
         line = lines[i].strip()
