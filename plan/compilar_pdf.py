@@ -1,6 +1,6 @@
 """Compila el informe Markdown a PDF con ReportLab, sin servicios externos.
 
-Uso: PYTHONPATH=/tmp/opencode/duoc-pdf-deps python plan/compilar_pdf.py
+Uso: .venv/bin/python plan/compilar_pdf.py
 Requiere: reportlab. Las fuentes DejaVu se leen del sistema.
 """
 

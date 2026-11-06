@@ -1,0 +1,154 @@
+# Contexto del proyecto
+
+## Hackathon
+
+- Hackathon de Inteligencia Artificial Aplicada, Congreso Social UC 2026,
+  organizada por la Pontificia Universidad Católica de Chile y Duoc UC.
+- Fecha del evento: viernes 6 de noviembre de 2026, de 08:30 a 18:45.
+- Lugar: Duoc UC, sede San Joaquín, Av. Vicuña Mackenna 4917, Santiago.
+- Tema general: IA al servicio de la dignidad humana. La tecnología debe asistir,
+  no sustituir el criterio ni el vínculo humano.
+- Equipos previstos: cinco integrantes interdisciplinarios UC/Duoc, asignados por
+  la organización. Al preparar este contexto, los compañeros asignados al
+  participante no habían confirmado contacto; podría existir una reubicación.
+- Desafío asignado al participante: **2, prevención de la deserción en educación
+  superior**, con foco en primer año.
+
+## Requisitos y evaluación
+
+El desafío pide una alerta temprana explicable, una acción de acompañamiento
+académico o socioemocional y una propuesta de integración al trabajo de un tutor
+o jefe de carrera. Debe evitar estigmatización y contemplar transparencia,
+derecho a no ser perfilado, revisión de sesgos y decisión humana explícita.
+
+Ponderaciones oficiales:
+
+| Criterio | Peso |
+| --- | ---: |
+| Comprensión del problema y del usuario | 10% |
+| Uso pertinente de IA | 15% |
+| Factibilidad técnica y calidad del prototipo | 15% |
+| Ética, privacidad y mitigación de sesgos | 25% |
+| Impacto y escalabilidad | 25% |
+| Calidad del pitch | 10% |
+
+- Entregables: MVP funcional con aporte real de IA, pitch con demo, declaración
+  de modelos y herramientas utilizados y checklist ético oficial.
+- El checklist completo y validado en **dos checkpoints antes de las 14:45** es
+  condición de admisibilidad. El informe del proyecto no lo sustituye.
+- Se prevén al menos dos mentorías por equipo; no confundirlas con checkpoints.
+- Freeze técnico: **14:45**. Los cambios posteriores no son considerados.
+- Pitch: **5 minutos incluyendo demo y 3 minutos de preguntas**, presentado por
+  uno o dos integrantes. Habrá al menos una pregunta sobre riesgos éticos.
+- Desarrollo, integración y ajustes tienen 135 minutos asignados: 11:45–12:45,
+  13:30–14:15 y 14:15–14:45. Almuerzo: 12:45–13:30.
+- La rúbrica detallada, el checklist y las aclaraciones oficiales pueden precisar
+  estas bases. No se ha confirmado cuánto desarrollo previo permite el evento.
+
+## Propuesta provisional: Puente
+
+Nombre de trabajo sin verificación de marca. **Todavía no es un producto
+implementado ni una solución validada o aprobada por las instituciones.**
+
+Hipótesis: un estudiante de primer año quiere continuar, pero un cambio de turno
+laboral genera una incompatibilidad próxima con sus clases. Detectar y explicar
+ese conflicto podría permitir iniciar una gestión de apoyo antes de acumular
+ausencias. Esto no constituye una predicción validada de abandono.
+
+Recorrido propuesto:
+
+1. El estudiante comunica voluntariamente el cambio, mediante relato o formulario.
+2. La IA propone restricciones estructuradas; el estudiante las corrige y confirma.
+3. Reglas verificables contrastan horarios y condiciones de un catálogo curado.
+4. Se comparan opciones con fuentes y pendientes; se descartan incompatibles y
+   nunca se inventan cupos, beneficios o autorizaciones.
+5. El estudiante autoriza qué resumen compartir y con quién. El tutor revisa,
+   corrige y acuerda un siguiente paso con responsable y fecha.
+6. Se distingue gestión iniciada de ayuda efectivamente recibida, con seguimiento
+   y posibilidad de rechazo, pausa, cambio o retiro de autorización.
+
+Alcance de MVP: tres vistas mínimas —estudiante, tutor y seguimiento—, un tipo de
+cambio, una unidad de referencia y casos sintéticos. Arquitectura propuesta,
+no decidida definitivamente: monolito Next.js/TypeScript, adaptador de LLM,
+motor de reglas y persistencia mínima.
+
+No se contemplan en el MVP integraciones reales con sistemas académicos,
+WhatsApp, correo, decisiones administrativas automáticas, diagnósticos ni
+probabilidades individuales de deserción. Un selector de roles de demo no es
+autenticación ni autorización de producción.
+
+Actualización documental 6/11: `plan/revision_propuesta_v0.3.md` y el brief v0.3
+incorporan la segunda crítica externa: chequeo voluntario, proyección condicional
+de asistencia frente al art. 30, corpus normativo y hoja de ruta para Dirección
+de Carrera. Pendientes de aprobación del participante; no hay implementación.
+Las versiones v0.1 y v0.2 son históricas. La proyección no declara RI ni predice
+abandono; separa teoría/práctica y respeta porcentaje específico y excepciones.
+
+Se verificó el reglamento 2026 enlazado desde Duoc (art. 81–82) y el proceso
+publicado de cambio de jornada, que inicia el 28/12/2026 para 2027, no como
+solución inmediata en noviembre. También una vía oficial de apoyo psicológico
+para estudiantes regulares mayores de 18 años. Calendario presencial: retiro
+ordinario cerró 12/9; nota pendiente 9/11–21/12. Caso de demo simulado al 10/11,
+sin aprobación automática ni equivalencia entre postergar nota y dispensar
+asistencia. Para menores: orientación humana/sin IA externa; protocolo específico
+pendiente. Fuentes, roles reales y compromisos simulados se distinguen en v0.3.
+El catálogo operativo, cupos y responsables individuales **siguen sin verificarse**.
+Si se usan fichas ficticias, deben identificarse claramente como demo, sin
+atribuirlas a UC o Duoc. El aporte del LLM debe compararse con formulario y
+reglas; no se justifica por producir textos más largos.
+
+## Investigación y límites relevantes
+
+- SIES, informe de agosto de 2026, cohorte 2025: retención 77,9%, persistencia
+  total en educación superior 84,5% y no matrícula al año siguiente 15,5%.
+  No retención no equivale a abandono definitivo; puede haber traslado o reingreso.
+- Retención diurna 82,9% y vespertina 70,2%. Son diferencias observacionales,
+  no prueba de causalidad ni fundamento para etiquetar personas por jornada.
+- Un estudio chileno de 2024 examinó 78 exestudiantes en 18 grupos focales;
+  describe conciliación familia–trabajo–estudio y fricciones administrativas.
+  Su contexto estuvo marcado por pandemia. Los testimonios más ilustrativos de
+  gestiones sin respuesta son de segundo y tercer año o más, no de primero.
+- UC y Duoc ya han documentado alertas, apoyos y seguimiento. Esa combinación
+  no basta como novedad; no se ha auditado todo lo que ofrecen actualmente.
+- MAAPS no tuvo efectos estadísticamente significativos globales en graduación
+  o persistencia a seis años en su muestra de 11 universidades estadounidenses.
+  Georgia State tuvo resultados favorables de graduación; no extrapolarlos a
+  retención de primer año en Chile ni atribuirlos aisladamente al algoritmo.
+- No hay entrevistas, pruebas de producto, piloto ni resultados propios todavía.
+  No afirmar originalidad absoluta, precisión o reducción demostrada del abandono.
+- El objetivo no es retener a cualquier costo: una pausa o cambio informado
+  puede ser un resultado adecuado para la persona.
+
+Las referencias completas, sus localizadores y límites están en el informe.
+
+## Materiales y estado del repositorio
+
+- Bases oficiales: `material_preparacion/Bases_Hackathon_IA_Congreso_Social_UC_2026-1.pdf`.
+- Informe de investigación y propuesta v0.1, 28 páginas:
+  `plan/Investigacion_y_plan_Puente_v0.1.pdf`.
+- Fuente editable: `plan/investigacion_y_propuesta.md`.
+- Generador: `plan/compilar_pdf.py`; dependencias: `plan/requirements.txt`.
+- Instrucciones para regenerar: `README.md`. El PDF incluye investigación antes
+  de la propuesta y bibliografía final con ocho fuentes.
+- Repositorio privado: `https://github.com/Ssj400/duoc-social`, rama `main`.
+- El video complementario local no se ha analizado ni se usa como evidencia.
+  No está versionado; tampoco los metadatos de Windows ni configuraciones locales.
+- Estado al redactar: documentación y planificación; no hay aplicación construida.
+
+## Pendientes antes de implementar
+
+Confirmar equipo y reglas de preparación previa; recibir rúbrica/checklist;
+contrastar una situación concreta de primer año; verificar un procedimiento y
+su responsable; confirmar con mentor que la alerta de incompatibilidad cumple
+el desafío; comprobar cuentas de IA y capacidad real de acompañamiento.
+
+Actualización reportada por el participante vía intermediario el 6/11: solo
+recibió las bases, sin rúbrica detallada ni checklist aparte; adaptar a las
+aclaraciones que entregue la organización. Antivirus resuelto por él.
+Centro de Ayuda fue leído por builder con acceso automatizado público el 6/11.
+Después Claude reportó que el participante confirmó ambas páginas en navegador
+normal el 6/11 ~00:20 (-03) y le pegó sus textos. Es verificación humana reportada
+por esa cadena, no observación directa del navegador por builder. No equivale a
+cupo, aprobación de trámite o protocolo institucional validado. Propuestas de
+acceso permanente a recursos de crisis, pausa de flujo automático y enlace a
+agenda sin transmisión de datos se documentan en v0.3; no están implementadas.

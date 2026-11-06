@@ -2,7 +2,16 @@
 
 Preparación del **desafío 2: prevención de la deserción en educación superior**.
 
+Contexto del proyecto: [AGENTS.md](AGENTS.md). Reglas de edición, documentación
+y pruebas: [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Documento de trabajo
+
+- [Brief v0.3 de una página (PDF)](plan/Brief_Puente_v0.3.pdf)
+- [Brief editable](plan/brief_v0.3.md) y [revisión de propuesta v0.3](plan/revision_propuesta_v0.3.md):
+  incorporan la segunda crítica externa, pendientes de aprobación del participante.
+  Las decisiones de producto v0.3 actualizan la propuesta anterior; v0.1 y v0.2
+  se conservan como antecedentes históricos.
 
 - [Informe PDF: investigación y plan Puente v0.1](plan/Investigacion_y_plan_Puente_v0.1.pdf)
 - [Fuente editable en Markdown](plan/investigacion_y_propuesta.md)
@@ -27,7 +36,11 @@ ruta en el generador para otros sistemas).
 python -m venv .venv
 .venv/bin/python -m pip install -r plan/requirements.txt
 .venv/bin/python plan/compilar_pdf.py
+.venv/bin/python plan/compilar_brief.py
 ```
+
+El generador del brief produce v0.3 por defecto; `--version v0.2` permite
+regenerar la versión histórica.
 
 Se sobrescribe únicamente el PDF generado. Editar primero el Markdown. El
 generador incluye índice con enlaces, marcadores, bibliografía enlazada,
