@@ -3,7 +3,7 @@
 Repositorio del equipo para el desafío 2: prevención de la deserción en educación superior, con foco en primer año.
 
 ## Estado actual
-Equipo fusionado; **idea pendiente de definir con el equipo**. No hay aplicación implementada ni resultados propios.
+Equipo fusionado; idea reportada: **simulación de la carrera para explorar expectativas y desajuste vocacional**. Alcance pendiente de acuerdo; sin aplicación ni resultados propios.
 
 ## Contexto y recursos
 
