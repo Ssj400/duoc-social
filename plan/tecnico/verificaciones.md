@@ -40,7 +40,36 @@ No hay Chromium, Firefox, Safari ni LibreOffice disponibles en este entorno.
 El test de controles no sustituye navegación real ni valida render en todos
 los navegadores. El documento estático sigue visible sin JavaScript.
 
-## Pendientes de revisión
+## Revisión externa A y recorte de alcance
 
-Claude debe revisar por separado el plan técnico y los diagramas. Los contratos,
-tests funcionales propuestos y estado del MVP no se presentan como implementados.
+Claude leyó el Markdown técnico de `f194b72`, no su PDF, diagramas o tests.
+La separación de reglas/IA y permisos fue considerada sólida, pero señaló cinco
+bloqueos de factibilidad: exceso P0, verificación tardía de API, ejemplo de
+extracción demasiado completo, declaración/estrategia de código no calendarizada
+y contenido sin responsables. No es aprobación de las otras piezas.
+
+Se conserva el diseño anterior en `diseno_piloto.md`. El P0 vigente usa memoria
+en un único proceso Node, sin SQLite ni REST público; seis acciones de seguimiento,
+un contador y ocho pruebas funcionales propuestas más recorrido manual. Mantiene
+permisos, copia profunda y comprobación/escritura síncrona tras la respuesta IA.
+Esto no se extrapola a varios procesos o reinicios.
+
+Se añadió prueba de API temprano y al primer bloque, borradores de dos prompts,
+salida estructurada, relato con omisiones, filtrado previo de fichas, franja de
+edad, responsables de contenido 10:45–11:45 y transparencia con cierre antes del
+freeze. El plan corto recoge esas prioridades, pendiente de revisión C conjunta.
+
+La nueva fuente técnica genera 17 páginas con seis diagramas actualizados; el
+documento ampliado anterior queda como referencia de piloto, no fuente del PDF
+vigente. Se actualizan los tests documentales al nuevo alcance: no se confunden
+con las ocho pruebas del producto todavía por implementar.
+
+Los diagramas requieren veredicto B separado. Sigue pendiente confirmación de
+cierre A sobre el recorte y revisión de su render; no se atribuyen aprobaciones
+de archivos que el crítico no inspeccionó.
+
+Una revisión interna adicional advirtió que el cliente puede encolar Server
+Actions y demorar un retiro detrás de una llamada IA larga. Se eligió la otra
+alternativa mínima admitida por A: cuatro Route Handlers con `fetch` separados.
+Se exige probar retiro/reotorgamiento durante respuesta lenta. Es un requisito
+del diseño, no una carrera ya reproducida ni una garantía funcional implementada.

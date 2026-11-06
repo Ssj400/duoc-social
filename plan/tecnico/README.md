@@ -1,6 +1,7 @@
 # Plan técnico de Puente
 
 - `plan_tecnico.md`: fuente editable, separada del plan explicado para participante.
+- `diseno_piloto.md`: arquitectura ampliada histórica, no P0 de 135 minutos.
 - `../Plan_tecnico_Puente.pdf`: plan completo con paneles y diagramas vectoriales.
 - `diagramas.html`: visualizador autónomo; abrir en navegador sin instalar ni servir.
 - `diagramas.json`: fuente compartida para los seis diagramas de HTML y PDF.
@@ -26,3 +27,7 @@ La validación con DOM simulado no equivale a probar Chrome, Firefox y Safari.
 
 Estado: diseño técnico para revisión externa antes de entrega al participante.
 Ningún archivo en esta carpeta implementa el MVP o sus endpoints.
+
+Tras revisión A, el P0 usa un caso en memoria en un único proceso Node. SQLite,
+REST y concurrencia ampliada quedan fuera de la jornada. Reiniciar el proceso
+puede perder el caso; no se promete persistencia ni funcionamiento multiinstancia.

@@ -9,7 +9,7 @@
         {"id":"inicio","x":180,"y":15,"w":360,"h":65,"kind":"warning","lines":["Inicio de demo · datos ficticios","Cambiar rol solo cambia la vista; no autentica"]},
         {"id":"estudiante","x":15,"y":130,"w":315,"h":95,"kind":"screen","lines":["/estudiante/casos/[id]","Contar → confirmar → ver opciones","Autorizar resumen y destinatario"]},
         {"id":"tutor","x":390,"y":130,"w":315,"h":95,"kind":"screen","lines":["/tutor + /tutor/casos/[id]","Solo casos con resumen autorizado","Revisar → corregir → acordar paso"]},
-        {"id":"caso","x":180,"y":295,"w":360,"h":85,"kind":"success","lines":["Ficha de seguimiento /casos/[id]","Mismo caso, datos filtrados por vista","Paso · responsable · fecha · resultado"]}
+        {"id":"caso","x":180,"y":295,"w":360,"h":85,"kind":"success","lines":["Seguimiento /seguimiento/[shareId]","Misma copia autorizada, vistas filtradas","Paso · responsable · fecha · resultado"]}
       ],
       "edges": [
         {"from":"inicio","to":"estudiante","points":[[270,80],[172,130]],"label":"Abrir caso propio","lx":90,"ly":109},
@@ -25,7 +25,7 @@
       "nodes": [
         {"id":"cabecera","x":15,"y":15,"w":690,"h":55,"kind":"screen","lines":["Puente · Mi situación · DEMO","Acceso visible a apoyo humano"]},
         {"id":"pasos","x":15,"y":85,"w":690,"h":50,"kind":"neutral","lines":["1. Mi cambio   →   2. Confirmar datos   →   3. Opciones   →   4. Compartir"]},
-        {"id":"relato","x":15,"y":150,"w":440,"h":100,"kind":"screen","lines":["Área principal: un paso activo a la vez","Relato o formulario, permiso de IA separado","Confirmar días, horas, fecha y datos del curso"]},
+        {"id":"relato","x":15,"y":150,"w":440,"h":100,"kind":"screen","lines":["Área principal: un paso activo a la vez","Franja de edad y permiso de IA externo","Relato o formulario; confirmar datos del curso"]},
         {"id":"ayuda","x":475,"y":150,"w":230,"h":100,"kind":"warning","lines":["Ayuda siempre visible","Necesito apoyo ahora","Sin depender del modelo"]},
         {"id":"calculo","x":15,"y":265,"w":690,"h":85,"kind":"success","lines":["En el paso 3: aviso explicable","22/25 hoy → 22/33 si pierde ocho sesiones","Ver cuenta, supuestos y requisito; corregir datos"]},
         {"id":"opciones","x":15,"y":365,"w":690,"h":100,"kind":"screen","lines":["Debajo del aviso: hoja de ruta","Ahora / próximo período / apoyo humano opcional","Fuente + condiciones + pendientes; nunca cupo inventado"]},
@@ -51,12 +51,12 @@
       "width": 720, "height": 640,
       "nodes": [
         {"id":"web","x":170,"y":15,"w":380,"h":75,"kind":"screen","lines":["NAVEGADOR · React / Next.js","Panel estudiante · panel tutor · seguimiento","No contiene claves ni llama al modelo directamente"]},
-        {"id":"api","x":170,"y":140,"w":380,"h":70,"kind":"server","lines":["SERVIDOR NODE · Route Handlers","Validar entrada y versión; respuesta filtrada","Datos sintéticos, sin autorización de producción"]},
+        {"id":"api","x":170,"y":140,"w":380,"h":70,"kind":"server","lines":["SERVIDOR NODE · 4 Route Handlers","Peticiones independientes; respuesta filtrada","Un proceso, datos sintéticos, sin API pública"]},
         {"id":"casos","x":170,"y":250,"w":380,"h":75,"kind":"server","lines":["Servicio de casos","Permisos · confirmaciones · estados · revisiones","Controla qué se puede ejecutar y compartir"]},
         {"id":"reglas","x":15,"y":370,"w":215,"h":90,"kind":"success","lines":["Motor de reglas","Horarios y asistencia","Sin llamada a IA"]},
         {"id":"corpus","x":250,"y":370,"w":220,"h":90,"kind":"neutral","lines":["Catálogo oficial local","Fragmentos con ID/página","Condiciones y calendario"]},
         {"id":"adaptador","x":490,"y":370,"w":215,"h":90,"kind":"server","lines":["Adaptador de IA","Permiso, timeout, esquema","Rechaza salida inválida"]},
-        {"id":"db","x":65,"y":525,"w":350,"h":85,"kind":"neutral","lines":["SQLite · disco persistente del servidor","Casos, autorizaciones, versiones y seguimiento","Fuera de public/ y del versionado"]},
+        {"id":"db","x":65,"y":525,"w":350,"h":85,"kind":"neutral","lines":["Objeto en memoria · un proceso Node","Caso, permisos, copia y seguimiento","Reiniciar puede perderlo; sin base de datos P0"]},
         {"id":"llm","x":480,"y":525,"w":225,"h":85,"kind":"external","lines":["PROVEEDOR EXTERNO","Modelo confirmado disponible","Solo datos mínimos autorizados"]}
       ],
       "edges": [
@@ -65,7 +65,7 @@
         {"from":"casos","to":"reglas","points":[[245,325],[122,370]],"label":"Datos confirmados","lx":18,"ly":346},
         {"from":"casos","to":"corpus","points":[[360,325],[360,370]],"label":"IDs y fuentes","lx":370,"ly":349},
         {"from":"casos","to":"adaptador","points":[[475,325],[597,370]],"label":"Tarea acotada","lx":540,"ly":346},
-        {"from":"casos","to":"db","points":[[170,290],[5,290],[5,500],[240,500],[240,525]],"label":"Servicio guarda la versión del caso","lx":15,"ly":485},
+        {"from":"casos","to":"db","points":[[170,290],[5,290],[5,500],[240,500],[240,525]],"label":"Actualizar en bloque síncrono","lx":15,"ly":485},
         {"from":"adaptador","to":"llm","points":[[597,460],[597,525]],"label":"Texto autorizado + fuentes","lx":443,"ly":494}
       ]
     },

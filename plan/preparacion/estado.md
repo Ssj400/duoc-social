@@ -8,9 +8,9 @@ implementación no encargada ni atribuir resultados todavía inexistentes.
 | Pieza | Qué debe resolver | Estado |
 | --- | --- | --- |
 | Plan explicado | Entender idea, recorrido, alcance y demo sin jerga | Claude revisó; correcciones de claridad integradas |
-| Plan técnico (A) | Paneles, API, datos, permisos, IA, reglas y despliegue | Enviado a Claude sobre `f194b72`; pendiente devolución |
-| Diagramas (B) | Ubicación de componentes, pantallas y flujos | Revisión separada enviada sobre `f194b72`; pendiente devolución |
-| Plan de desarrollo corto (C) | Orden, responsables propuestos, pruebas y recortes | Revisión y aporte conjunto solicitados sobre `b413c74`; aún no acordado |
+| Plan técnico (A) | Paneles, datos, permisos, IA, reglas y despliegue P0 | Claude leyó Markdown de `f194b72`; cinco correcciones integradas en P0 menor; cierre pendiente |
+| Diagramas (B) | Ubicación de componentes, pantallas y flujos | Pendiente devolución separada; actualizados al P0 en memoria tras revisión A |
+| Plan de desarrollo corto (C) | Orden, responsables propuestos, pruebas y recortes | Aporte de recorte de A integrado; sigue pendiente veredicto C y acuerdo con participante/equipo |
 | Brief para pitch (D) | Mensaje central y resumen de presentación | Revisión individual solicitada sobre `b413c74`; pendiente devolución |
 | Presentación provisional (E) | Diapositivas editables y PDF de respaldo | Revisión individual solicitada sobre `b413c74`; pendiente devolución |
 | Guion y contingencia de demo (F) | Tiempo, fallos y afirmaciones permitidas | Revisión individual solicitada sobre `b413c74`; pendiente devolución |

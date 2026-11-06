@@ -13,7 +13,9 @@ y pruebas: [CONTRIBUTING.md](CONTRIBUTING.md).
 - [Plan técnico: paneles, arquitectura y contratos (PDF)](plan/Plan_tecnico_Puente.pdf),
   [fuente editable](plan/tecnico/plan_tecnico.md) y
   [diagramas para abrir en navegador](plan/tecnico/diagramas.html).
-  Documento separado, en revisión externa; no representa una aplicación construida.
+  P0 recortado tras revisión de factibilidad, en revisión externa; el
+  [diseño ampliado de piloto](plan/tecnico/diseno_piloto.md) queda separado y
+  no se exige dentro de los 135 minutos. No hay aplicación construida.
 - [Plan explicado: qué queremos hacer y cómo (PDF)](plan/Puente_plan_explicado.pdf)
   y [texto editable](plan/plan_explicado.md). Versión de lectura para participante
   y equipo, con historia, recorrido, alcance, tareas y demo. Redacción revisada

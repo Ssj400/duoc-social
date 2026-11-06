@@ -311,6 +311,9 @@ La opción técnica propuesta es Next.js con TypeScript, por familiaridad, no
 porque sea una exigencia del evento. Un solo proyecto guardaría el caso, haría
 las cuentas y pediría al servicio de IA la interpretación o la explicación.
 La elección final debe acomodarse al equipo y a las cuentas disponibles.
+Para la demo, el caso viviría en la memoria de un único servidor: recargar la
+página no lo borra, pero reiniciar ese proceso puede hacerlo. Una base persistente
+y la seguridad para personas reales pertenecen a un piloto posterior.
 
 Durante la demo, los roles y la identidad se simulan y todo dato personal es
 ficticio. Un botón para cambiar entre «estudiante» y «tutor» no es seguridad de
@@ -358,12 +361,12 @@ el bloque de IA se comienza antes de la pausa y se termina al volver.
 
 | Tiempo | En qué lo usaríamos | Qué debería quedar funcionando |
 | --- | --- | --- |
-| 20 min: 11:45–12:05 | Armar las tres vistas y el caso de Camila | Poder recorrer la historia sin IA todavía |
+| 20 min: 11:45–12:05 | Prueba de conexión a la API de IA, caso y esqueleto de vistas | Una llamada sintética o bloqueo declarado; navegación básica |
 | 25 min: 12:05–12:30 | Revisar datos y calcular horarios/asistencia | Una alerta comprensible con cuentas correctas |
-| 25 min: 12:30–12:45 y 13:30–13:40 | Textos oficiales, permiso para usar IA externa y conexión al modelo | Una explicación con fuente, o un error controlado |
+| 25 min: 12:30–12:45 y 13:30–13:40 | Permisos, dos operaciones de IA, textos y fuentes | Una explicación con fuente, o un error controlado |
 | 25 min: 13:40–14:05 | Permiso para compartir, revisión del tutor y consulta | El siguiente paso revisado por ambas personas |
 | 25 min: 14:05–14:30 | Seguimiento y pruebas importantes | Distinguir pendiente de ayuda recibida |
-| 15 min: 14:30–14:45 | Corregir lo crítico y congelar | Una demo reproducible de la versión final |
+| 15 min: 14:30–14:45 | Corregir, cerrar declaración de herramientas y congelar | Demo reproducible, límites y herramientas realmente usadas |
 
 Es una estimación exigente, no una garantía. Mientras se programa, los demás
 pueden verificar contenido, probar pantallas y preparar la presentación.

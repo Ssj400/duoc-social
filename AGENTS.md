@@ -60,6 +60,13 @@ lectura del participante/equipo. Su revisión de claridad no amplía funcionalid
 `plan/tecnico/diagramas.html` detallan paneles, servidor, dos llamadas de IA,
 datos, permisos, API, pruebas y despliegue propuestos. Son documentación
 separada para revisión, no implementación ni endpoints operativos.
+Tras revisión técnica A, el P0 propuesto usa un único proceso Node y un caso
+en memoria, sin SQLite ni API REST pública: pueden perderse datos al reiniciar.
+Cuatro handlers internos con peticiones independientes permiten retirar permiso
+mientras espera IA; no se usa una cola de Server Actions para ese trayecto.
+`plan/tecnico/diseno_piloto.md` conserva el diseño ampliado, no exigible en 135
+minutos. La barrera de permisos, copia autorizada y descarte IA tardío se mantiene;
+la comprobación/escritura síncrona solo se justifica dentro de ese proceso único.
 `plan/preparacion/` contiene plan corto de desarrollo, brief de pitch,
 presentación provisional editable/PDF, guion de respaldo y plantilla de
 transparencia. Son borradores: el deck identifica una maqueta y no acredita

@@ -88,7 +88,8 @@ class DocumentTests(unittest.TestCase):
         self.assertGreaterEqual(Fraction(24, 33), Fraction(7, 10))
         self.assertEqual(sum([20, 25, 15]), 60)
         self.assertEqual(sum([10, 25, 25, 15]), 75)
-        self.assertIn("T22 Plazos", self.md)
+        self.assertIn("Ocho pruebas automáticas P0", self.md)
+        self.assertIn("sin base de datos", self.md.lower())
 
     def test_generator_syntax(self):
         ast.parse((ROOT.parent / "compilar_plan_tecnico.py").read_text())
@@ -103,7 +104,7 @@ class DocumentTests(unittest.TestCase):
         self.assertEqual(len(pdf), len(chapters))
         self.assertEqual(len(pdf.get_toc()), len(chapters))
         text = " ".join(" ".join(page.get_text().split()) for page in pdf)
-        for expected in ("22/33", "minimumAttendances", "T22 Plazos", "Compartir"):
+        for expected in ("22/33", "minimumAttendances", "Route Handlers", "Compartir"):
             self.assertIn(expected, text)
         self.assertNotIn("\ufffd", text)
         for page in pdf:
