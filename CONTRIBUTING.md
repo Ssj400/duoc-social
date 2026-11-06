@@ -5,9 +5,7 @@
 - Entre sesiones de IA, solo la sesión principal designada como builder edita
   el repositorio. Esta coordinación no atribuye autoría individual del proyecto
   ni cambia los permisos humanos que acuerden el participante y su equipo.
-- Los subagentes apoyan mediante análisis, investigación, revisión y ejecución
-  de pruebas de solo lectura. No modifican archivos, generan artefactos dentro
-  del repositorio, hacen commits ni ejecutan herramientas que reescriban archivos.
+- Un solo agente edita y programa; no usar subagentes.
 - La sesión crítica externa aporta observaciones, no edita este repositorio.
 - La sesión principal integra las observaciones pertinentes y conserva los
   cambios ajenos o preexistentes.
@@ -22,7 +20,6 @@
 - Actualizar instrucciones de ejecución, configuración y pruebas cuando cambien.
 - Distinguir investigación publicada, hipótesis, funcionalidad implementada y
   resultados observados. No documentar metas como si fueran resultados.
-- Mantener la fuente editable y regenerar el PDF cuando se modifique su contenido.
 - No registrar credenciales, datos sensibles reales o información privada que
   no sea necesaria para el proyecto.
 
@@ -34,12 +31,9 @@
 - Cubrir especialmente reglas, autorización, consentimiento, estados, errores e
   incertidumbre. Un recorrido feliz no basta.
 - Para documentación, comprobar coherencia, referencias locales y formato.
-  Para PDFs, revisar compilación, contenido, paginación, enlaces y presentación.
-- Usar revisión independiente de subagentes cuando aporte valor, sin delegarles
-  permisos de escritura ni control del repositorio.
 - Informar qué verificaciones se ejecutaron, sus resultados y qué quedó sin
   probar. Si una prueba no puede ejecutarse, explicar el bloqueo y el riesgo.
-- No confundir pruebas del generador documental con pruebas de un MVP todavía
+- No confundir comprobaciones documentales con pruebas de un MVP todavía
   no implementado, ni pruebas sintéticas con validación de impacto social.
 
 ## Alcance

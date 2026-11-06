@@ -18,5 +18,3 @@ node_modules/
 *.mov
 *.mp3
 *:Zone.Identifier
-
-# El PDF final de plan/ sí se versiona.
