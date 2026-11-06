@@ -6,7 +6,7 @@
 - Idea del equipo (literal, reportada): «Una simulación de la carrera para que el estudiante tenga claro qué va a estudiar de verdad. Ataca la deserción por disgusto con la carrera, es decir, por desajuste vocacional». Puente descartado, archivado en `puente-v0.3`; no construirlo.
 - Propuesta de Claude, NO acordada: primer año ya matriculado, semanas 2–6, mayores de 18, voluntario; no orientación para postulantes escolares. Una carrera, tres escenarios, dos llamadas IA (escenario y extracción de brechas confirmadas), tutor y proveedor simulado; viabilidad en 135 min pendiente.
 - Propuesta de Claude, NO acordada: corpus precargado de malla/descripciones/perfil de egreso, citas y validación de ramos; escenarios de semestres 2–4 rotulados como simulación, no ejercicios reales certificados. Sin fuente oficial, carrera ficticia identificada.
-- Propuesta de Claude, NO acordada: alerta verbal de expectativas frente al contenido, confirmada por estudiante; sin puntajes, afinidad ni consejo de quedarse/irse. Seguir, cambiar o pausar son válidos. Compartir brechas solo si autoriza; tutor acuerda paso, responsable y fecha.
+- Alcance PROPUESTO, NO acordado ni autorizado para implementar: «MVP = simulación de carrera con brechas confirmadas + capa de acompañamiento con tutor». Sin puntajes, afinidad ni consejo de quedarse/irse; seguir, cambiar o pausar son válidos. Estudiante elige qué comparte y con quién; tutor revisa/corrige y acuerdan paso, responsable y fecha. Distinguir gestión iniciada de ayuda recibida; permitir rechazo, pausa y retiro de autorización.
 - Propuesta de Claude, NO acordada: probar perfiles sintéticos variando solo nombre/género para revisar estereotipos; prueba prevista, no ejecutada. Esta actualización de contexto no autoriza implementar la app.
 ## Requisitos y evaluación
 Alerta temprana explicable, acompañamiento académico o socioemocional e integración al trabajo de tutor/jefe de carrera; transparencia, revisión de sesgos y no estigmatización.
@@ -33,7 +33,7 @@ Alerta temprana explicable, acompañamiento académico o socioemocional e integr
 ## Trabajo y ahorro de recursos
 - Un solo builder, sin subagentes; contexto breve sin omitir instrucciones obligatorias. Una sesión nueva por bloque de desarrollo, conservando decisiones esenciales.
 - Probar con proveedor simulado; llamadas reales solo para integración/ensayo, preservando cuota para demo. Claude: 2–3 consultas cortas concretas (prompts antes de 12:30, demo antes de 14:45).
-- Sin nuevas rondas documentales ni regeneración de PDF/HTML; B–G en pausa. Solo ajustes manuales mínimos del deck por el equipo. No construir una app hasta definir y autorizar la idea.
+- Sin nuevas rondas documentales ni regeneración PDF/HTML; B–G en pausa. No construir sin autorización. Propuesta actual excluye asistencia, análisis normativo y caso laboral; en pitch, otras situaciones solo como escalabilidad no construida, sin usar el nombre descartado. Solo ajustes manuales mínimos del deck por el equipo.
 - Recursos reportados: OpenAI/WSL agotado; OpenCode/GPT en otra cuenta, modelos gratuitos y DeepSeek; Antigravity solo si se acaba OpenCode. Cuenta Claude laboral: uso permitido, gasto no autorizado.
 ## Recursos
 - Bases en `material_preparacion/`; evidencia y límites en `antecedentes.md`; reglas en `CONTRIBUTING.md`.
