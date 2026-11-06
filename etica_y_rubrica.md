@@ -28,6 +28,10 @@ este documento como respaldo. Fuente de criterios: bases §5, §10 y §12.
 revisión; OpenCode con modelos GPT y modelos gratuitos; DeepSeek; Figma y Figma Make para el
 prototipo visual. El código generado con asistencia fue revisado y probado por el equipo.
 
+**Base y aporte del equipo:** proyecto creado con la plantilla `create-next-app` (Next.js);
+la vista `/ruta` se portó de un prototipo Figma Make del equipo; flujos, IA, validación,
+respaldos, contenido ficticio y diseño los construyó el equipo con asistencia de IA.
+
 **Datos:** malla pública de Ingeniería en Informática mención Desarrollo de Software (Duoc
 UC, consultada el 6/11/2026); estadísticas públicas SIES (agosto 2026) solo en el pitch;
 tutores, escenas, estudiantes y casos **ficticios**. Ningún dato real de personas. Estado en
