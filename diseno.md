@@ -1,73 +1,118 @@
-# Diseño del MVP · Simulación de carrera + acompañamiento
+# Diseño del MVP · Simulación de carrera + acompañamiento (v2)
 
-Complementa [planificacion.md](planificacion.md). Listo para implementar en Next.js +
-TypeScript + Tailwind. Datos ficticios; el selector de rol **no es autenticación**.
-El RAG lo implementa otro integrante; aquí solo se fija su contrato (§5).
+v2 (6/11 ~11:55): la simulación pasa a ser un **recorrido audiovisual por clicks** y el
+tutor crea contenido con **plantillas**. Reemplaza el chat de v1 y el §2, la fila P0 y
+el §5 de [planificacion.md](planificacion.md). Next.js + TypeScript + Tailwind. Datos
+ficticios; el selector de rol **no es autenticación**. El RAG lo implementa otro
+integrante; aquí solo se fija su contrato (§7).
 
-## 1. Estilo
+## 1. Idea en una línea
 
-- Pensado para proyector: texto base 18 px, títulos grandes, alto contraste.
-- Fondo neutro, **un** color de acento (p. ej. teal) para acciones; ámbar solo para
-  rótulos de «Simulación» y «Demo». Sin rojo de alerta: nada aquí es un diagnóstico.
-- Cada pantalla tiene un único botón principal. Etiquetas visibles en todos los
-  campos; todo operable con teclado.
+El tutor llena una plantilla con su experiencia → **la IA la convierte en escenas
+interactivas** citando malla y plantilla → el tutor revisa y aprueba → el estudiante
+recorre las escenas con clicks y marca qué le sorprendió → la IA propone brechas, el
+estudiante confirma y decide si comparte → el tutor acuerda un paso con plantilla.
 
-## 2. Rutas y recorrido
+## 2. Mecánica: juego de decisiones (sin puntaje)
 
-```
-/                  Selector de rol  [Estudiante] [Tutor]        (banda "DEMO · datos ficticios")
-/estudiante        Paso 1 Simulación → Paso 2 Reflexión → Paso 3 Compartir
-/tutor             Casos compartidos (solo con autorización activa)
-/tutor/[id]        Detalle + paso acordado + seguimiento
-```
+- Cada escena plantea una situación real del ramo y **¿qué harías?** con 3 opciones.
+- Cada decisión muestra **lo que suele pasar** (según la experiencia del tutor) y puede
+  **ramificar**: la opción indica la escena siguiente (`siguiente`), así dos estudiantes
+  pueden vivir recorridos distintos.
+- **No hay puntaje, vidas, «ganar» ni «perder», ni respuestas correctas.** El juego
+  muestra la carrera, no evalúa a la persona; un medidor de «aptitud» sería perfilar.
+- Pantalla final **«Tu recorrido»**: línea de tiempo con las decisiones tomadas y las
+  reacciones marcadas (😀 😮 🙁), que alimenta la propuesta de brechas.
+- Ritmo: 3 escenas en la demo (≈35 s); cada escena se juega en ≤15 s.
 
-## 3. Pantallas
+## 3. Estilo audiovisual (sin assets externos)
 
-### 3.1 Estudiante · Paso 1: Simulación
+- Escenas a pantalla completa, una por vez, con transición suave (fade/slide).
+- Cada escena: fondo de color por tipo (clase, laboratorio, prueba, práctica, trabajo
+  en equipo), ícono/emoji grande, encabezado «3er semestre · Semana 6 · <Ramo>».
+- **🔊 Escuchar:** narración con la Web Speech API del navegador (`speechSynthesis`,
+  voz es-CL/es-ES). Solo narra contenido del tutor, nunca texto del estudiante.
+- Línea de tiempo arriba (Sem 1 → Sem 2 → Sem 3) y barra «Escena 2 de 3».
+- Proyector: texto base 18 px, alto contraste, un color de acento. Ámbar solo para
+  rótulos «Simulación» y «Demo». Sin rojo de alerta: nada es un diagnóstico.
+- Todo operable con teclado (1/2/3 para opciones, Enter para seguir).
 
-```
-┌ DEMO · datos ficticios ───────────────────────── Rol: Estudiante ▾ ┐
-│ ① Simulación ── ② Reflexión ── ③ Compartir                          │
-│ ┌ SIMULACIÓN ───────────────────────────────────────────────────┐   │
-│ │ Basada en la experiencia de «Tutor ficticio» y en la malla de │   │
-│ │ <Carrera>. Es la experiencia de una persona, no de toda la    │   │
-│ │ carrera.                                                       │   │
-│ └────────────────────────────────────────────────────────────────┘   │
-│  IA: Es martes, 3er semestre. En <Ramo> te toca ...                 │
-│      Fuente: malla · <Ramo>   |   experiencia del tutor #1          │
-│  Tú: ...                                                            │
-│ [ Escribe cómo reaccionarías...                         ] [Enviar] │
-│ Escenario 1 de 3                         [Terminar simulación →]    │
-└─────────────────────────────────────────────────────────────────────┘
-```
-
-- Las citas son chips con el `id` del fragmento; al pasar el cursor muestran el texto.
-- Si la IA falla o tarda >10 s: «La IA no respondió a tiempo. Puedes seguir con el
-  escenario escrito por el tutor.» y se muestra el texto del escenario sin IA.
-
-### 3.2 Estudiante · Paso 2: Reflexión
+## 4. Rutas
 
 ```
-│ ¿Qué esperabas de tu carrera? ¿Qué te sorprendió de la simulación?  │
-│ [ texto libre ...                                                ]  │
-│                                   [Ver qué noté →]                  │
-│ Brechas que la IA propone (tú decides):                             │
-│  ☑ Esperabas: más práctica   · La simulación mostró: mucha teoría   │
-│    Fuente: malla · <Ramo>         [Editar] [Descartar]              │
+/                    Selector de rol [Estudiante] [Tutor] · banda «DEMO · datos ficticios»
+/tutor/plantilla     Llenar plantilla → Generar con IA → Revisar → Aprobar
+/estudiante          Recorrido por escenas → Reacciones → Brechas → Compartir
+/tutor               Casos compartidos (solo con autorización activa)
+/tutor/caso/[id]     Detalle + paso acordado con plantilla + seguimiento
+```
+
+## 5. Pantallas
+
+### 5.1 Tutor · Plantilla de escena
+
+```
+│ Plantilla de escena                                    (DEMO)       │
+│ Ramo         [ <Ramo> (de la malla) ▾ ]   Momento [ 3er sem · S6 ▾ ]│
+│ Tipo         [ Clase ] [ Laboratorio ] [ Prueba ] [ Práctica ]      │
+│ Situación típica (tus palabras)                                     │
+│ [ Te pasan un caso de costos con datos incompletos y ...         ]  │
+│ ¿Qué suele sorprender a los de primer año?                          │
+│ [ Que es más Excel y análisis que contabilidad "de libro" ...     ]  │
+│ ¿Qué hace quien le va bien?                                         │
+│ [ Pregunta temprano, arma grupo de estudio ...                    ]  │
+│ Tu rol (sin nombre si prefieres) [ Titulada 2022, hoy tutora ]      │
+│                                   [✨ Generar escena con IA]        │
+│ Vista previa ─ escena + 3 opciones + «lo que suele pasar»           │
+│   Fuentes: malla · <Ramo>  |  plantilla #1                          │
+│                        [Editar]  [Aprobar y publicar]               │
+```
+
+Solo las escenas **aprobadas** llegan al estudiante. Rótulo en la escena publicada:
+«Generada con IA a partir de la experiencia de <rol> y revisada por esa persona.
+Es la experiencia de una persona, no de toda la carrera.»
+
+### 5.2 Estudiante · Recorrido
+
+```
+│ Sem 1 ─── Sem 2 ─── ● Sem 3                     Escena 2 de 3  🔊   │
+│                         🧪                                          │
+│        3er semestre · Semana 6 · <Ramo> · Laboratorio               │
+│  Te pasan un caso con datos incompletos y una hora para entregar... │
+│  ¿Qué harías?                                                       │
+│   [1] Pido los datos que faltan al profe                            │
+│   [2] Hago supuestos y los explico                                  │
+│   [3] Espero a que el grupo lo resuelva                             │
+```
+
+Tras elegir:
+
+```
+│  Lo que suele pasar: ... (texto de la escena)                       │
+│  Fuente: malla · <Ramo> | experiencia de <rol>                      │
+│  ¿Esto es lo que imaginabas de tu carrera?                          │
+│   [😀 Sí, así lo imaginaba] [😮 Me sorprendió] [🙁 No me gustó]     │
+│                                             [Siguiente escena →]    │
+```
+
+### 5.3 Estudiante · Brechas y motivo
+
+```
+│ Según lo que marcaste, esto podría no calzar con lo que esperabas:  │
+│  ☑ Imaginabas <X>; en 3er semestre <Ramo> es <Y>.  (Escena 2)       │
+│      [Editar] [Descartar]                                           │
+│ ¿Quieres agregar algo? (opcional) [ ...                          ]  │
 │ ¿Qué pesó más al elegir esta carrera? (varias o ninguna)            │
 │  [Gusto] [Empleabilidad] [Presión de otros] [Otro: ____]            │
-│                                          [Continuar →]              │
+│                                              [Continuar →]          │
 ```
 
-- Solo pasan al resumen las brechas **confirmadas o editadas** por el estudiante.
-- El motivo lo marca el estudiante; la IA nunca lo sugiere ni lo infiere.
+El motivo lo marca el estudiante; la IA nunca lo sugiere ni lo infiere.
 
-### 3.3 Estudiante · Paso 3: Compartir
+### 5.4 Estudiante · Compartir
 
 ```
-│ Tu resumen                                                          │
-│  • Brechas confirmadas (2)   • Motivo: Gusto, Presión de otros      │
-│ ¿Quieres compartirlo con tu tutor?                                  │
+│ ¿Quieres compartir tu resumen con tu tutor?                         │
 │  Elige qué incluir: ☑ Brechas  ☐ Motivo                             │
 │  Puedes pausarlo o retirarlo cuando quieras. Si no compartes,       │
 │  nada cambia y nadie más lo verá.                                   │
@@ -75,41 +120,43 @@ El RAG lo implementa otro integrante; aquí solo se fija su contrato (§5).
 │ Estado: Compartido · [Pausar] [Retirar autorización]                │
 ```
 
-- El motivo viene **desmarcado** por defecto (la presión familiar es sensible).
-- Retirar oculta el caso al tutor de inmediato.
+El motivo viene **desmarcado** por defecto (la presión familiar es sensible).
 
-### 3.4 Tutor · Lista y detalle
+### 5.5 Tutor · Caso con plantillas de seguimiento
 
 ```
-/tutor
-│ Casos compartidos contigo                                           │
-│  Estudiante A (ficticio) · <Carrera> · 2 brechas · Gestión iniciada │
-│  Estudiante B (ficticio) · <Carrera> · 1 brecha  · Nuevo            │
-
-/tutor/[id]
 │ Esto lo declaró el estudiante. No es un diagnóstico.                │
-│  Brechas: ...  (con su fuente)      Motivo: (solo si lo compartió)  │
-│ Siguiente paso acordado                                             │
-│  Acción [ Conversar con estudiante de 3er año      ▾ ]              │
-│  Responsable [ ______ ]   Fecha [ __/__/____ ]   [Registrar]        │
-│ Notas del tutor (no modifican lo que declaró el estudiante) [____]  │
+│ Brechas (con escena y fuente)      Motivo: (solo si lo compartió)   │
+│ Plantilla de siguiente paso:                                        │
+│  [Conversación 1:1] [Hablar con estudiante de 3er año]              │
+│  [Orientación vocacional] [Info cambio de carrera] [Otra]           │
+│  → precarga: acción, responsable sugerido y mensaje editable        │
+│  Responsable [ ____ ]  Fecha [ __/__ ]            [Registrar]       │
+│ Notas del tutor (no modifican lo que declaró el estudiante) [___]   │
 │ Seguimiento: Nuevo → Gestión iniciada → Ayuda recibida              │
 │              (o: El estudiante pausó / retiró / no aceptó)          │
 ```
 
-Acciones sugeridas en el desplegable (texto libre también): orientación vocacional,
-conversar con estudiante de curso superior, conversar con docente del ramo,
-información sobre cambio de carrera. Cambiarse de carrera también es un buen resultado.
+Cambiarse de carrera también es un buen resultado.
 
-## 4. Tipos
+## 6. Tipos
 
 ```ts
-type Fragmento = { id: string; tipo: "malla" | "tutor"; texto: string; fuente: string };
-type Mensaje   = { rol: "ia" | "estudiante"; texto: string; citas?: string[] };
-type Brecha    = { id: string; esperaba: string; mostro: string; citas: string[];
+type Fragmento = { id: string; tipo: "malla" | "plantilla"; texto: string; fuente: string };
+type Plantilla = { id: string; ramoId: string; momento: string; tipo: TipoEscena;
+                   situacion: string; sorprende: string; leVaBien: string; rolAutor: string };
+type TipoEscena = "clase" | "laboratorio" | "prueba" | "practica" | "equipo";
+type Opcion    = { id: string; texto: string; loQueSuelePasar: string; siguiente?: string }; // id de escena
+type Escena    = { id: string; plantillaId: string; ramoId: string; momento: string;
+                   tipo: TipoEscena; titulo: string; narracion: string;
+                   opciones: Opcion[]; citas: string[];
+                   estado: "borrador" | "aprobada" };
+type Reaccion  = "imaginaba" | "sorprendio" | "no_gusto";
+type Respuesta = { escenaId: string; opcionId: string; reaccion: Reaccion };
+type Brecha    = { id: string; texto: string; escenaId: string; citas: string[];
                    estado: "propuesta" | "confirmada" | "editada" | "descartada" };
 type Motivo    = "gusto" | "empleabilidad" | "presion" | "otro";
-type Paso      = { accion: string; responsable: string; fecha: string; nota?: string };
+type Paso      = { plantilla: string; accion: string; responsable: string; fecha: string; nota?: string };
 type Caso = {
   id: string; alias: string; carrera: string;
   brechas: Brecha[];                       // solo confirmadas/editadas
@@ -120,117 +167,138 @@ type Caso = {
 };
 ```
 
-Estado en memoria del servidor (se pierde al reiniciar). Botón «Reiniciar demo» solo en `/`.
+Estado en memoria del servidor. Botón «Reiniciar demo» solo en `/`.
 
-## 5. Contratos internos
+## 7. IA y contratos internos
 
-| Handler | Entrada | Salida |
-| --- | --- | --- |
-| `POST /api/simulacion` | `{ historial: Mensaje[], mensaje, escenario }` | `{ texto, citas[] }` o `{ fallback: true, motivo: "timeout" \| "invalido" }` |
-| `POST /api/brechas` | `{ textoLibre, historial }` | `{ brechas: Brecha[] }` (estado `propuesta`) |
-| `POST /api/casos` | resumen confirmado + qué incluir | `Caso` |
-| `GET /api/casos` | — | casos con `autorizacion = "activa"` |
-| `PATCH /api/casos/[id]` | `{ paso? , estado?, autorizacion? }` | `Caso` |
+**Dos llamadas de IA:**
 
-- **RAG (lo implementa el otro integrante):**
-  `buscar(consulta: string, k: number): Promise<Fragmento[]>`. Mientras no exista,
-  usar un `buscar` simulado que devuelve fragmentos fijos del JSON.
-- **Validador:** toda cita debe ser un `id` presente en los fragmentos recuperados para
-  esa llamada; si no, se descarta la respuesta y se usa el fallback.
-- **Autorización:** el servidor vuelve a comprobar `autorizacion` en cada lectura del
-  tutor; retirada o pausada ⇒ el caso no se entrega.
-- **Respuestas tardías:** cada llamada lleva un `requestId`; si llega después del
-  timeout o de un cambio de paso, se descarta.
+1. **Plantilla → escena** (`POST /api/escenas/generar`). Entrada: plantilla + fragmentos
+   de `buscar()`. Salida JSON: `Escena` en `borrador` con 3 opciones y citas. La IA
+   redacta y dramatiza; no agrega hechos que no estén en la plantilla o la malla.
+2. **Respuestas → brechas** (`POST /api/brechas`). Entrada: escenas recorridas +
+   respuestas + texto opcional. Salida JSON: brechas `propuesta`, cada una ligada a una
+   escena marcada «me sorprendió» o «no me gustó».
 
-## 6. Contenido (JSON precargado)
+| Handler | Salida |
+| --- | --- |
+| `POST /api/escenas/generar` | `Escena` (borrador) o `{ fallback: true }` |
+| `POST /api/escenas/[id]/aprobar` | `Escena` aprobada (con ediciones del tutor) |
+| `GET /api/escenas` | solo escenas `aprobada` |
+| `POST /api/brechas` | `{ brechas: Brecha[] }` o `{ fallback: true }` |
+| `POST /api/casos` · `GET /api/casos` · `PATCH /api/casos/[id]` | como v1 |
+
+- **RAG (otro integrante):** `buscar(consulta: string, k: number): Promise<Fragmento[]>`.
+  Mientras no exista, un `buscar` simulado devuelve fragmentos fijos del JSON.
+- **Validador:** `ramoId` debe existir en la malla; toda cita debe estar entre los
+  fragmentos recuperados; 3 opciones no vacías. Si falla, se descarta.
+- **Fallbacks (timeout 10 s):** generación → el tutor ve un formulario para escribir la
+  escena a mano. Brechas → regla fija: cada escena marcada «sorprendió/no me gustó»
+  genera una brecha con el texto «qué suele sorprender» de su plantilla.
+- **Revisión humana:** ninguna escena generada llega al estudiante sin aprobación.
+- **Autorización:** el servidor comprueba `autorizacion` en cada lectura del tutor.
+- **Respuestas tardías:** cada llamada lleva `requestId`; si llega tarde, se descarta.
+
+## 8. Contenido precargado
 
 ```json
 {
   "carrera": { "nombre": "<Carrera>", "fuente": "<URL malla pública o 'ficticia'>" },
-  "malla": [
-    { "id": "malla:<COD>", "semestre": 3, "nombre": "<Ramo>", "descripcion": "..." }
-  ],
-  "experiencias": [
-    { "id": "tutor:exp-1", "autor": "Tutor ficticio (demo)", "rol": "<Rol>",
-      "escenarios": [ { "id": "tutor:exp-1#1", "ramoId": "malla:<COD>", "texto": "..." } ] }
-  ]
+  "malla": [ { "id": "malla:<COD>", "semestre": 3, "nombre": "<Ramo>", "descripcion": "..." } ],
+  "plantillas": [ { "id": "plantilla:1", "ramoId": "malla:<COD>", "momento": "3er sem · S6",
+                    "tipo": "laboratorio", "situacion": "...", "sorprende": "...",
+                    "leVaBien": "...", "rolAutor": "Tutor ficticio (demo)" } ],
+  "escenas": [ "2 escenas ya aprobadas, generadas antes con la llamada 1" ]
 }
 ```
 
-Un archivo para la carrera elegida; 2–3 escenarios de ramos de 2º–3º semestre.
+En la demo se genera **una** escena en vivo desde una plantilla; las otras dos vienen
+aprobadas de antes, para no depender de la IA en todo el recorrido.
 
-## 7. Textos fijos
+## 9. Guion de demo de 90 s (propuesta, reemplaza §2 de planificacion.md)
 
-- Banda global: «DEMO · datos ficticios · selector de rol sin autenticación».
-- Rótulo de simulación: «Es la experiencia de una persona, no de toda la carrera».
+| Seg. | Qué se ve |
+| --- | --- |
+| 0–20 | Tutor: plantilla llena → ✨ Generar con IA → vista previa con fuentes → Aprobar |
+| 20–55 | Estudiante: 3 escenas por clicks, 🔊 en una, reacciones con emojis |
+| 55–68 | Brechas propuestas → confirma una, edita otra; marca su motivo |
+| 68–78 | Comparte solo brechas (motivo desmarcado) |
+| 78–90 | Tutor: caso → plantilla «Hablar con estudiante de 3er año» → gestión iniciada |
+
+## 10. Textos fijos
+
+- Banda: «DEMO · datos ficticios · selector de rol sin autenticación».
+- Escena: «Generada con IA a partir de la experiencia de <rol> y revisada por esa
+  persona. Es la experiencia de una persona, no de toda la carrera».
 - Tutor: «Esto lo declaró el estudiante. No es un diagnóstico».
-- Fallback: «La IA no respondió a tiempo. Puedes seguir con el escenario escrito por el tutor».
+- Fallback: «La IA no respondió a tiempo. Puedes escribir la escena a mano».
 
-## 8. Diagramas
+## 11. Diagramas
 
-### 8.1 Componentes
+### 11.1 Componentes
 
 ```mermaid
 flowchart LR
   subgraph NAV["Navegador"]
-    E["Estudiante<br/>Simulación · Reflexión · Compartir"]
-    T["Tutor<br/>Casos · Paso acordado · Seguimiento"]
+    TP["Tutor<br/>Plantilla · Aprobar"]
+    E["Estudiante<br/>Recorrido por clicks · Brechas · Compartir"]
+    TC["Tutor<br/>Casos · Paso con plantilla"]
   end
   subgraph SRV["Servidor Next.js (un proceso)"]
-    S["/api/simulacion"]
+    G["/api/escenas/generar"]
+    AP["/api/escenas/aprobar"]
     B["/api/brechas"]
     C["/api/casos"]
     R["buscar(consulta, k)<br/>RAG · otro integrante"]
-    J[("JSON precargado<br/>malla + experiencias")]
+    J[("JSON precargado<br/>malla + plantillas")]
     A["Adaptador LLM<br/>timeout 10 s"]
-    V{"Validador<br/>¿citas ⊂ fragmentos?"}
-    F["Fallback<br/>escenario del tutor / formulario"]
+    V{"Validador<br/>ramo en malla · citas válidas"}
+    ES[("Escenas<br/>borrador / aprobada")]
     M[("Casos en memoria<br/>con autorización")]
   end
   P["Groq gpt-oss-120b<br/>respaldo Gemini flash-lite"]
-  E --> S
-  E --> B
-  E --> C
-  T --> C
-  S --> R --> J
-  S --> A
+  TP --> G --> R --> J
+  G --> A
   B --> A
   A <--> P
   A --> V
-  V -- "válido" --> E
-  V -- "inválido o timeout" --> F --> E
+  V -- "válido" --> ES
+  V -- "inválido o timeout" --> TP
+  TP --> AP --> ES
+  ES -- "solo aprobadas" --> E
+  E --> B
+  E --> C
+  TC --> C
   C --> M
 ```
 
-### 8.2 Recorrido de la demo
+### 11.2 Recorrido
 
 ```mermaid
 sequenceDiagram
-  actor Est as Estudiante
-  participant App as Servidor
-  participant RAG as buscar()
-  participant IA as LLM
   actor Tut as Tutor
-  Est->>App: Responde en la simulación
-  App->>RAG: Consulta
-  RAG-->>App: Fragmentos (malla, tutor)
-  App->>IA: Escenario + fragmentos
-  IA-->>App: JSON {texto, citas}
-  App->>App: Validar citas
-  App-->>Est: Escenario con fuentes
-  Est->>App: Reflexión en texto libre
-  App->>IA: Extraer brechas
+  participant App as Servidor
+  participant IA as LLM
+  actor Est as Estudiante
+  Tut->>App: Llena plantilla
+  App->>IA: Plantilla + fragmentos (buscar)
+  IA-->>App: Escena JSON con citas
+  App->>App: Validar
+  App-->>Tut: Vista previa
+  Tut->>App: Edita y aprueba
+  Est->>App: Recorre escenas aprobadas (clicks)
+  Est->>App: Reacciones por escena
+  App->>IA: Respuestas + reacciones
   IA-->>App: Brechas propuestas
   App-->>Est: Brechas para confirmar o editar
-  Est->>App: Confirma brechas y elige su motivo
-  Est->>App: Comparte (elige qué incluir)
+  Est->>App: Confirma, elige motivo y qué compartir
   Tut->>App: Ver casos compartidos
-  App-->>Tut: Solo casos con autorización activa
-  Tut->>App: Paso acordado (responsable, fecha)
+  App-->>Tut: Solo con autorización activa
+  Tut->>App: Paso con plantilla (responsable, fecha)
   Est->>App: Puede pausar o retirar en cualquier momento
 ```
 
-### 8.3 Estados del caso
+### 11.3 Estados del caso
 
 ```mermaid
 stateDiagram-v2

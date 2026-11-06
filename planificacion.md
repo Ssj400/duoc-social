@@ -2,6 +2,8 @@
 
 Hoy 6/11/2026. Desarrollo desde las 11:45; freeze técnico 14:45. Lo marcado "(propuesta)" aún no lo ha acordado el equipo.
 
+> **Actualización 11:55:** la simulación pasa a ser un **juego de decisiones por clicks** y el tutor crea escenas con **plantillas** que la IA convierte en escenas para su aprobación. Ver [diseno.md](diseno.md) v2, que reemplaza aquí el §2 (guion), la fila P0 del §3 y el §5 (IA).
+
 ## 1. Problema, usuarios y propuesta de valor
 
 **Problema.** En la cohorte 2025, el 22,1% de los estudiantes de primer año no continuó en su institución y el 15,5% no se matriculó en ninguna al año siguiente (SIES, agosto 2026). No retención no es abandono definitivo: puede haber traslado o reingreso. SIES no informa causas.
