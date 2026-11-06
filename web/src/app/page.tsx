@@ -10,6 +10,7 @@ export default function Inicio() {
       <div className="flex gap-4">
         <Link href="/estudiante" className="rounded-lg bg-teal-700 text-white px-6 py-3">Entrar como estudiante</Link>
         <Link href="/tutor" className="rounded-lg border border-teal-700 text-teal-800 px-6 py-3">Entrar como tutor</Link>
+        <Link href="/ruta" className="rounded-lg border border-teal-700 text-teal-800 px-6 py-3">Explorar la malla (RUTA)</Link>
       </div>
       <BotonReiniciar />
     </div>
