@@ -7,6 +7,9 @@ y pruebas: [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Documento de trabajo
 
+- [Plan explicado: qué queremos hacer y cómo (PDF)](plan/Puente_plan_explicado.pdf)
+  y [texto editable](plan/plan_explicado.md). Versión de lectura para participante
+  y equipo, con historia, recorrido, alcance, tareas y demo; en revisión de claridad.
 - [Brief v0.3 de una página (PDF)](plan/Brief_Puente_v0.3.pdf)
 - [Brief editable](plan/brief_v0.3.md) y [revisión de propuesta v0.3](plan/revision_propuesta_v0.3.md):
   incorporan la segunda crítica externa, pendientes de aprobación del participante.
@@ -37,6 +40,7 @@ python -m venv .venv
 .venv/bin/python -m pip install -r plan/requirements.txt
 .venv/bin/python plan/compilar_pdf.py
 .venv/bin/python plan/compilar_brief.py
+.venv/bin/python plan/compilar_plan_explicado.py
 ```
 
 El generador del brief produce v0.3 por defecto; `--version v0.2` permite

@@ -53,6 +53,9 @@ implementado ni una solución validada o aprobada por las instituciones.**
 La propuesta vigente está en `plan/revision_propuesta_v0.3.md` y el brief v0.3;
 v0.1 y v0.2 son antecedentes históricos, no el alcance actual de implementación.
 Pendiente de aprobación del participante y acuerdo con el equipo.
+`plan/plan_explicado.md` y `plan/Puente_plan_explicado.pdf` presentan esa misma
+propuesta en lenguaje cercano, con caso, recorrido, alcance y ejecución para
+lectura del participante/equipo. Su revisión de claridad no amplía funcionalidades.
 
 Hipótesis: ante un nuevo turno laboral, proyectar de forma condicional el efecto
 de las ausencias futuras sobre el mínimo exigido permite explorar apoyo antes
