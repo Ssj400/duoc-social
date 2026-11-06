@@ -14,9 +14,19 @@ function textoProhibido(textos: string[]): string | null {
   return mal ? `código de ramo inexistente: ${mal}` : null;
 }
 
+// Algunos modelos devuelven "opciones" como textos sueltos y "loQueSuelePasar" como lista aparte.
+function normalizarEscena(raw: unknown): unknown {
+  if (!raw || typeof raw !== "object" || Array.isArray(raw)) return raw;
+  const r = raw as Record<string, unknown>;
+  const ops = r.opciones, lq = r.loQueSuelePasar;
+  if (Array.isArray(ops) && ops.every((o) => typeof o === "string") && Array.isArray(lq) && lq.length === ops.length)
+    return { ...r, opciones: ops.map((t, i) => ({ texto: t, loQueSuelePasar: String(lq[i]) })) };
+  return raw;
+}
+
 export function validarEscena(raw: unknown, ramoId: string, idsFragmentos: string[]): Resultado<EscenaIA> {
   if (!ramoPorId(ramoId)) return { ok: false, motivo: "ramo inexistente" };
-  const p = EscenaIA.safeParse(raw);
+  const p = EscenaIA.safeParse(normalizarEscena(raw));
   if (!p.success) return { ok: false, motivo: "esquema inválido" };
   const d = p.data;
   if (d.citas.some((c) => !idsFragmentos.includes(c))) return { ok: false, motivo: "cita ajena a los fragmentos" };

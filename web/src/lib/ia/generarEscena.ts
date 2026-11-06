@@ -20,7 +20,10 @@ export async function generarEscena(plantilla: Plantilla): Promise<SalidaEscena>
     const fragmentos = [...propios, ...frags.filter((f) => !propios.some((p) => p.id === f.id))];
     const raw = await generarEscenaIA({ plantilla, fragmentos });
     const v = validarEscena(raw, plantilla.ramoId, fragmentos.map((f) => f.id));
-    if (!v.ok) return { fallback: true, motivo: "invalido" };
+    if (!v.ok) {
+      console.warn("[escena] respuesta IA rechazada:", v.motivo, JSON.stringify(raw).slice(0, 400));
+      return { fallback: true, motivo: "invalido" };
+    }
     return {
       escena: {
         plantillaId: plantilla.id,

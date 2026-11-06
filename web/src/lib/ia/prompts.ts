@@ -11,6 +11,8 @@ Reglas:
 - loQueSuelePasar: 1–2 oraciones por opción, basadas en la plantilla, sin juzgar.
 - No evalúes al estudiante ni digas si la carrera es para él o ella.
 - citas: ids de los fragmentos que usaste, tomados de la lista entregada.
+Formato exacto (cada opción es un objeto con su propio loQueSuelePasar):
+{"titulo": "...", "narracion": "...", "opciones": [{"texto": "...", "loQueSuelePasar": "..."}, {"texto": "...", "loQueSuelePasar": "..."}, {"texto": "...", "loQueSuelePasar": "..."}], "citas": ["malla:...", "plantilla:..."]}
 Responde solo con JSON que cumpla el esquema.`;
 
 export const PROMPT_BRECHAS = `Ayudas a un estudiante de primer año a poner en palabras qué no calzó con lo que
