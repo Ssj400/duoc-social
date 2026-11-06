@@ -20,32 +20,34 @@ export function DexGuia({ children }: { children: ReactNode }) {
   );
 }
 
-export type EstacionEstado = "hecha" | "actual" | "futura";
+// real = semestre que el estudiante cursa de verdad; el resto son simulaciones.
+export type EstacionEstado = "real" | "simulada" | "simulando" | "por_explorar";
 const SEMS = ["Sem 1", "Sem 2", "Sem 3", "Sem 4"];
 const ICONOS_SEM = ["📘", "💻", "🧩", "🚀"];
 
 function Nodo({ estado, i }: { estado: EstacionEstado; i: number }) {
-  const cls = estado === "hecha" ? "bg-gradient-to-br from-violet-500 to-violet-700 text-white shadow-md shadow-violet-300"
-    : estado === "actual" ? "bg-white text-violet-700 border-2 border-violet-600 anim-pulso"
+  const cls = estado === "real" ? "bg-violet-100 text-violet-800 border-2 border-violet-300"
+    : estado === "simulada" ? "bg-gradient-to-br from-violet-500 to-violet-700 text-white shadow-md shadow-violet-300"
+    : estado === "simulando" ? "bg-white text-violet-700 border-2 border-violet-600 anim-pulso"
     : "bg-slate-100 text-slate-400 border border-slate-200";
   return (
     <span className={`relative grid h-11 w-11 shrink-0 place-items-center rounded-full text-xl ${cls}`}>
-      <span aria-hidden>{estado === "futura" ? "🔒" : ICONOS_SEM[i]}</span>
-      {estado === "hecha" && <span aria-hidden className="absolute -right-1 -bottom-1 grid h-5 w-5 place-items-center rounded-full bg-emerald-500 text-[11px] font-bold text-white ring-2 ring-white">✓</span>}
+      <span aria-hidden>{estado === "real" ? "📍" : estado === "por_explorar" ? "🔒" : ICONOS_SEM[i]}</span>
+      {estado === "simulada" && <span aria-hidden className="absolute -right-1 -bottom-1 grid h-5 w-5 place-items-center rounded-full bg-emerald-500 text-[11px] font-bold text-white ring-2 ring-white">✓</span>}
     </span>
   );
 }
 
 export function CaminoSemestres({ estados, vertical = false }: { estados: EstacionEstado[]; vertical?: boolean }) {
-  const txt = (e: EstacionEstado) => (e === "hecha" ? "recorrido" : e === "actual" ? "estás aquí" : "próximo");
+  const txt = (e: EstacionEstado) => (e === "real" ? "estás aquí (real)" : e === "simulada" ? "simulado ✓" : e === "simulando" ? "simulando ahora" : "por explorar");
   if (vertical)
     return (
       <ol aria-label="Camino de semestres" className="relative space-y-5">
         <span aria-hidden className="absolute left-[21px] top-4 bottom-4 w-0.5 bg-gradient-to-b from-violet-400 to-slate-200" />
         {SEMS.map((s, i) => (
-          <li key={s} className="relative flex items-center gap-3" aria-current={estados[i] === "actual" ? "step" : undefined}>
+          <li key={s} className="relative flex items-center gap-3" aria-current={estados[i] === "simulando" ? "step" : undefined}>
             <Nodo estado={estados[i]} i={i} />
-            <span><span className={`block font-bold ${estados[i] === "futura" ? "text-slate-400" : "text-slate-900"}`}>{s}</span><span className="text-xs text-slate-500">{txt(estados[i])}</span></span>
+            <span><span className={`block font-bold ${estados[i] === "por_explorar" ? "text-slate-400" : "text-slate-900"}`}>{s}</span><span className="text-xs text-slate-500">{txt(estados[i])}</span></span>
           </li>
         ))}
       </ol>
@@ -53,12 +55,12 @@ export function CaminoSemestres({ estados, vertical = false }: { estados: Estaci
   return (
     <ol aria-label="Camino de semestres" className="flex items-center justify-between rounded-2xl bg-white/80 border border-violet-100 px-3 py-3 shadow-sm">
       {SEMS.map((s, i) => (
-        <li key={s} className="flex flex-1 items-center last:flex-none" aria-current={estados[i] === "actual" ? "step" : undefined}>
+        <li key={s} className="flex flex-1 items-center last:flex-none" aria-current={estados[i] === "simulando" ? "step" : undefined}>
           <span className="flex flex-col items-center gap-1">
             <Nodo estado={estados[i]} i={i} />
-            <span className={`text-[11px] font-bold ${estados[i] === "futura" ? "text-slate-400" : "text-slate-800"}`}>{s}</span>
+            <span className={`text-[11px] font-bold ${estados[i] === "por_explorar" ? "text-slate-400" : "text-slate-800"}`}>{s}</span>
           </span>
-          {i < SEMS.length - 1 && <span aria-hidden className={`mx-1 mb-4 h-1 flex-1 rounded-full ${estados[i] === "hecha" ? "bg-violet-400" : "bg-slate-200"}`} />}
+          {i < SEMS.length - 1 && <span aria-hidden className={`mx-1 mb-4 h-1 flex-1 rounded-full ${estados[i + 1] === "simulada" || estados[i + 1] === "simulando" ? "bg-violet-400" : "bg-slate-200"}`} />}
         </li>
       ))}
     </ol>

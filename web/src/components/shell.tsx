@@ -21,7 +21,7 @@ export function Shell({ children }: { children: ReactNode }) {
           <Link href="/" className="flex items-center gap-2">
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-violet-500 to-indigo-700 text-white font-extrabold shadow-md shadow-violet-300">E</span>
             <span><span className="block text-lg font-extrabold leading-none tracking-tight text-slate-900">educadex</span>
-              <span className="block text-[11px] text-slate-500 mt-0.5">Ingeniería en Informática · Desarrollo de Software · Duoc UC</span></span>
+              <span className="block text-[11px] text-slate-500 mt-0.5 truncate max-w-[52vw] sm:max-w-none">Ingeniería en Informática · Desarrollo de Software · Duoc UC</span></span>
           </Link>
           <nav aria-label="Escritorio" className="hidden lg:flex items-center gap-1">
             {NAV_ESCRITORIO.map((n) => {
@@ -36,7 +36,7 @@ export function Shell({ children }: { children: ReactNode }) {
           </nav>
           <div className="flex items-center gap-3">
             <span className="rounded-full bg-amber-100 text-amber-800 px-2.5 py-0.5 text-[11px] font-bold">DEMO</span>
-            <Link href="/" className="text-sm font-semibold text-violet-700 underline-offset-2 hover:underline">Cambiar rol</Link>
+            <Link href="/" className="text-sm font-semibold text-violet-700 underline-offset-2 hover:underline whitespace-nowrap">Cambiar rol</Link>
           </div>
         </div>
         <p className="px-5 pb-2 text-xs text-slate-500">DEMO · datos ficticios · selector de rol sin autenticación</p>

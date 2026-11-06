@@ -188,9 +188,9 @@ function Recorrido({ rec, etiquetas, alTerminar }: { rec: ReturnType<typeof useR
         <span className="font-bold text-violet-700">3er semestre</span>
         <span className="font-semibold text-slate-700">Escena {n} de {total}</span>
       </div>
-      <div><span className="inline-flex rounded-full bg-violet-50 border border-violet-100 text-violet-700 px-3 py-1 text-xs font-bold">🧭 Exploraste {visitadas.length} {visitadas.length === 1 ? "situación" : "situaciones"}</span></div>
+      <div><span className="inline-flex rounded-full bg-violet-50 border border-violet-100 text-violet-700 px-3 py-1 text-xs font-bold">🧭 {visitadas.length === 0 ? "Explorando tu primera situación" : `Exploraste ${visitadas.length} ${visitadas.length === 1 ? "situación" : "situaciones"}`}</span></div>
       <SceneCard key={actual.id} tipo={actual.tipo} icono={ICONOS[actual.tipo]}
-        momento={`3er semestre · ${actual.momento} · ${nombreRamo(actual.ramoId)} · ${actual.tipo}`}
+        momento={`${actual.momento} · ${actual.tipo}`}
         titulo={<h1>{actual.titulo}</h1>} narracion={<p>{actual.narracion}</p>}>
         <Button variant="secondary" className="!rounded-full !px-4 !py-2 text-sm" onClick={() => narrar(`${actual.narracion}`)} aria-label="Escuchar la escena">🔊 Escuchar</Button>
       </SceneCard>
@@ -424,8 +424,8 @@ export default function PaginaEstudiante() {
   }
 
   const estados: EstacionEstado[] = rec.terminado || fase === "brechas" || fase === "compartir"
-    ? ["hecha", "hecha", "hecha", "actual"]
-    : ["hecha", "hecha", "actual", "futura"];
+    ? ["real", "por_explorar", "simulada", "por_explorar"]
+    : ["real", "por_explorar", "simulando", "por_explorar"]; // las escenas de la demo son de 3er semestre
 
   const dex = fase === "onboarding" ? "Elige lo que quieras; también puedes no marcar nada."
     : fase === "recorrido" && !rec.terminado ? (!rec.eleccion ? "¿Qué harías tú en esta situación?" : !rec.reaccionActual ? "Marca cómo te hizo sentir; no hay respuestas correctas." : "Cuando quieras, pasa a la siguiente escena.")
