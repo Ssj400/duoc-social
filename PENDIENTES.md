@@ -66,8 +66,8 @@ registrada para retomar; no reanuda implementación ni cierra C.
 - F: guion y contingencia.
 - G: transparencia y preparación del checklist.
 
-Las solicitudes D–G se enviaron sobre `b413c74`; D ya tiene devolución y
-correcciones pendientes. E–G siguen esperando devolución.
+Las solicitudes D–G se enviaron sobre `b413c74`; D y E ya tienen devolución y
+correcciones pendientes. F–G siguen esperando devolución.
 Registrar para cada pieza la versión realmente leída, correcciones y veredicto.
 Una aprobación general no sustituye las revisiones individuales solicitadas.
 
@@ -93,6 +93,38 @@ pendientes, sin aprobar las otras piezas:
 
 Revisar que siga siendo una página legible al integrar estos cambios. No se
 ha modificado el brief durante la pausa ni se marca D cerrado.
+
+### Revisión E recibida después de la pausa
+
+Claude leyó `diapositivas.json` e inspeccionó el PDF de seis diapositivas de
+`b413c74`. Además reportó render nativo del PPTX mediante LibreOffice Impress,
+sin modificar el repo: sin desbordes/cortes, con diferencias cosméticas de
+alineación y sombra. **No es prueba en PowerPoint/Google Slides ni render
+ejecutado por esta sesión.** Confirmó 270 segundos previstos.
+
+Veredicto: técnicamente limpio, narrativamente no listo. Registrar para retomar:
+
+- E1: incorporar evidencia del problema en diapositiva 2. Cifras SIES con cohorte
+  y fuente; son observacionales, no causales. Verificar literalidad del testimonio
+  antes de usar comillas o rotular paráfrasis, aclarando que no era de primer año.
+- E2: sustituir las cajas de texto de la diapositiva 3 por capturas reales de la
+  versión congelada si existe, o diseños de paneles claramente rotulados.
+  Conservar «maqueta/diseño, no funcional» cuando corresponda.
+- E3: destacar el aporte concreto de IA, sin extraer días/horas de una frase
+  que no los contiene. Usar relato completo o preguntas por lo ausente.
+  Comparación con formulario pendiente hasta que haya medición; no completar
+  ningún resultado de muestra como si se hubiera obtenido.
+- E4: explicar alcance, posibles adoptantes y piloto como propuestas. Extensión
+  a cuidadores/otras asignaturas requiere evaluación; no es cobertura implementada
+  ni habilitación automática de derechos. Dos asistencias cumplen el mínimo
+  del caso bajo sus supuestos, no garantizan aprobar.
+- E5: reducir pies repetidos sin esconder rótulo de maqueta, carácter sintético
+  ni límites esenciales. No presentar adopción o validación inexistentes.
+- E6: separar notas en «DECIR» y «CUIDADO». Limitar lo hablado a unas 2,5 palabras
+  por segundo de su tramo; ensayar de verdad antes de afirmar duración real.
+
+No se modifica el deck durante la pausa ni se marca E cerrado. Queda actualizar
+fuente JSON, regenerar ambos formatos y repetir revisión/pruebas tras corregir.
 
 ## 4. Antes de entregar al participante
 

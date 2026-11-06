@@ -12,7 +12,7 @@ implementación no encargada ni atribuir resultados todavía inexistentes.
 | Diagramas (B) | Ubicación de componentes, pantallas y flujos | Claude aprobó con correcciones sobre `f194b72`; integración parcial en JSON, pendiente completar, regenerar y verificar |
 | Plan de desarrollo corto (C) | Orden, responsables propuestos, pruebas y recortes | Recibidos aporte C y revisión #9 del Markdown de `b413c74`; buena estructura, ajustes C1–C8 pendientes de consolidación; no revisó PDF ni versión posterior |
 | Brief para pitch (D) | Mensaje central y resumen de presentación | Claude leyó Markdown/render de `b413c74/e0bfb6a`: correcto y honesto, incompleto; D1–D3 pendientes de integrar |
-| Presentación provisional (E) | Diapositivas editables y PDF de respaldo | Revisión individual solicitada sobre `b413c74`; pendiente devolución |
+| Presentación provisional (E) | Diapositivas editables y PDF de respaldo | Claude revisó JSON/PDF de `b413c74` y reportó render LibreOffice: técnicamente limpio, narrativa no lista; E1–E6 pendientes |
 | Guion y contingencia de demo (F) | Tiempo, fallos y afirmaciones permitidas | Revisión individual solicitada sobre `b413c74`; pendiente devolución |
 | Transparencia y preparación ética (G) | Distinguir herramientas, producto y validación oficial | Revisión individual solicitada sobre `b413c74`; pendiente devolución |
 
