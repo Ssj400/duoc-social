@@ -1,53 +1,60 @@
 # Puente · brief provisional para presentar la idea
 
-## La idea en una frase
-
-Ayudar a quien enfrenta un cambio de turno laboral a entender su efecto sobre
-la asistencia, conocer opciones respaldadas y acordar un siguiente paso con su
-tutor. La IA ayuda a interpretar y explicar; no aprueba trámites ni predice abandono.
+Ayudar a quien enfrenta un cambio de turno laboral a entender su efecto sobre la
+asistencia, conocer opciones respaldadas y acordar un siguiente paso con su tutor.
+La IA interpreta y explica; no aprueba trámites ni predice abandono.
 
 ## El caso que hace entender la propuesta
 
-Camila es ficticia. Lleva 22 asistencias de 25: **88% hoy**. Su nuevo turno cubre
-las ocho clases que quedan; si las pierde, terminaría con **22/33 = 66,7%**.
-Con el requisito de 70% aplicable al ejemplo, incumplir asistencia puede llevar
-a reprobar aunque tenga buenas notas. Necesita 24 asistencias para ese mínimo:
-dos más respecto del escenario, sin garantía de aprobar. Datos, cómputo y
-requisito se confirman antes de aplicarlo a una persona real.
+Camila es ficticia. Lleva 22 asistencias de 25: **88% hoy**. Su turno nuevo cubre
+las ocho clases que quedan; si las pierde, termina en **22/33 = 66,7%**. Con el
+70% del ejemplo, incumplir puede llevar a reprobar aunque tenga buenas notas.
+Necesita 24: dos más, sin garantía de aprobar.
+
+## Por qué importa
+
+La retención de primer año es **82,9% diurna y 70,2% vespertina**; en institutos
+profesionales **22,0% no se matricula al año siguiente** (SIES 2026, cohorte
+2025). Son diferencias observacionales, no causas. Un estudio chileno de 2024 con
+78 exestudiantes relata gestiones de cambio de jornada que quedaron sin respuesta;
+ese testimonio es de segundo año, no de primero.
 
 ## Qué proponemos mostrar
 
-Un chequeo voluntario lleva a contar el cambio. La estudiante confirma los
-datos; reglas hacen la cuenta; la IA relaciona el caso con textos oficiales y
-propone una consulta. Ella elige qué compartir; el tutor revisa y acuerdan
-responsable y fecha. Seguimiento distingue gestión iniciada de ayuda recibida.
+Un chequeo voluntario lleva a contar el cambio. Ella confirma sus datos; reglas
+calculan; la IA conecta el caso con textos oficiales y propone una consulta. Elige
+qué compartir; el tutor revisa y acuerdan responsable y fecha. El seguimiento
+distingue gestión iniciada de ayuda recibida.
 
 ## Por qué IA y por qué una persona
 
-La persona dice «me cambiaron el turno», no «necesito el artículo de postergación
-de calificación». Probaremos si conectar ambas cosas ahorra tiempo frente a un
-formulario con las mismas reglas. Las cuentas no las hace el modelo y la
-pertinencia de la alternativa sigue siendo revisable. Esa comparación aún no
-se ha ejecutado: no hay precisión, ahorro o reducción de abandono demostrados.
+La persona dice «me cambiaron el turno de la pega», no «postergación de
+calificación». La IA convierte ese relato en restricciones y preguntas —martes y
+jueves hasta 21:30, ¿desde cuándo?— y lo conecta con las vías del reglamento; las
+cuentas no las hace el modelo. La comparación con un formulario de las mismas
+reglas está pendiente.
 
-## Cómo cuidamos y cómo empezaríamos
+## Cómo cuidamos, a quién llega
 
-Datos sintéticos en demo, permisos separados para IA y compartir, opción humana,
-fuentes visibles, tutor que corrige. No diagnóstico ni cupo garantizado. Antes
-de piloto: responsable institucional, capacidad de respuesta y procedimiento
-seguro de datos y apoyo. Primeros resultados a medir: comprensión del siguiente
-paso, tiempo/correcciones y ayuda efectivamente recibida, no «abandono evitado».
+Datos sintéticos, permisos separados para IA y compartir, alternativa humana,
+fuentes visibles y tutor que corrige. Sin diagnóstico ni cupo garantizado; para
+menores, vía humana sin IA externa hasta acordar tratamiento.
+
+**Alcance:** chequeo para todo primer año; el mismo motor podría servir a otras
+asignaturas y a estudiantes cuidadores (Ley 21.790) —posibilidad a evaluar, no
+cobertura actual—. **Adopción:** coordinación de carrera y progresión estudiantil,
+por confirmar. **Piloto propuesto:** una carrera vespertina, cuatro semanas, en
+paralelo al proceso actual. Mediríamos comprensión, corrección y ayuda confirmada,
+no «abandono evitado».
 
 ## Mensaje de cierre
 
-«No queremos una alerta que se quede en una pantalla. Queremos comprobar si
-entender una dificultad a tiempo y acompañar su siguiente paso ayuda a estudiar
-en condiciones más viables».
+«A Camila le bastaban dos clases para cumplir la asistencia. Puente existe para
+que lo sepa a tiempo, sepa qué puede pedir y no lo enfrente sola.»
 
-**Uso provisional:** hoy no existe MVP. Si no llega a existir una demo funcional,
-presentar la maqueta como maqueta, no como prueba de IA en vivo. El material de
-respaldo no sustituye el MVP ni los dos checkpoints del checklist oficial.
+**Uso provisional:** hoy no existe MVP. Si no hay demo funcional, la maqueta se
+presenta como maqueta. Esto no sustituye el MVP ni los dos checkpoints del
+checklist oficial.
 
-Fuentes: bases del evento; reglamento Duoc 07/2026; calendario presencial 2026
-v8. Citas y condiciones completas en el plan explicado/técnico. Actualizar
-herramientas usadas y resultados solo con lo que efectivamente ocurra.
+Fuentes: bases del evento; SIES 2026 (cohorte 2025); estudio chileno 2024;
+reglamento Duoc 07/2026; calendario 2026 v8. Citas en el plan explicado y técnico.

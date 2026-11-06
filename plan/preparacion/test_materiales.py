@@ -97,6 +97,15 @@ class PitchTests(unittest.TestCase):
                 self.assertLessEqual(block[2], page.rect.width)
                 self.assertLessEqual(block[3], page.rect.height)
 
+    def test_notes_split_and_fit_time(self):
+        for item in self.data["slides"]:
+            notes = item["notes"]
+            self.assertTrue(notes.startswith("DECIR:"), item["title"])
+            self.assertIn("\nCUIDADO:", notes, item["title"])
+            spoken = notes.split("\nCUIDADO:")[0].replace("DECIR:", "")
+            words = len(spoken.split())
+            self.assertLessEqual(words, 2.5 * item["seconds"], item["title"])
+
     def test_brief_and_support_pdfs(self):
         try:
             import pymupdf
@@ -104,7 +113,8 @@ class PitchTests(unittest.TestCase):
             self.skipTest("PyMuPDF no disponible")
         brief = pymupdf.open(ROOT / "Brief_pitch_Puente.pdf")
         self.assertEqual(len(brief), 1)
-        for name in ("Brief_pitch_Puente.pdf", "Guion_y_respaldo_Puente.pdf"):
+        for name in ("Brief_pitch_Puente.pdf", "Guion_y_respaldo_Puente.pdf",
+                     "Plan_desarrollo_Puente.pdf", "Preguntas_dificiles_Puente.pdf"):
             doc = pymupdf.open(ROOT / name)
             self.assertTrue(all(len(p.get_text().split()) > 40 for p in doc))
             self.assertNotIn("\ufffd", "".join(p.get_text() for p in doc))

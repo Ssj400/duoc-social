@@ -1,90 +1,111 @@
 # Guion provisional y contingencia de demo
 
-Objetivo de ensayo: **4:30**, dejando 30 segundos de margen hasta los cinco
-minutos oficiales. Uno o dos presentadores, por decidir con el equipo. Caso de
-Camila ficticio, no entrevista. Hoy no existe aplicación: las diapositivas y
-maquetas no deben presentarse como funcionalidades realizadas.
+Objetivo de ensayo: **4:30**, con 30 segundos de margen hasta los cinco minutos
+oficiales. Uno o dos presentadores, por decidir con el equipo. Camila es un caso
+ficticio, no una entrevista. A la fecha de este documento no existe aplicación:
+las diapositivas y maquetas no deben presentarse como funcionalidades realizadas.
+
+Revisión local del 6/11: estas correcciones se hicieron sin una nueva lectura de
+Claude. Las respuestas de la sección final son propuestas para ensayar, no
+declaraciones validadas por la institución.
 
 ## Guion de seis diapositivas
 
 | Diapositiva | Tiempo | Qué decir / mostrar |
 | --- | --- | --- |
-| 1. El cambio que no se ve en el porcentaje actual | 0:00–0:30 | Camila quiere continuar. Lleva 88%, pero el nuevo turno choca con ocho clases. Pregunta: ¿qué pasa si faltan? |
-| 2. No basta detectar | 0:30–0:55 | Puente propone convertir contexto en explicación, opciones y siguiente paso con tutor. Reconocer apoyos existentes; no afirmar novedad absoluta |
-| 3. Recorrido | 0:55–2:25 | 90 segundos de demo real si existe y está congelada. En otro caso, recorrido de maqueta explícito |
-| 4. Qué hace la IA | 2:25–3:05 | Interpretar relato, conectar fuentes y redactar borrador; reglas hacen cuentas, personas revisan. Comparación pendiente si no se ejecutó |
-| 5. Cuidar también es decidir qué no automatizar | 3:05–3:45 | Permisos separados, corrección, apoyo humano y límites. No recitar todo el checklist: mostrar decisión concreta |
-| 6. Qué sabemos y qué probaríamos | 3:45–4:30 | Hoy es propuesta; después solo afirmar pruebas realmente hechas. Piloto condicionado a responsable/capacidad/seguridad, no promesa de retención |
+| 1. Tiene 88%. Su turno cambió | 0:00–0:30 | Camila quiere continuar. Hoy tiene 88%; el turno nuevo choca con ocho clases. Pregunta: ¿qué pasa si faltan? |
+| 2. El abandono no siempre es falta de ganas | 0:30–0:55 | Dos cifras observacionales (82,9% diurna vs. 70,2% vespertina) y un testimonio de segundo año. Después: qué propone Puente y qué no promete |
+| 3. Recorrido propuesto · maqueta | 0:55–2:25 | 90 segundos de demo real si existe y está congelada; si no, recorrido de maqueta rotulado |
+| 4. IA para entender. Reglas para calcular | 2:25–3:05 | El relato coloquial, las preguntas de la IA y la conexión con normas. Comparación con formulario: pendiente si no se midió |
+| 5. La estudiante decide qué compartir | 3:05–3:45 | Permisos separados, copia mínima, tutor que corrige, apoyo humano y menores. Una decisión concreta, no el checklist recitado |
+| 6. Queremos medir ayuda, no mensajes | 3:45–4:30 | Alcance, adopción y piloto propuestos; qué mediríamos; límites dichos con seguridad; cierre con Camila |
 
 ## Los 90 segundos del recorrido
 
-15 s: invitación voluntaria y relato con datos explícitos. 30 s: estudiante
-confirma, se explica 22/33 y se muestra una opción con fuente y pendiente.
-30 s: autoriza un resumen, tutor corrige una condición y se acuerda una consulta.
-15 s: seguimiento rotulado de prueba, diferenciando gestión y ayuda recibida.
+El relato es coloquial a propósito: con datos explícitos, un formulario basta y
+la IA no aporta nada demostrable en vivo.
 
-Si la llamada IA no responde en el tiempo de ensayo, no quedarse esperando al
-modelo frente al jurado. Indicar fallo y pasar a respaldo identificado. No
-llamar nuevamente sin decisión explícita y permiso vigente.
+- **0:00–0:15 · Invitación y relato.** «Te llegó un chequeo voluntario por el
+  canal del curso. Camila escribe: “me cambiaron el turno de la pega; ahora los
+  martes y jueves salgo a las nueve y media”. Eso es todo lo que dice.»
+- **0:15–0:35 · La IA pregunta lo que falta.** «La aplicación no adivina: pregunta
+  “¿desde qué fecha?”, “¿a qué hora entras?” y “¿la franja incluye traslado?”.
+  Camila responde: entró a las 16:00, desde el lunes. Autoriza usar IA externa;
+  sin ese permiso, el mismo recorrido sigue con formulario y no llama al modelo.»
+- **0:35–1:05 · Confirmar y calcular.** Ella confirma días, horario y asistencia
+  registrada: 22 de 25, **88% hoy**. Con las ocho clases restantes en riesgo,
+  la proyección es **22/33 = 66,7%**. El mínimo supuesto es 70%: **faltan dos
+  asistencias** para 24/33. Las reglas hacen la cuenta; el modelo no. Cada número
+  muestra su cuenta, sus supuestos y qué falta confirmar.
+- **1:05–1:25 · Opciones con fuente.** Debajo del aviso, opciones separadas por
+  ahora, próximo período y apoyo humano, cada una con artículo, condiciones y
+  pendientes. Si el cupo o el responsable no están confirmados, se dice.
+- **1:25–1:40 · Compartir con permiso.** Camila elige campos y destinatario;
+  ve la vista previa; puede no compartir. El tutor recibe **solo esa copia**,
+  corrige una condición y acuerdan una consulta con rol y fecha.
+- **1:40–1:50 · Seguimiento honesto.** El seguimiento distingue «gestión
+  iniciada» de «ayuda recibida». Camila acepta el paso y confirma si recibió
+  apoyo; el sistema no lo da por hecho.
 
-# Respaldo y preparación
+Si el recorrido real difiere, se dice en voz alta qué parte funciona y cuál es
+diseño pendiente. No se completa con texto precargado presentado como generado.
 
-## Tres modos de presentación, nunca intercambiados en silencio
+## Si la IA falla en vivo: ocho segundos y una frase
+
+Regla de ensayo: **ocho segundos** sin respuesta se considera fallo. No es un
+tiempo validado del proveedor; es un límite para no dejar al jurado mirando una
+pantalla quieta. Quien controla la demo ensaya esta transición una vez.
+
+«La IA no respondió a tiempo; seguimos con el mismo caso en modo manual: las
+reglas y los permisos son los mismos.»
+
+Condiciones de esa transición:
+
+- No reintentar en vivo. Si se reintenta, es una decisión explícita aparte y con
+  el permiso todavía vigente.
+- Una respuesta que llegue después **no** cambia lo ya confirmado en modo manual;
+  se descarta y se dice que se descartó.
+- El modo manual se rotula en pantalla. Presentarlo como IA funcionando sería
+  un engaño, no una contingencia.
+
+## Escalera de respaldo: cinco peldaños, sin saltos
 
 | Modo | Cuándo usarlo | Frase honesta |
 | --- | --- | --- |
-| Demo funcional | Recorrido implementado y probado dentro del freeze | «Mostramos la versión congelada con un caso sintético» |
-| Demo parcial | Solo una parte funciona | «Esta parte funciona; lo siguiente es diseño pendiente». Identificar exactamente cuál |
-| Maqueta/respaldo | No hay MVP o no se puede ejecutar | «Esto es una maqueta del recorrido propuesto, no una ejecución de IA ni una gestión real» |
+| 1. Demo funcional | Recorrido implementado y probado dentro del freeze | «Mostramos la versión congelada, con un caso sintético» |
+| 2. Demo parcial | Solo una parte funciona | «Esta parte funciona; lo siguiente es diseño pendiente» + decir exactamente cuál |
+| 3. Misma app en modo manual | La IA no responde o no hay credencial | «La IA no está disponible; la app sigue en modo manual, con las mismas reglas y permisos» |
+| 4. Capturas o video | La app no se puede ejecutar en el escenario | «Son capturas de la versión congelada; no es una ejecución en vivo» |
+| 5. Maqueta rotulada | No hay MVP | «Esto es una maqueta del recorrido propuesto: no es una aplicación funcional ni IA en vivo» |
 
-Si se usan respuestas precargadas, decirlo y no simular generación en vivo. Las
-capturas deben corresponder a la versión real congelada o rotularse como diseño.
-Las diapositivas de maqueta no acreditan el MVP funcional exigido por el evento.
-Los dos checkpoints éticos siguen siendo condición de admisibilidad.
+Nunca se salta del peldaño 1 al 5. Mostrar una maqueta como demo afecta
+directamente factibilidad y, sin rótulo, es engaño. El material de respaldo no
+sustituye el MVP exigido ni los dos checkpoints del checklist oficial.
 
 ## Qué revisar antes de presentar
 
-- Confirmar qué versión se congeló y qué funciona realmente; no agregar después.
-- Elegir presentadores y quién cambia diapositivas/controla la demo.
-- Abrir PDF de respaldo local, verificar fuente y tamaño de texto, probar la
-  pantalla de proyección. No depender de internet para leer el guion.
+- Confirmar qué versión se congeló a las 14:45 y qué funciona realmente.
+- Elegir presentadores y quién controla diapositivas y demo.
+- Abrir el PDF de respaldo local, verificar fuentes y probar la proyección.
 - Reponer solo datos sintéticos antes del ensayo; no borrar información ajena.
-- Declarar herramientas/modelos efectivamente usados y para qué. Si un modelo
-  ayudó solo a planificar, no atribuirle extracción en el MVP.
-- Sustituir resultados provisionales únicamente por resultados documentados;
-  si no existen mediciones, mantener el pendiente explícito.
-
-# Preguntas y límites
-
-## Preguntas probables y respuestas posibles
-
-**¿Por qué IA en vez de formulario?** Queremos probar si facilita traducir un
-relato cotidiano en restricciones y opciones pertinentes. El formulario y las
-reglas son la comparación base; no hemos demostrado superioridad todavía.
-
-**¿Ya evita deserción?** No. El prototipo podría demostrar un flujo; un piloto
-evaluaría comprensión, carga de trabajo y apoyo recibido. Eso no prueba
-causalidad sobre retención.
-
-**¿Qué pasa si no hay cupos?** No inventamos uno. La ruta queda condicionada y
-el estudiante conversa alternativas con la persona responsable.
-
-**¿Dos asistencias adicionales salvan la asignatura?** Alcanzan el mínimo
-supuesto de asistencia del caso, no garantizan notas, otras exigencias ni una
-decisión administrativa. Primero se confirman cómputo y requisito.
-
-**¿Qué pasa con menores o una necesidad urgente?** La propuesta de menores es
-vía humana sin IA externa hasta acordar tratamiento. Apoyo accesible sin depender
-del modelo; no diagnóstico ni protocolo clínico validado por esta demo.
-
-**¿Qué aporta frente a lo que ya existe?** Una mejora hipotética de conexión entre
-contexto, explicación, consulta revisada y seguimiento. Debemos contrastarla con
-la operación actual, no afirmar que la institución carece de esos procesos.
+- Declarar herramientas y modelos realmente usados. Si un modelo ayudó a
+  planificar o a escribir código, no atribuirle la extracción del producto.
+- Sustituir resultados provisionales solo por resultados documentados. Si no hay
+  mediciones, mantener el pendiente explícito.
+- Confirmar que el checklist oficial quedó validado dos veces antes de las 14:45
+  y que existe una versión congelada identificable (commit o tag).
 
 ## Afirmaciones que no debemos hacer
 
-No decir «reducimos abandono», «precisión 95%», «ahorramos X minutos», «entrevistamos
-estudiantes», «estamos integrados con Duoc» o «checklist aprobado» sin evidencia.
-No usar un resultado deseado entre corchetes como si estuviera medido. No decir
-«la IA detecta todas las crisis». Mantener un cierre seguro y claro, no un inventario
-de disculpas: sabemos qué queremos probar y qué falta para ofrecerlo de verdad.
+No decir «reducimos el abandono», «precisión 95%», «ahorramos X minutos»,
+«entrevistamos estudiantes», «estamos integrados con Duoc» ni «checklist
+aprobado» sin evidencia. No usar un resultado deseado entre corchetes como si
+estuviera medido. No decir «la IA detecta todas las crisis». No extraer fechas
+ni horas de una frase que no las contiene: si faltan, la app pregunta.
+
+Las respuestas preparadas para el jurado están en `preguntas_dificiles.md`
+(dos páginas, para llevar impresas). Ahí se incluyen sesgos, adopción, menores,
+datos institucionales y la comparación con un formulario.
+
+Cierre seguro, no un inventario de disculpas: sabemos qué queremos probar, qué
+mediríamos y qué falta para ofrecerlo de verdad.

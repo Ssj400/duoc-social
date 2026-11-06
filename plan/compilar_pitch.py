@@ -128,6 +128,7 @@ def build():
         ("brief_pitch.md", "Brief_pitch_Puente.pdf", "Puente · Brief provisional de pitch"),
         ("guion_y_contingencias.md", "Guion_y_respaldo_Puente.pdf", "Puente · Guion y contingencias"),
         ("plan_desarrollo.md", "Plan_desarrollo_Puente.pdf", "Puente · Plan de desarrollo"),
+        ("preguntas_dificiles.md", "Preguntas_dificiles_Puente.pdf", "Puente · Preguntas difíciles"),
     ]
     for source, output, title in specs:
         path = ROOT / source

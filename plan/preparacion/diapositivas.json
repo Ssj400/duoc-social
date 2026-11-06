@@ -5,87 +5,103 @@
     {
       "title": "Tiene 88%. Su turno cambió.",
       "seconds": 30,
-      "source": "Reglamento Duoc 07/2026, art. 30 · Caso sintético",
+      "source": "Caso sintético · Reglamento Duoc 07/2026, art. 30",
       "blocks": [
         {"text":"Camila quiere seguir estudiando. Su nuevo turno coincide con clases.","x":0.65,"y":1.5,"w":12,"h":1.0,"size":26},
         {"text":"88%","x":0.7,"y":2.65,"w":5.4,"h":1.15,"size":64,"bold":true,"color":"teal"},
         {"text":"Hoy: 22 de 25 asistencias","x":0.7,"y":3.85,"w":5.4,"h":0.8,"size":24},
         {"text":"66,7%","x":7.0,"y":2.65,"w":5.5,"h":1.15,"size":64,"bold":true,"color":"amber"},
         {"text":"Si pierde las ocho restantes: 22/33","x":7.0,"y":3.85,"w":5.5,"h":0.9,"size":24},
-        {"text":"Requisito: 70%. Mínimo: 24 de 33 asistencias. Dos más alcanzan ese mínimo, no garantizan aprobar.","x":0.65,"y":5.15,"w":12,"h":1.0,"size":24},
+        {"text":"Requisito: 70%. Mínimo: 24 de 33. Dos asistencias más alcanzan ese mínimo; no garantizan aprobar.","x":0.65,"y":5.15,"w":12,"h":1.0,"size":24},
         {"text":"Incumplir la asistencia exigida puede causar reprobación aunque haya buenas notas.","x":0.65,"y":6.25,"w":12,"h":0.38,"size":18}
       ],
-      "notes":"0:00–0:30. Camila es un personaje ficticio de primer año. Situamos el caso al inicio del 10/11/2026: 25 sesiones previas, 22 asistidas y ocho futuras; 33 computables bajo los supuestos del caso. Su turno de martes y jueves, 16:00–21:30, cubre toda la clase. Si pierde las ocho, queda en 22/33. El artículo 30 establece 70% cuando el programa no fija otro porcentaje; incumplir asistencia puede causar reprobación aunque tenga buenas notas. En un caso real hay que confirmar unidad, calendario completo y excepciones. Dos asistencias más alcanzan 24/33, no aseguran aprobar. El 5/12 es un hito, no prueba del cierre del cómputo. Fuente: https://www.duoc.cl/reglamento-academico/. No afirmar que los sistemas existentes sean incapaces de detectar este caso."
+      "notes":"DECIR: Camila es ficticia. Tiene 88%: 22 de 25 asistencias. Su turno nuevo cubre las ocho clases que quedan; si las pierde, queda en 22 de 33, 66,7%. El mínimo del caso es 70%: le faltan dos asistencias. Dos más alcanzan ese mínimo, no garantizan aprobar.\nCUIDADO: en un caso real hay que confirmar unidad, calendario y excepciones. El 5/12 es un hito de estado, no el cierre del cómputo. No afirmar que los sistemas actuales no detectan esto."
     },
     {
-      "title": "No otra alerta. Un siguiente paso.",
+      "title": "El abandono no siempre es falta de ganas.",
       "seconds": 25,
-      "source": "Diseño propuesto · no adopción institucional confirmada",
+      "source": "SIES 2026, cohorte 2025 · estudio chileno 2024 · observacional",
       "blocks": [
-        {"text":"Entender","x":0.65,"y":2.0,"w":3.8,"h":0.9,"size":28,"bold":true,"fill":"pale"},
-        {"text":"Qué pasó y qué datos faltan","x":0.65,"y":3.05,"w":3.8,"h":1.0,"size":24},
-        {"text":"Opciones","x":4.75,"y":2.0,"w":3.8,"h":0.9,"size":28,"bold":true,"fill":"pale"},
-        {"text":"Fuentes y condiciones, no promesas","x":4.75,"y":3.05,"w":3.8,"h":1.3,"size":24},
-        {"text":"Tutor","x":8.85,"y":2.0,"w":3.8,"h":0.9,"size":28,"bold":true,"fill":"pale"},
-        {"text":"Responsable, fecha y seguimiento","x":8.85,"y":3.05,"w":3.8,"h":1.0,"size":24},
-        {"text":"La meta: una consulta revisada y un próximo paso comprensible.","x":0.65,"y":5.1,"w":12,"h":1.0,"size":28,"bold":true}
+        {"text":"82,9%","x":0.7,"y":1.55,"w":5.4,"h":1.1,"size":56,"bold":true,"color":"teal"},
+        {"text":"retención de 1er año · diurna","x":0.7,"y":2.7,"w":5.4,"h":0.9,"size":22},
+        {"text":"70,2%","x":7.0,"y":1.55,"w":5.5,"h":1.1,"size":56,"bold":true,"color":"amber"},
+        {"text":"misma cohorte · vespertina","x":7.0,"y":2.7,"w":5.5,"h":0.9,"size":22},
+        {"text":"Diferencias observacionales: no prueban que trabajar de noche cause abandono.","x":0.65,"y":3.75,"w":12,"h":0.6,"size":20},
+        {"text":"Un exestudiante cuenta que pidió cambiar de jornada y no obtuvo respuesta. Paráfrasis; era de segundo año, no de primero.","x":0.65,"y":4.55,"w":12,"h":1.1,"size":20},
+        {"text":"No matrícula tampoco es abandono definitivo: puede haber traslado o reingreso.","x":0.65,"y":5.85,"w":12,"h":0.6,"size":20}
       ],
-      "notes":"0:30–0:55. La persona no necesita otra etiqueta de riesgo: necesita comprender qué puede consultar y quién la acompaña. Hay antecedentes de alertas y acompañamiento en UC y Duoc; no afirmar originalidad absoluta. El chequeo propuesto es universal y voluntario, pero no elimina sesgos de acceso o respuesta. La cuenta es condicional, no una probabilidad de abandono. El recorrido conecta contexto, explicación, consulta, revisión humana y seguimiento. No afirmar adopción ni un responsable real asignado."
+      "notes":"DECIR: la deserción no es solo falta de motivación. La retención de primer año es 82,9% en jornada diurna y 70,2% en vespertina. Y un exestudiante relata un cambio de jornada que no obtuvo respuesta. Puente no reemplaza eso: propone que el problema se vea antes y con un paso concreto.\nCUIDADO: son cifras observacionales, no causas, y ese testimonio es de segundo año. No matrícula no es abandono definitivo: puede haber traslado o reingreso. No afirmar que UC o Duoc no tienen estos procesos."
     },
     {
       "title": "Recorrido propuesto · maqueta",
       "seconds": 90,
       "source": "Maqueta conceptual · no es una aplicación funcional ni IA en vivo",
       "blocks": [
-        {"text":"1. Contar y confirmar","x":0.65,"y":1.8,"w":5.8,"h":0.8,"size":28,"bold":true,"fill":"pale"},
-        {"text":"Camila revisa días, horas y permiso de IA.","x":0.65,"y":2.75,"w":5.8,"h":0.9,"size":24},
-        {"text":"2. Entender y consultar","x":6.85,"y":1.8,"w":5.8,"h":0.8,"size":28,"bold":true,"fill":"pale"},
-        {"text":"Ve la cuenta y opciones con condiciones.","x":6.85,"y":2.75,"w":5.8,"h":0.9,"size":24},
-        {"text":"3. Autorizar y revisar","x":0.65,"y":4.05,"w":5.8,"h":0.8,"size":28,"bold":true,"fill":"pale"},
-        {"text":"Elige qué compartir; el tutor puede corregir.","x":0.65,"y":5.0,"w":5.8,"h":0.9,"size":24},
-        {"text":"4. Acordar y seguir","x":6.85,"y":4.05,"w":5.8,"h":0.8,"size":28,"bold":true,"fill":"pale"},
-        {"text":"Una gestión iniciada no es ayuda recibida.","x":6.85,"y":5.0,"w":5.8,"h":0.9,"size":24}
+        {"text":"","x":0.55,"y":1.5,"w":5.95,"h":4.3,"size":18,"fill":"pale"},
+        {"text":"","x":6.85,"y":1.5,"w":5.95,"h":4.3,"size":18,"fill":"pale"},
+        {"text":"PANEL ESTUDIANTE · DEMO","x":0.8,"y":1.65,"w":5.4,"h":0.5,"size":20,"bold":true,"color":"teal"},
+        {"text":"1 · Mi cambio: cuenta qué pasó","x":0.8,"y":2.25,"w":5.4,"h":0.45,"size":18},
+        {"text":"2 · Confirmar datos: 22/25 hoy","x":0.8,"y":2.8,"w":5.4,"h":0.45,"size":18},
+        {"text":"3 · Qué pasa: 66,7% · mínimo 70%","x":0.8,"y":3.35,"w":5.4,"h":0.45,"size":18,"bold":true},
+        {"text":"Opciones con fuente y pendientes","x":0.8,"y":3.9,"w":5.4,"h":0.45,"size":18},
+        {"text":"4 · Compartir: campos y destinatario","x":0.8,"y":4.45,"w":5.4,"h":0.45,"size":18},
+        {"text":"Necesito apoyo ahora · visible","x":0.8,"y":5.05,"w":5.4,"h":0.45,"size":18,"color":"amber"},
+        {"text":"PANEL TUTOR · DEMO","x":7.1,"y":1.65,"w":5.4,"h":0.5,"size":20,"bold":true,"color":"teal"},
+        {"text":"Solo la copia autorizada","x":7.1,"y":2.25,"w":5.4,"h":0.45,"size":18},
+        {"text":"Revisa y corrige la condición","x":7.1,"y":2.8,"w":5.4,"h":0.45,"size":18},
+        {"text":"Acuerda paso, rol y fecha","x":7.1,"y":3.35,"w":5.4,"h":0.45,"size":18,"bold":true},
+        {"text":"Seguimiento: gestión ≠ ayuda","x":7.1,"y":3.9,"w":5.4,"h":0.45,"size":18},
+        {"text":"La cuenta la hacen reglas, no el modelo","x":7.1,"y":5.05,"w":5.4,"h":0.45,"size":18,"color":"amber"},
+        {"text":"Maqueta no funcional. Si existe versión congelada, se muestran capturas reales de ella.","x":0.65,"y":5.95,"w":12,"h":0.6,"size":18}
       ],
-      "notes":"0:55–2:25, 90 segundos. Modo actual: MAQUETA. Decir: mostramos cómo proponemos que funcione; no es una aplicación ni IA en vivo. Dedicar 15 segundos a contar y al permiso, 30 a confirmar datos y mostrar cuenta/opciones, 30 a autorizar el resumen y revisar con tutor, 15 al seguimiento de prueba. No representar texto precargado como generado. Si para el evento existe una versión funcional congelada y probada, mostrarla y actualizar los rótulos a esa realidad; no quitar la advertencia solo por estética. Mostrar una condición: el artículo 34 no cubre automáticamente un turno permanente y el 48 no dispensa asistencia. Retiro ordinario cerrado el 12/9, nota pendiente del 9/11 al 21/12, cambio de jornada futuro desde 28/12. Sin cupos garantizados. La maqueta no sustituye el MVP ni acredita admisibilidad."
+      "notes":"DECIR: Camila escribe «me cambiaron el turno de la pega; los martes y jueves salgo a las nueve y media». La app no adivina: pregunta desde cuándo, a qué hora entra y si la franja incluye traslado. Ella autoriza IA externa; sin permiso, el mismo recorrido sigue con formulario. Confirma 22 de 25, 88%, y ve la proyección: 22 de 33, 66,7%, con mínimo 70%; faltan dos asistencias. Debajo aparecen opciones con artículo, condiciones y pendientes. Elige campos y destinatario; el tutor recibe solo esa copia, corrige una condición y acuerdan consulta con rol y fecha. El seguimiento distingue gestión iniciada de ayuda recibida.\nCUIDADO: es una maqueta, no una app ni IA en vivo. Decirlo al empezar. Los horarios y el caso son sintéticos. No inventar cupos ni responsables. El 5/12 es hito de estado, no cierre del cómputo; verificar actividades posteriores en todo caso real."
     },
     {
       "title": "IA para entender. Reglas para calcular.",
       "seconds": 40,
-      "source": "Comparación base: formulario con las mismas reglas · pendiente",
+      "source": "Reglas: art. 30 · vías: arts. 48 y 81 · comparación pendiente",
       "blocks": [
-        {"text":"IA","x":0.65,"y":1.9,"w":3.8,"h":0.7,"size":32,"bold":true,"color":"teal"},
-        {"text":"Interpreta el relato.\nPropone opciones con fuentes.\nPrepara un borrador.","x":0.65,"y":2.8,"w":3.8,"h":2.1,"size":24},
-        {"text":"Reglas","x":4.75,"y":1.9,"w":3.8,"h":0.7,"size":32,"bold":true,"color":"teal"},
-        {"text":"Calculan horarios y asistencia.\nNo inventan datos faltantes.","x":4.75,"y":2.8,"w":3.8,"h":2.1,"size":24},
-        {"text":"Personas","x":8.85,"y":1.9,"w":3.8,"h":0.7,"size":32,"bold":true,"color":"teal"},
-        {"text":"Confirman datos.\nCorrigen opciones.\nDeciden el siguiente paso.","x":8.85,"y":2.8,"w":3.8,"h":2.1,"size":24},
-        {"text":"La ventaja de la IA todavía debe medirse.","x":0.65,"y":5.45,"w":12,"h":0.8,"size":28,"bold":true}
+        {"text":"IA","x":0.65,"y":1.55,"w":3.8,"h":0.6,"size":28,"bold":true,"color":"teal"},
+        {"text":"Interpreta el relato.\nPregunta lo que falta.\nConecta con normas.","x":0.65,"y":2.25,"w":3.8,"h":1.7,"size":22},
+        {"text":"Reglas","x":4.75,"y":1.55,"w":3.8,"h":0.6,"size":28,"bold":true,"color":"teal"},
+        {"text":"Calculan horarios y asistencia.\nNo inventan datos faltantes.","x":4.75,"y":2.25,"w":3.8,"h":1.7,"size":22},
+        {"text":"Personas","x":8.85,"y":1.55,"w":3.8,"h":0.6,"size":28,"bold":true,"color":"teal"},
+        {"text":"Confirman datos.\nCorrigen opciones.\nDeciden el siguiente paso.","x":8.85,"y":2.25,"w":3.8,"h":1.7,"size":22},
+        {"text":"«me cambiaron el turno de la pega» → martes y jueves hasta 21:30","x":0.65,"y":4.15,"w":12,"h":0.5,"size":19,"bold":true},
+        {"text":"¿desde cuándo? → nota pendiente (art. 48) · cambio de jornada 2027 (art. 81)","x":0.65,"y":4.7,"w":12,"h":0.5,"size":19,"bold":true},
+        {"text":"Comparación contra un formulario con las mismas reglas: pendiente, sin resultado medido.","x":0.65,"y":5.6,"w":12,"h":0.5,"size":18},
+        {"text":"Una cita correcta no garantiza interpretación correcta: hay revisión y abstención.","x":0.65,"y":6.15,"w":12,"h":0.5,"size":18}
       ],
-      "notes":"2:25–3:05. Proponemos dos llamadas acotadas: interpretar el relato y explicar opciones/preparar un borrador desde textos oficiales precargados. Sin navegación libre ni agentes que tramiten. Las cuentas usan reglas y datos confirmados. Una cita real no garantiza interpretación correcta: hacen falta revisión y abstención. Todavía no hay evaluación frente al formulario. Si se ejecuta, informar muestra, método y resultados reales; no sustituir un pendiente por una meta. No inventar porcentajes de extracción ni ahorro."
+      "notes":"DECIR: no pedimos a la IA que decida. Interpreta un relato cotidiano, pregunta lo que falta y conecta con normas; las reglas calculan y las personas confirman. Ese es el aporte: «me cambiaron el turno de la pega» se convierte en martes y jueves hasta 21:30, en un ¿desde cuándo? y en las vías del reglamento. Lo comparamos contra un formulario con las mismas reglas.\nCUIDADO: la comparación está pendiente; no hay resultado medido. No inventar porcentajes de extracción ni ahorro. Una cita correcta no garantiza interpretación correcta: por eso hay revisión y abstención."
     },
     {
       "title": "La estudiante decide qué compartir.",
       "seconds": 40,
-      "source": "Medidas propuestas · no protocolo institucional validado",
+      "source": "Diseño propuesto · no protocolo institucional validado",
       "blocks": [
-        {"text":"Usar IA y compartir con tutor son permisos distintos.","x":0.8,"y":1.75,"w":11.7,"h":1.05,"size":28,"bold":true},
-        {"text":"Puede revisar, no compartir y retirar nuevos accesos.","x":0.8,"y":3.0,"w":11.7,"h":0.95,"size":28},
-        {"text":"Hay alternativa humana y apoyo sin depender del modelo.","x":0.8,"y":4.25,"w":11.7,"h":0.95,"size":28},
-        {"text":"Datos sintéticos · Sin diagnóstico ni cupos garantizados","x":0.8,"y":5.65,"w":11.7,"h":0.6,"size":22,"color":"teal"}
+        {"text":"Usar IA y compartir con tutor son permisos distintos.","x":0.8,"y":1.75,"w":11.7,"h":0.85,"size":26,"bold":true},
+        {"text":"Puede revisar, no compartir y retirar nuevos accesos.","x":0.8,"y":2.85,"w":11.7,"h":0.75,"size":26},
+        {"text":"El tutor recibe una copia mínima y puede corregir.","x":0.8,"y":3.8,"w":11.7,"h":0.75,"size":26},
+        {"text":"Hay alternativa humana y apoyo sin depender del modelo.","x":0.8,"y":4.75,"w":11.7,"h":0.75,"size":26},
+        {"text":"Para menores: vía humana sin IA externa hasta acordar tratamiento.","x":0.8,"y":5.7,"w":11.7,"h":0.65,"size":22}
       ],
-      "notes":"3:05–3:45. No responder al chequeo no genera una etiqueta. La estudiante confirma el resumen exacto y su destinatario; retirar permiso no borra lo ya leído. Para menores, la propuesta es vía humana sin IA externa hasta acuerdo institucional. El acceso a apoyo no depende del modelo: no prometemos detección de crisis ni un protocolo clínico validado. Agenda externa sin prellenado ni transmisión del caso. Solo datos sintéticos; el selector de roles no autentica. El checklist se declara aprobado únicamente con evidencia de dos validaciones antes de las 14:45: esta diapositiva no lo reemplaza."
+      "notes":"DECIR: hay dos permisos separados: usar IA y compartir con el tutor. Camila ve la vista previa, elige campos y destinatario, y puede no compartir o retirar accesos nuevos. El tutor recibe una copia mínima y puede corregir. Siempre hay una alternativa humana, y para menores proponemos vía humana sin IA externa.\nCUIDADO: retirar el permiso no borra lo ya leído. El selector de roles no autentica. No prometemos detección de crisis ni un protocolo clínico validado. El checklist solo se declara aprobado con las dos validaciones antes de las 14:45."
     },
     {
       "title": "Queremos medir ayuda, no mensajes.",
       "seconds": 45,
-      "source": "Caso ficticio · propuesta sin piloto ni efecto demostrado en retención",
+      "source": "Propuesta sin piloto ni resultados de retención",
       "blocks": [
-        {"text":"¿Entiende el siguiente paso?","x":0.8,"y":1.75,"w":11.7,"h":0.8,"size":30,"bold":true},
-        {"text":"¿Cuánto trabajo y corrección requiere?","x":0.8,"y":2.95,"w":11.7,"h":0.8,"size":30},
-        {"text":"¿La estudiante confirma que recibió apoyo?","x":0.8,"y":4.15,"w":11.7,"h":0.8,"size":30},
-        {"text":"Antes de piloto: responsable, capacidad y condiciones seguras.","x":0.8,"y":5.65,"w":11.7,"h":0.7,"size":24,"color":"teal"}
+        {"text":"Qué mediríamos","x":0.8,"y":1.5,"w":11.7,"h":0.55,"size":24,"bold":true,"color":"teal"},
+        {"text":"Comprensión del siguiente paso · carga de corrección · ayuda confirmada por la estudiante.","x":0.8,"y":2.05,"w":11.7,"h":0.75,"size":20},
+        {"text":"Alcance y adopción","x":0.8,"y":2.9,"w":11.7,"h":0.55,"size":24,"bold":true,"color":"teal"},
+        {"text":"Chequeo universal en primer año; el mismo motor podría servir a otras asignaturas y a cuidadores (Ley 21.790).","x":0.8,"y":3.45,"w":11.7,"h":0.75,"size":20},
+        {"text":"Adopción: coordinación de carrera y progresión estudiantil, por confirmar.","x":0.8,"y":4.3,"w":11.7,"h":0.45,"size":20},
+        {"text":"Piloto propuesto: una carrera vespertina, cuatro semanas, en paralelo al proceso actual.","x":0.8,"y":4.8,"w":11.7,"h":0.75,"size":20},
+        {"text":"Hoy: sin piloto, sin resultados de retención, sin adopción confirmada.","x":0.8,"y":5.6,"w":11.7,"h":0.45,"size":20,"color":"amber"},
+        {"text":"La IA asiste; nunca sustituye el vínculo.","x":0.8,"y":6.15,"w":11.7,"h":0.45,"size":24,"bold":true}
       ],
-      "notes":"3:45–4:30. Cierre: no queremos una alerta que se quede en pantalla; queremos comprobar si entender una dificultad a tiempo y acompañar su siguiente paso ayuda. Hoy es propuesta: no hay piloto ni resultados de retención. Si para el evento hay MVP probado, separar pruebas funcionales de impacto. Necesitamos responsable institucional, capacidad, tratamiento seguro de datos, consentimiento y procedimiento. Una pausa o cambio informado puede ser un buen resultado: no retener a cualquier costo. No atribuir adopción. Terminar a los 4:30 deja 30 segundos de margen. Declarar modelos y herramientas realmente usados según las reglas. El respaldo no reemplaza el MVP ni los dos checkpoints."
+      "notes":"DECIR: queremos medir si el siguiente paso se entiende, cuánta corrección exige y si la estudiante confirma que recibió ayuda. No medimos mensajes enviados. El chequeo es para todo primer año; el piloto propuesto es una carrera vespertina, cuatro semanas, en paralelo al proceso actual. La IA asiste; nunca sustituye el vínculo.\nCUIDADO: hoy no hay piloto ni resultados de retención ni adopción confirmada. Extender a otras asignaturas o cuidadores es posibilidad a evaluar, no cobertura actual. Una pausa o cambio informado puede ser un buen resultado: no retener a cualquier costo. Terminar a los 4:30 deja margen."
     }
   ]
 }

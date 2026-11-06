@@ -68,9 +68,10 @@ mientras espera IA; no se usa una cola de Server Actions para ese trayecto.
 minutos. La barrera de permisos, copia autorizada y descarte IA tardío se mantiene;
 la comprobación/escritura síncrona solo se justifica dentro de ese proceso único.
 `plan/preparacion/` contiene plan corto de desarrollo, brief de pitch,
-presentación provisional editable/PDF, guion de respaldo y plantilla de
-transparencia. Son borradores: el deck identifica una maqueta y no acredita
-MVP, resultados de impacto ni checklist oficial validado.
+presentación provisional editable/PDF, guion de respaldo, hoja de preguntas
+difíciles del jurado y plantilla de transparencia. Son borradores revisados
+localmente el 6/11, sin nueva lectura de Claude: el deck identifica una maqueta y
+no acredita MVP, resultados de impacto ni checklist oficial validado.
 
 Hipótesis: ante un nuevo turno laboral, proyectar de forma condicional el efecto
 de las ausencias futuras sobre el mínimo exigido permite explorar apoyo antes
