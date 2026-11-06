@@ -13,6 +13,10 @@ __pycache__/
 .DS_Store
 node_modules/
 
+# Estado local de bóvedas Obsidian (también en subcarpetas)
+**/.obsidian/workspace*.json
+**/.obsidian/cache/
+
 # Material audiovisual no destinado a publicación
 *.mp4
 *.mov
