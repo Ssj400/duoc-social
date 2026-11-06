@@ -34,3 +34,6 @@ body {
   .anim-pop { animation-duration: 0.01s !important; animation-delay: 4s !important; }
   * { transition-duration: 0.01ms !important; }
 }
+
+/* Sin scroll horizontal en celulares: los brillos decorativos y filas anchas no deben estirar la página. */
+html, body { overflow-x: clip; }

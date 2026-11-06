@@ -17,11 +17,11 @@ export function Shell({ children }: { children: ReactNode }) {
   return (
     <div className={`max-w-6xl mx-auto min-h-screen ${tutor ? "" : "pb-24 lg:pb-8"}`}>
       <header className="bg-white/90 backdrop-blur border-b border-slate-100 shadow-sm lg:rounded-b-3xl">
-        <div className="flex items-center justify-between px-5 py-3">
-          <Link href="/" className="flex items-center gap-2">
+        <div className="flex items-center justify-between gap-3 px-4 sm:px-5 py-3">
+          <Link href="/" className="flex min-w-0 items-center gap-2">
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-violet-500 to-indigo-700 text-white font-extrabold shadow-md shadow-violet-300">E</span>
-            <span><span className="block text-lg font-extrabold leading-none tracking-tight text-slate-900">educadex</span>
-              <span className="block text-[11px] text-slate-500 mt-0.5 truncate max-w-[52vw] sm:max-w-none">Ingeniería en Informática · Desarrollo de Software · Duoc UC</span></span>
+            <span className="min-w-0"><span className="block text-lg font-extrabold leading-none tracking-tight text-slate-900">educadex</span>
+              <span className="hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate">Ingeniería en Informática · Desarrollo de Software · Duoc UC</span></span>
           </Link>
           <nav aria-label="Escritorio" className="hidden lg:flex items-center gap-1">
             {NAV_ESCRITORIO.map((n) => {
@@ -34,8 +34,8 @@ export function Shell({ children }: { children: ReactNode }) {
               );
             })}
           </nav>
-          <div className="flex items-center gap-3">
-            <span className="rounded-full bg-amber-100 text-amber-800 px-2.5 py-0.5 text-[11px] font-bold">DEMO</span>
+          <div className="flex shrink-0 items-center gap-3">
+            <span className="hidden sm:inline-flex rounded-full bg-amber-100 text-amber-800 px-2.5 py-0.5 text-[11px] font-bold">DEMO</span>
             <Link href="/" className="text-sm font-semibold text-violet-700 underline-offset-2 hover:underline whitespace-nowrap">Cambiar rol</Link>
           </div>
         </div>
