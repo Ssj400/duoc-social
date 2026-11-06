@@ -101,9 +101,8 @@ socioemocional es una opción voluntaria aparte, no se infiere de la alerta.
 
 [N2 · Cambio de jornada o sede](https://centroayuda.duoc.cl/hc/es-419/articles/30308211391629--C%C3%B3mo-realizar-una-solicitud-de-cambio-de-jornada-o-sede),
 actualizado 4/11/2026: inicio 28/12/2026; cierre de postulación 6/3/2027 y matrícula
-8/3/2027. La sesión principal accedió al artículo completo el 6/11/2026 y verificó
-esas fechas y condiciones. Claude no pudo acceder por Cloudflare. Esto no es
-confirmación mediante navegador interactivo autenticado ni de disponibilidad:
+8/3/2027. Lectura automatizada y confirmación humana reportada se distinguen en
+la tabla de la sección 7. No acreditan disponibilidad ni aprobación individual:
 reconfirmar operativamente con coordinación antes de usar el trámite real.
 
 **Suspensión no es vía principal:** art. 51.a exige haber cursado al menos un
@@ -221,26 +220,28 @@ margen para cinco minutos oficiales.
 
 ## 7. Pendientes que no se ocultan
 
-Actualización recibida por intermediario del usuario, mensaje
-`msg_779c791e6cff429a8a2c894228b95ba0`: el participante confirma que recibió
-solo las bases, no rúbrica detallada ni checklist aparte. Ajustar el plan a lo
+El participante confirma que recibió solo las bases, no rúbrica detallada ni
+checklist aparte. Ajustar el plan a lo
 que entregue la organización durante la apertura de 09:30 o cuando lo indique;
 no se garantiza esa hora de entrega ni se suponen requisitos adicionales.
 La preparación del antivirus fue resuelta por el participante; no se hicieron
 instalaciones desde esta sesión.
 
-Procedencia de Centro de Ayuda: sesión builder consultó mediante `webfetch` el
-6/11/2026 y leyó el contenido completo público de N2 y N3. El subagente de
-investigación también reportó acceso; Claude reportó bloqueo por Cloudflare y
-navegador headless no autorizado. Actualización posterior, mensaje
-`msg_a43376a92a50473fa71c5acf11c6c94a`: Claude reporta que el participante abrió
-ambas páginas en navegador normal y le pegó el texto el 6/11/2026, aproximadamente
-00:20 (-03). Es **confirmación humana reportada por el usuario vía Claude e
-intermediario**, consistente con las lecturas automatizadas; no observación
-directa del navegador por esta sesión ni verificación independiente del
-intermediario. Se cierra ese pendiente de consulta humana, sin convertirlo en
-garantía de disponibilidad, elegibilidad individual o aprobación institucional.
-No se intentó eludir permisos ni acceder a cuentas privadas.
+### Tabla de verificación de fuentes
+
+| Fuente | Fecha | Cómo se verificó y límite |
+| --- | --- | --- |
+| N1 Reglamento 07/2026 | 6/11/2026 | Página oficial y PDF leídos por builder; artículos relevantes contrastados por revisores. No prueba aplicación individual |
+| N2 Cambio de jornada | 6/11/2026 | Contenido público completo leído mediante `webfetch`; participante reportó además lectura en navegador normal ~00:20 (-03). No acredita cupos |
+| N3 Apoyo psicológico | 6/11/2026 | Contenido público completo leído mediante `webfetch`; participante reportó además lectura en navegador normal ~00:20 (-03). No acredita cita ni elegibilidad individual |
+| N4 Calendario presencial v8 | 6/11/2026 | Página y tablas del PDF leídas por builder y revisores; no trasladar fechas a Online ni inferir denominador de asistencia |
+| N5 Bienvenida/Punto Estudiantil | 6/11/2026 | Página oficial leída por builder; orientación general, no protocolo especializado para menores |
+
+La confirmación humana es un reporte del participante recibido por la cadena
+de revisión externa, no observación directa de su navegador por builder ni
+verificación independiente de cada revisor. Se cierra ese pendiente de consulta,
+no los de disponibilidad, elegibilidad o aprobación. No hubo acceso a cuentas
+privadas ni elusión de permisos. Se conserva procedencia sin historiales de chat.
 
 La noticia de cuenta anual 2022 aportada como pista no se usa para acreditar
 vigencia 2026 de Promotores de Bienestar ni volumen actual de atenciones. Se
@@ -265,8 +266,7 @@ arreglo de horario, no una alternativa equivalente para evitar RI.
 
 ## 8. Registro de revisión
 
-Crítica externa #2 recibida por intermediario, mensaje
-`msg_b21ba7eedc7348b187175d00124051cb`. Se integran B1–B7 con las precisiones
+Se integran las observaciones B1–B7 de la crítica externa #2 con las precisiones
 anteriores. No se adopta como hecho que quien no responde tenga más riesgo,
 que cruce temporal del porcentaje sea RI ni que postergación dispense asistencia.
 La afirmación «no resuelve noviembre» se restringe al cambio de jornada del
@@ -284,14 +284,12 @@ dos generadores; PDF de una página, sin pérdida de Unicode ni desbordamiento;
 revisión visual y `git diff --check`. Son comprobaciones documentales y de
 supuestos, no pruebas de un motor implementado ni resultados de intervención.
 
-Correcciones y brief enviados para cierre a Claude mediante intermediario,
-mensaje `msg_727d68288bc14e86b6327cf103e6b076`. Pendiente su respuesta de cierre;
-no se atribuye aprobación externa todavía. No hay implementación de MVP.
+Se conserva la distinción entre cierre documental de observaciones, aprobación
+personal y validación institucional. No hay implementación de MVP.
 
 ## 9. Confirmación humana y propuestas C1–C4
 
-Se integra la actualización recibida en
-`msg_a43376a92a50473fa71c5acf11c6c94a`, con la procedencia de la sección 7.
+Se integra la actualización de fuentes, con la procedencia de la sección 7.
 Estas son medidas de diseño para revisión, **no un protocolo clínico o
 institucional aprobado ni funciones implementadas**.
 
@@ -350,7 +348,7 @@ ejecutar no se marcan aprobadas.
 
 ## 10. Cierre de crítica #3 y desfase de versiones
 
-Mensaje recibido `msg_eb33ed1ea9914ea8b3a5b1b822050175`: el crítico aún tomaba
+En la crítica #3 el revisor aún tomaba
 como referencia `635bb26` y texto transportado. C1–C4, privacidad de agenda y
 destino Vivo ya estaban en `151c78b`; no se eliminaron ni se reintrodujo una
 ausencia inexistente. R1 sí aportó una corrección útil: reemplazar el ejemplo
@@ -376,6 +374,29 @@ se conservan casos de igualdad y redondeo. Brief regenerado, una página,
 inspección visual, texto Unicode y márgenes correctos; enlaces locales,
 sintaxis y `git diff --check` sin errores. Ninguna de estas comprobaciones es
 una prueba funcional del MVP, que aún no existe.
+
+## 11. Revisión de archivos y coherencia del contexto (#4)
+
+La revisión externa de `151c78b` confirmó legibilidad del PDF y las medidas
+C1–C4. R1 ya estaba corregido en `dd95bd8`; F2 se corrige haciendo que hipótesis
+y recorrido principal de `AGENTS.md` describan la proyección de asistencia y
+el corpus normativo vigentes, no solo una nota añadida al flujo histórico.
+
+Se aclara que el editor único coordina sesiones de IA, no atribuye autoría
+individual ni altera permisos humanos acordados por el equipo. El brief incluye
+el flujo completo, evita detalles de coordinación y remite a la tabla de fuentes.
+La trazabilidad documental conserva decisiones y verificaciones, no IDs de chat.
+
+Pitch: usar «lo comparamos con formulario y las mismas reglas» solo si se
+ejecutó la comparación y se informa el resultado real. Si no hubo medición,
+decir «la comparación está pendiente» o «la evaluaremos»; nunca completar un
+marcador de resultado con una cifra estimada o presentar un plan como evidencia.
+
+Verificación de F2: revisor independiente leyó contexto, brief y reglas de
+contribución y no encontró bloqueos documentales. Brief recompilado y comprobado:
+una página, márgenes y Unicode correctos, flujo y cifras vigentes; enlaces locales,
+formato y sintaxis correctos, sin IDs de chat en documentos vigentes. R1 se
+mantiene corregido; no se ejecutaron pruebas de un MVP inexistente.
 
 Verificación de esta actualización: subagente leyó brief y secciones 7/9 sin
 encontrar bloqueos documentales; regeneración, comprobación y revisión visual

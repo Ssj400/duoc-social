@@ -2,7 +2,9 @@
 
 ## Edición y revisión
 
-- Solo la sesión principal designada como builder edita el repositorio.
+- Entre sesiones de IA, solo la sesión principal designada como builder edita
+  el repositorio. Esta coordinación no atribuye autoría individual del proyecto
+  ni cambia los permisos humanos que acuerden el participante y su equipo.
 - Los subagentes apoyan mediante análisis, investigación, revisión y ejecución
   de pruebas de solo lectura. No modifican archivos, generan artefactos dentro
   del repositorio, hacen commits ni ejecutan herramientas que reescriban archivos.

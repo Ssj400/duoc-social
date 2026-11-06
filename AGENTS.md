@@ -45,23 +45,34 @@ Ponderaciones oficiales:
 - La rúbrica detallada, el checklist y las aclaraciones oficiales pueden precisar
   estas bases. No se ha confirmado cuánto desarrollo previo permite el evento.
 
-## Propuesta provisional: Puente
+## Propuesta vigente para revisión: Puente v0.3
 
 Nombre de trabajo sin verificación de marca. **Todavía no es un producto
 implementado ni una solución validada o aprobada por las instituciones.**
 
-Hipótesis: un estudiante de primer año quiere continuar, pero un cambio de turno
-laboral genera una incompatibilidad próxima con sus clases. Detectar y explicar
-ese conflicto podría permitir iniciar una gestión de apoyo antes de acumular
-ausencias. Esto no constituye una predicción validada de abandono.
+La propuesta vigente está en `plan/revision_propuesta_v0.3.md` y el brief v0.3;
+v0.1 y v0.2 son antecedentes históricos, no el alcance actual de implementación.
+Pendiente de aprobación del participante y acuerdo con el equipo.
+
+Hipótesis: ante un nuevo turno laboral, proyectar de forma condicional el efecto
+de las ausencias futuras sobre el mínimo exigido permite explorar apoyo antes
+de que se materialice el incumplimiento. No es una predicción validada de
+abandono ni una declaración anticipada de RI.
 
 Recorrido propuesto:
 
-1. El estudiante comunica voluntariamente el cambio, mediante relato o formulario.
-2. La IA propone restricciones estructuradas; el estudiante las corrige y confirma.
-3. Reglas verificables contrastan horarios y condiciones de un catálogo curado.
-4. Se comparan opciones con fuentes y pendientes; se descartan incompatibles y
-   nunca se inventan cupos, beneficios o autorizaciones.
+1. Chequeo universal voluntario por canal institucional propuesto; demo simula
+   el enlace. No responder no genera etiqueta ni caso; hay alternativa humana.
+2. Con permiso previo para IA externa, el modelo propone restricciones; el
+   estudiante confirma horario, asistencia registrada, calendario y requisitos.
+3. Reglas deterministas proyectan asistencia condicional frente al art. 30:
+   porcentaje específico o 70%, teoría/práctica por separado, exclusiones y
+   supuestos visibles. El hito de estado de RI no acredita por sí solo la fecha
+   de cierre ni el denominador; si faltan datos, preguntar o abstenerse.
+4. La IA propone artículos de corpus oficial precargado (Res. 07/2026: arts. 30,
+   33–34, 47–48, 81–82), con cita y condiciones; un validador rechaza IDs ajenos.
+   Se distinguen consulta actual y próximo período, plazos cerrados y pendientes;
+   no se inventan cupos, beneficios ni autorizaciones.
 5. El estudiante autoriza qué resumen compartir y con quién. El tutor revisa,
    corrige y acuerda un siguiente paso con responsable y fecha.
 6. Se distingue gestión iniciada de ayuda efectivamente recibida, con seguimiento
@@ -77,13 +88,6 @@ WhatsApp, correo, decisiones administrativas automáticas, diagnósticos ni
 probabilidades individuales de deserción. Un selector de roles de demo no es
 autenticación ni autorización de producción.
 
-Actualización documental 6/11: `plan/revision_propuesta_v0.3.md` y el brief v0.3
-incorporan la segunda crítica externa: chequeo voluntario, proyección condicional
-de asistencia frente al art. 30, corpus normativo y hoja de ruta para Dirección
-de Carrera. Pendientes de aprobación del participante; no hay implementación.
-Las versiones v0.1 y v0.2 son históricas. La proyección no declara RI ni predice
-abandono; separa teoría/práctica y respeta porcentaje específico y excepciones.
-
 Se verificó el reglamento 2026 enlazado desde Duoc (art. 81–82) y el proceso
 publicado de cambio de jornada, que inicia el 28/12/2026 para 2027, no como
 solución inmediata en noviembre. También una vía oficial de apoyo psicológico
@@ -92,7 +96,7 @@ ordinario cerró 12/9; nota pendiente 9/11–21/12. Caso de demo simulado al 10/
 sin aprobación automática ni equivalencia entre postergar nota y dispensar
 asistencia. Para menores: orientación humana/sin IA externa; protocolo específico
 pendiente. Fuentes, roles reales y compromisos simulados se distinguen en v0.3.
-Tras crítica #3, el caso al inicio del 10/11 usa 33 sesiones teóricas sintéticas:
+El caso al inicio del 10/11 usa 33 sesiones teóricas sintéticas:
 25 previas, 22 asistidas y 8 futuras con choque total de turno; proyección
 22/33. Dos asistencias más superan el umbral supuesto del 70%, sin garantizar
 aprobación. El 5/12 es el hito oficial de estado de RI, no prueba del cierre del
@@ -150,10 +154,9 @@ el desafío; comprobar cuentas de IA y capacidad real de acompañamiento.
 Actualización reportada por el participante vía intermediario el 6/11: solo
 recibió las bases, sin rúbrica detallada ni checklist aparte; adaptar a las
 aclaraciones que entregue la organización. Antivirus resuelto por él.
-Centro de Ayuda fue leído por builder con acceso automatizado público el 6/11.
-Después Claude reportó que el participante confirmó ambas páginas en navegador
-normal el 6/11 ~00:20 (-03) y le pegó sus textos. Es verificación humana reportada
-por esa cadena, no observación directa del navegador por builder. No equivale a
-cupo, aprobación de trámite o protocolo institucional validado. Propuestas de
+Centro de Ayuda fue leído con acceso automatizado público el 6/11; el participante
+reportó además confirmación humana de ambas páginas en navegador el 6/11 ~00:20
+(-03). Tabla de procedencia en revisión v0.3; no equivale a cupo, aprobación de
+trámite ni protocolo institucional validado. Propuestas de
 acceso permanente a recursos de crisis, pausa de flujo automático y enlace a
 agenda sin transmisión de datos se documentan en v0.3; no están implementadas.

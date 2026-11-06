@@ -20,7 +20,7 @@ El modelo interpreta lenguaje cotidiano, propone artículos de un pequeño corpu
 
 ## Demo, control humano y operación
 
-90 segundos en cuatro momentos: entrada y relato (15); alerta y rutas citadas (30); autorización para compartir, corrección del tutor y consulta aceptada (30); seguimiento de prueba (15). Resultado: consulta lista, rol responsable y próximo paso acordado. El rol institucional es real y citado; persona, fecha comprometida, horario del caso y estados son ficticios y se rotulan. Consulta enviada no equivale a ayuda recibida. Permisos separados para IA externa y compartir; ningún acceso del tutor antes de autorizar.
+Flujo: chequeo → relato → alerta (art. 30) → hoja de ruta citada → autorización → tutor → seguimiento. Demo de 90 segundos: entrada (15); alerta y rutas (30); autorización, corrección y consulta aceptada (30); seguimiento de prueba (15). Resultado: consulta lista y próximo paso acordado. Rol institucional real y citado; persona, fecha comprometida, horario y estados ficticios rotulados. Enviado no equivale a ayuda recibida. Permisos separados para IA externa y compartir; ningún acceso del tutor antes de autorizar.
 
 ## Compromiso de ejecución
 
@@ -28,4 +28,4 @@ Tres vistas, un caso laboral y corpus breve; 135 minutos técnicos estimados. Ci
 
 **Ayuda y privacidad:** recursos de crisis siempre visibles en apoyo, sin depender de IA: Duoc +56 2 2515 7007 y «No estás solo/a» *4141 (24/7 según la fuente). «Necesito apoyo ahora» pausa el flujo automatizado y prioriza contacto humano; no diagnostica ni garantiza detectar crisis. La agenda externa se abre solo por decisión del estudiante, sin prellenado ni envío de datos desde Puente. Protocolo y acceso de menores por definir con la institución.
 
-**Fuentes:** reglamento Duoc 07/2026; calendario presencial v8; bienvenida; Centro de Ayuda 30308211391629 y 34877114417165. Consulta automatizada 6/11; confirmación humana del participante reportada vía Claude, 6/11 ~00:20 (-03). Solo se recibieron bases: adaptar a rúbrica/checklist cuando se entreguen. Citas, condiciones y procedencia en revision_propuesta_v0.3.md.
+**Fuentes consultadas el 6/11/2026:** reglamento Duoc 07/2026; calendario presencial v8; bienvenida; Centro de Ayuda (cambio de jornada y apoyo psicológico), confirmado además en navegador según reporte del participante. Citas, condiciones y tabla de verificación en revision_propuesta_v0.3.md.
