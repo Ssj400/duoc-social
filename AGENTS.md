@@ -27,7 +27,7 @@ Alerta temprana explicable, acompañamiento académico o socioemocional e integr
 - Solo datos sintéticos en demo; no inventar entrevistas, resultados, validación ni adopción. La tecnología asiste, no sustituye criterio ni vínculo humano.
 - Minimizar datos, separar permiso de IA externa y de compartir; validar en servidor, permitir retiro y descartar respuestas tardías. No leer, modificar, versionar ni transmitir `.env.local` o claves.
 ## IA prevista para la app (no implementada)
-- Principal: Groq `openai/gpt-oss-120b`, base `https://api.groq.com/openai/v1`; respaldo: Gemini `gemini-3.5-flash-lite`, base `https://generativelanguage.googleapis.com/v1beta/openai`.
+- Proveedor: Claude (Anthropic), clave entregada por la organización en `web/.env.local` (`ANTHROPIC_API_KEY`). Qué hace la IA, prompts, esquemas y respaldos: `ia.md`. Groq/Gemini quedan solo como alternativa probada el 6/11.
 - Configurar solo por `LLM_BASE_URL`, `LLM_MODEL`, `LLM_API_KEY` en servidor. User-Agent explícito, timeout ~10 s, JSON y esquema validados; la IA propone, las reglas validan y una persona confirma.
 - Pruebas/proveedores reportados por Claude, no verificados aquí. No afirmar políticas de datos sin comprobarlas; no usar alias `-latest` ni reintentos ocultos.
 ## Trabajo y ahorro de recursos
