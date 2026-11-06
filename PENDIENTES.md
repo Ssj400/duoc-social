@@ -20,6 +20,31 @@ ni revisados por Claude por separado. No hay MVP implementado.**
   aparecen en pantalla. Ajustar hitos, responsables y recortes; no llamar al plan
   «acordado conjuntamente» antes de contrastarlo y revisarlo con el equipo.
 
+### Revisión C recibida después de la pausa
+
+Claude leyó únicamente `plan/preparacion/plan_desarrollo.md` de `b413c74`, no
+su PDF ni otras piezas. Veredicto: buena estructura, todavía no consolidable
+en esa versión. Parte del recorte ya está en `17b8be6`; no atribuirle revisión
+o aprobación de esa versión posterior. Queda contrastar e integrar:
+
+- C1–C4: comprobar que memoria/P0, API temprana, responsables 10:45–11:45 y
+  construcción asistida declarada quedaron explícitos, sin garantizar tiempos.
+- C5: vincular hitos 12:05, 12:30, 12:45/13:40, 14:05, 14:30 y 14:45 con pruebas
+  concretas: navegación/ayuda, reglas, extracción con preguntas, permisos, copia
+  mínima, edición que no altera copia, acuerdo/gestión/ayuda y arranque congelado.
+- C6: si se difiere el test automatizado de retiro durante IA, **mantener la
+  barrera y comprobarla manualmente**. No aceptar resultados tardíos ni trasladar
+  garantías de un proceso a multiinstancia. Conservar la extracción; si falta
+  tiempo, acotar la segunda llamada a redactar sobre opciones filtradas.
+- C7: incorporar la escalera de respaldo completa, sin saltar directamente a
+  maqueta ni presentar modo manual como IA funcionando.
+- C8: preguntar en apertura si se permite crear proyecto vacío/dependencias
+  durante Diseño. Si no, contar la instalación dentro del bloque técnico.
+
+Las estimaciones de viabilidad con o sin asistente son propuestas del revisor,
+no garantías. No compartir credenciales por mensajería. Esta revisión queda
+registrada para retomar; no reanuda implementación ni cierra C.
+
 ## 2. Prioridades del aporte conjunto
 
 1. Cerrar guion: relato coloquial, preguntas sobre datos faltantes, confirmación,
