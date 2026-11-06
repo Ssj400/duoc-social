@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { malla } from "@/lib/contenido";
+import { BotonReiniciar } from "./boton-reiniciar";
 
 export default function Inicio() {
   return (
@@ -10,7 +11,7 @@ export default function Inicio() {
         <Link href="/estudiante" className="rounded-lg bg-teal-700 text-white px-6 py-3">Entrar como estudiante</Link>
         <Link href="/tutor" className="rounded-lg border border-teal-700 text-teal-800 px-6 py-3">Entrar como tutor</Link>
       </div>
-      {/* TODO: botón «Reiniciar demo» (POST /api/demo/reiniciar) */}
+      <BotonReiniciar />
     </div>
   );
 }

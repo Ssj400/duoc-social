@@ -1,5 +1,69 @@
 {
-  "_nota": "Contenido FICTICIO de demo. Completar: 1 plantilla por escena (ramos de 2º-3º semestre de malla.json) y 2 escenas ya aprobadas. Ver diseno.md §8.",
-  "plantillas": [],
-  "escenas": []
+  "_nota": "Contenido FICTICIO de demo. Las experiencias, escenas y el rol del autor son inventados, no pertenecen a UC ni a Duoc y no contienen notas, porcentajes, nombres ni reglas oficiales. Ver diseno.md §8.",
+  "plantillas": [
+    {
+      "id": "plantilla:1",
+      "ramoId": "malla:DSY1103",
+      "momento": "3er sem · S6",
+      "tipo": "equipo",
+      "situacion": "Proyecto en grupo con fecha de entrega; hay que aprender una herramienta nueva casi solo, leyendo documentación.",
+      "sorprende": "Que no te enseñan todo en clase; buscas y pruebas por tu cuenta.",
+      "leVaBien": "Pregunta temprano y se organiza con el grupo.",
+      "rolAutor": "Tutor ficticio (demo)"
+    },
+    {
+      "id": "plantilla:2",
+      "ramoId": "malla:BDY1102",
+      "momento": "3er sem · S5",
+      "tipo": "laboratorio",
+      "situacion": "En el laboratorio te piden modelar los datos de un sistema a partir de una descripción incompleta.",
+      "sorprende": "Que no hay un único modelo correcto; hay que decidir y justificar lo que se modela.",
+      "leVaBien": "Pregunta qué falta, anota sus supuestos y los comparte con el grupo.",
+      "rolAutor": "Tutor ficticio (demo)"
+    },
+    {
+      "id": "plantilla:3",
+      "ramoId": "malla:RQY1102",
+      "momento": "3er sem · S4",
+      "tipo": "practica",
+      "situacion": "Debes levantar requisitos conversando con un cliente que todavía no tiene claro lo que necesita.",
+      "sorprende": "Que gran parte del trabajo es conversar y ordenar ideas, no escribir código.",
+      "leVaBien": "Prepara preguntas, escucha y confirma por escrito lo que entendió.",
+      "rolAutor": "Tutor ficticio (demo)"
+    }
+  ],
+  "escenas": [
+    {
+      "id": "esc-1",
+      "plantillaId": "plantilla:2",
+      "ramoId": "malla:BDY1102",
+      "momento": "3er sem · S5",
+      "tipo": "laboratorio",
+      "titulo": "3er semestre · Semana 5 · Base de Datos Aplicada II",
+      "narracion": "En el laboratorio te entregan una descripción incompleta de un sistema y te piden modelar sus datos. El tiempo avanza y tu grupo no coincide en cómo hacerlo. ¿Qué haces?",
+      "opciones": [
+        { "id": "o1", "texto": "Pregunto qué falta y anoto mis supuestos", "loQueSuelePasar": "Pierdes algo de tiempo al inicio, pero el modelo queda más fácil de explicar y de defender." },
+        { "id": "o2", "texto": "Armo un modelo propio y lo explico al grupo", "loQueSuelePasar": "Avanzas rápido, aunque el grupo puede proponer otras decisiones que conviene conversar." },
+        { "id": "o3", "texto": "Espero a ver cómo lo resuelve otro grupo", "loQueSuelePasar": "Ves otra mirada, pero te toca explicar un modelo que no tomaste tú.", "siguiente": "esc-2" }
+      ],
+      "citas": ["malla:BDY1102", "plantilla:2"],
+      "estado": "aprobada"
+    },
+    {
+      "id": "esc-2",
+      "plantillaId": "plantilla:3",
+      "ramoId": "malla:RQY1102",
+      "momento": "3er sem · S4",
+      "tipo": "practica",
+      "titulo": "3er semestre · Semana 4 · Ingeniería de Software",
+      "narracion": "Te toca conversar con un cliente que todavía no sabe bien lo que necesita para su sistema. Hay que salir de la reunión con requisitos claros. ¿Qué haces?",
+      "opciones": [
+        { "id": "o1", "texto": "Preparo preguntas y las voy haciendo una a una", "loQueSuelePasar": "La conversación se ordena y el cliente va precisando sus ideas." },
+        { "id": "o2", "texto": "Dejo que el cliente hable libremente y tomo notas", "loQueSuelePasar": "Aparecen ideas nuevas, aunque después hay que ordenarlas y confirmar qué se entendió." },
+        { "id": "o3", "texto": "Escribo un borrador y se lo muestro para corregirlo", "loQueSuelePasar": "El cliente reacciona a algo concreto, pero el borrador puede quedar lejos de lo que quería." }
+      ],
+      "citas": ["malla:RQY1102", "plantilla:3"],
+      "estado": "aprobada"
+    }
+  ]
 }
