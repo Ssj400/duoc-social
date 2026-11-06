@@ -7,6 +7,10 @@ y pruebas: [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Documento de trabajo
 
+- [Plan técnico: paneles, arquitectura y contratos (PDF)](plan/Plan_tecnico_Puente.pdf),
+  [fuente editable](plan/tecnico/plan_tecnico.md) y
+  [diagramas para abrir en navegador](plan/tecnico/diagramas.html).
+  Documento separado, en revisión externa; no representa una aplicación construida.
 - [Plan explicado: qué queremos hacer y cómo (PDF)](plan/Puente_plan_explicado.pdf)
   y [texto editable](plan/plan_explicado.md). Versión de lectura para participante
   y equipo, con historia, recorrido, alcance, tareas y demo. Redacción revisada
@@ -42,6 +46,7 @@ python -m venv .venv
 .venv/bin/python plan/compilar_pdf.py
 .venv/bin/python plan/compilar_brief.py
 .venv/bin/python plan/compilar_plan_explicado.py
+.venv/bin/python plan/compilar_plan_tecnico.py
 ```
 
 El generador del brief produce v0.3 por defecto; `--version v0.2` permite

@@ -56,6 +56,10 @@ Pendiente de aprobación del participante y acuerdo con el equipo.
 `plan/plan_explicado.md` y `plan/Puente_plan_explicado.pdf` presentan esa misma
 propuesta en lenguaje cercano, con caso, recorrido, alcance y ejecución para
 lectura del participante/equipo. Su revisión de claridad no amplía funcionalidades.
+`plan/tecnico/plan_tecnico.md`, `plan/Plan_tecnico_Puente.pdf` y
+`plan/tecnico/diagramas.html` detallan paneles, servidor, dos llamadas de IA,
+datos, permisos, API, pruebas y despliegue propuestos. Son documentación
+separada para revisión, no implementación ni endpoints operativos.
 
 Hipótesis: ante un nuevo turno laboral, proyectar de forma condicional el efecto
 de las ausencias futuras sobre el mínimo exigido permite explorar apoyo antes
