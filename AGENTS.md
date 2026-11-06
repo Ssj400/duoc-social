@@ -92,6 +92,11 @@ ordinario cerró 12/9; nota pendiente 9/11–21/12. Caso de demo simulado al 10/
 sin aprobación automática ni equivalencia entre postergar nota y dispensar
 asistencia. Para menores: orientación humana/sin IA externa; protocolo específico
 pendiente. Fuentes, roles reales y compromisos simulados se distinguen en v0.3.
+Tras crítica #3, el caso al inicio del 10/11 usa 33 sesiones teóricas sintéticas:
+25 previas, 22 asistidas y 8 futuras con choque total de turno; proyección
+22/33. Dos asistencias más superan el umbral supuesto del 70%, sin garantizar
+aprobación. El 5/12 es el hito oficial de estado de RI, no prueba del cierre del
+denominador; confirmar actividades posteriores/exámenes para todo caso real.
 El catálogo operativo, cupos y responsables individuales **siguen sin verificarse**.
 Si se usan fichas ficticias, deben identificarse claramente como demo, sin
 atribuirlas a UC o Duoc. El aporte del LLM debe compararse con formulario y

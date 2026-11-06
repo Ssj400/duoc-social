@@ -8,7 +8,7 @@ Proponemos un chequeo voluntario de 30 segundos a todo primer año por el canal 
 
 ## Una alerta que se puede comprobar
 
-El estudiante confirma calendario, asistencia registrada, cambio de horario y criterio aplicable. Caso sintético: 20 sesiones teóricas iguales; asistió a 7 de las 8 realizadas (87,5%). Quedan 12 y prevé faltar a 7 por el nuevo turno: si asiste a las otras 5, terminaría con 12/20 (60%). El art. 30 exige 70% cuando el programa no fija otro porcentaje: faltan 2 asistencias para ese mínimo. Es un escenario revisable, no una RI declarada ni predicción de abandono. Teoría y práctica se calculan por separado; un atraso no se convierte automáticamente en ausencia.
+Caso sintético al inicio del 10/11: 33 sesiones teóricas iguales, martes/jueves hasta el 3/12, sin el 17/9 por media jornada. Asistió a 22 de 25 (88%); quedan 8 y el turno hasta 21:30 impide asistir a todas. Si las pierde, quedaría en 22/33 (66,7%); con 2 asistencias más alcanzaría 24/33, sobre el 70% usado según art. 30. El 5/12 es el hito oficial de estado de RI, no prueba del cierre del cómputo. Confirmar unidad, sesiones computables y porcentaje propio. No declara RI ni predice abandono. Teoría/práctica se separan; un atraso no implica ausencia automática.
 
 ## IA que conecta el relato con opciones respaldadas
 
@@ -16,7 +16,7 @@ El modelo interpreta lenguaje cotidiano, propone artículos de un pequeño corpu
 
 ## Una hoja de ruta, dos horizontes
 
-**Caso presencial simulado al 10/11/2026:** consultar a Dirección de Carrera justificación de evaluaciones (arts. 33–34), retiro (47) o postergación de nota (48). Retiro ordinario cerró el 12/9: solo cabe consultar excepción; nota pendiente abre del 9/11 al 21/12, sin asegurar aprobación ni dispensar asistencia. El retiro puede retrasar la trayectoria. **Próximo período:** cambio de jornada (81–82), sujeto a oferta, cupos y aprobación; proceso publicado desde el 28/12/2026. **Apoyo opcional:** programa psicológico para estudiantes regulares mayores de 18 años, vía App Vivo, sin diagnóstico ni hora garantizada. Punto Estudiantil ofrece orientación humana; para menores debe confirmar el procedimiento, no prometer acceso al programa adulto.
+**Ahora, caso presencial simulado al 10/11:** explorar con tutor si son posibles ajustes puntuales de turno; no depende solo del estudiante. Consultar a Dirección de Carrera justificación de evaluaciones (arts. 33–34), retiro (47) o postergación de nota (48). Retiro ordinario cerró 12/9: solo consultar excepción; nota pendiente 9/11–21/12, sin asegurar aprobación ni dispensar asistencia. Retirar puede atrasar la trayectoria. **Próximo período:** cambio de jornada (81–82), sujeto a oferta, cupos y aprobación; proceso desde 28/12/2026. **Apoyo opcional:** programa psicológico para regulares mayores de 18, App Vivo, sin diagnóstico ni cita garantizada. Punto Estudiantil orienta; para menores debe confirmar el procedimiento, no prometer el programa adulto.
 
 ## Demo, control humano y operación
 

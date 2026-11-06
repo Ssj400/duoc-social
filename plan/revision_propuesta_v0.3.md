@@ -41,12 +41,30 @@ desconocidos, mostrar escenarios condicionales o pedir aclaración, no un result
 institucional definitivo. No aplicar regla ordinaria a práctica profesional,
 internado u otras actividades excluidas por art. 30.
 
-Ejemplo: total 20 sesiones teóricas iguales; realizadas 8, asistidas 7; restantes
-12, de las cuales 7 serían ausencias bajo el supuesto confirmado del caso; 5
-serían atendibles. Actual 7/8 = 87,5%; final condicional (7+5)/20 = 60%; mínimo
-70% = 14 asistencias. Faltan 2 respecto del escenario. Hay que recuperar viabilidad
-de asistencia o consultar alternativas; la IA no cambia registros ni autoriza
-recuperaciones. Ninguna hipótesis futura se escribe como ausencia ya registrada.
+Ejemplo corregido tras crítica #3: caso presencial **al inicio del 10/11/2026**,
+antes de la clase de ese martes. Asignatura teórica sintética, sesiones iguales
+martes/jueves 18:30–21:00, desde 11/8 hasta 3/12; no hay sesión la tarde del
+17/9 por la media jornada del calendario. El fixture declara estas 33 sesiones
+como su conjunto completo de actividades teóricas computables. No es horario
+real ni norma general sobre qué actividades cuentan o cuándo termina el registro.
+
+25 sesiones previas, 22 asistidas: 22/25 = 88%. Restan 8: 10, 12, 17, 19, 24 y
+26 de noviembre; 1 y 3 de diciembre. Nuevo turno hasta 21:30 en ambos días:
+conflicto total con todas, no depende de cómo se registra un atraso. Si no asiste
+a ninguna, 22/33 = 66,67% aproximadamente. Mínimo de sesiones bajo el supuesto
+de igual peso y 70%: 24 (23/33 = 69,70%, 24/33 = 72,73%). Dos asistencias más
+permitirían alcanzar ese mínimo del escenario, **no garantizan aprobación ni
+evitan toda RI bajo un registro real diferente**. La IA no cambia registros,
+autoriza recuperaciones ni convierte hipótesis futuras en ausencias registradas.
+
+El calendario oficial N4 fija «Estado de reprobación por Inasistencia» el
+5/12/2026. Es un hito real que se muestra como referencia para consultar antes;
+**no prueba que ese día cierre el denominador de todas las asignaturas**.
+El caso usa 33 sesiones como supuesto explícito, no como interpretación
+normativa del hito. Confirmar con coordinación unidad, calendario completo,
+actividades evaluativas/posteriores, corte y excepciones antes de calcular un
+caso real. Si algo de eso cambia, recalcular o abstenerse; no recortar el
+denominador silenciosamente para obtener un incumplimiento.
 
 Teoría y práctica no se promedian entre sí. La demo no certifica prácticas no
 modeladas. No confundir el primer día en que un porcentaje corriente baja de
@@ -56,9 +74,10 @@ se compara el máximo final alcanzable con el mínimo, no solo porcentaje actual
 No redondear antes de comparar: usar razón exacta y presentar decimales como
 información; criterio oficial de redondeo pendiente de verificación.
 
-Mensaje: «Si se mantienen estas ausencias y asistes a las otras cinco sesiones,
-terminarías con 60% de asistencia teórica, por debajo del mínimo de 70% usado en
-este caso. Revisemos los datos y qué opciones puedes consultar con tu tutor».
+Mensaje: «En este escenario, si no puedes asistir a las ocho sesiones que
+quedan, terminarías con 66,7% de asistencia teórica, bajo el mínimo de 70% usado
+en el caso. Dos asistencias adicionales permitirían alcanzar ese mínimo si se
+confirman estos supuestos. Revisemos los datos y opciones con coordinación».
 No «vas a reprobar» ni «vas a abandonar».
 
 ## 2. Hoja de ruta en dos horizontes (B2)
@@ -101,6 +120,8 @@ Subagente y sesión principal leyeron pp. 1–2, filas «Reglamentarios»:
 - Segundo semestre presencial: retiro 10/8–12/9/2026 (cerrado al 6/11).
 - Nota pendiente: 9/11–21/12/2026 (aún no abre al 6/11).
 - Suspensión ordinaria: 24/7–24/8/2026 (cerrado al 6/11).
+- Estado de reprobación por Inasistencia: 5/12/2026 (hito publicado, no regla
+  suficiente para determinar el denominador individual de asistencia).
 
 Fijar la demo **presencial, fecha de caso simulada 10/11/2026**, no «hoy» ni una
 semana genérica que esconda plazos. Nota pendiente queda dentro de ventana,
@@ -232,6 +253,16 @@ capacidad, canal socioemocional para menores, aceptación de esta interpretació
 de alerta por organización. Son condiciones de uso real, no licencias para
 completar datos por IA. Consulta normativa no equivale a asesoría institucional.
 
+Opciones de la persona: explorar si desea y puede negociar cambios puntuales de
+turno que permitan asistir. No se presenta como algo que depende solo de ella
+ni se la responsabiliza si el empleador no lo permite. Dos asistencias más solo
+resuelven el déficit bajo los supuestos del fixture. Si requiere respaldo,
+consultar qué documentación puede emitir su sede, sin inventar certificados.
+Art. 48 puede permitir consultar una postergación de calificación ante una
+imposibilidad justificada y acreditada de completar evaluaciones; no asegura
+esa causal en un caso concreto ni exime asistencia. Es una vía distinta del
+arreglo de horario, no una alternativa equivalente para evitar RI.
+
 ## 8. Registro de revisión
 
 Crítica externa #2 recibida por intermediario, mensaje
@@ -316,6 +347,35 @@ Agregar a pruebas previstas: recursos visibles sin LLM, selección de apoyo
 inmediato pausa flujo automático, ausencia de transferencia de datos al enlace,
 y diferencia entre franja publicada y hora disponible. Hasta implementar y
 ejecutar no se marcan aprobadas.
+
+## 10. Cierre de crítica #3 y desfase de versiones
+
+Mensaje recibido `msg_eb33ed1ea9914ea8b3a5b1b822050175`: el crítico aún tomaba
+como referencia `635bb26` y texto transportado. C1–C4, privacidad de agenda y
+destino Vivo ya estaban en `151c78b`; no se eliminaron ni se reintrodujo una
+ausencia inexistente. R1 sí aportó una corrección útil: reemplazar el ejemplo
+de 8/20 al 10/11 por calendario explícito 33/25/8. Su aritmética y fechas fueron
+recalculadas por esta sesión. Se acepta el 5/12 como hito y se mantiene el
+denominador como supuesto, no como cierre oficial acreditado. R2 está cubierto
+por sección 9 y por el brief, sin fingir protocolo clínico ni detector infalible.
+
+El crítico indicó que B1–B6 estaban cerrados y que, corregidos R1/R2, la propuesta
+queda lista para revisión personal, no validación institucional. B7 no pudo
+revisarlo en archivos. Esta sesión no afirma que haya aprobado los archivos
+actuales; se le notificará el commit exacto para evitar otra revisión desfasada.
+
+Revisión de subagente sobre la corrección: confirma 33/25/8 y advierte que el
+período académico llega al 22/12, con exámenes 7–22/12. Esas actividades no se
+omiten de un cálculo real sin validación de unidad y denominador. Las cifras de
+20/8/12 y sus verificaciones anteriores son historia de revisión, sustituidas
+en el brief y en el ejemplo vigente por 33/25/8.
+
+Verificación del cierre: enumeración de fechas con `datetime` confirma 33/25/8;
+razones exactas confirman 22/25 = 88%, 22/33 y 23/33 bajo 70%, 24/33 sobre él;
+se conservan casos de igualdad y redondeo. Brief regenerado, una página,
+inspección visual, texto Unicode y márgenes correctos; enlaces locales,
+sintaxis y `git diff --check` sin errores. Ninguna de estas comprobaciones es
+una prueba funcional del MVP, que aún no existe.
 
 Verificación de esta actualización: subagente leyó brief y secciones 7/9 sin
 encontrar bloqueos documentales; regeneración, comprobación y revisión visual
