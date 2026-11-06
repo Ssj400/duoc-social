@@ -60,6 +60,10 @@ lectura del participante/equipo. Su revisión de claridad no amplía funcionalid
 `plan/tecnico/diagramas.html` detallan paneles, servidor, dos llamadas de IA,
 datos, permisos, API, pruebas y despliegue propuestos. Son documentación
 separada para revisión, no implementación ni endpoints operativos.
+`plan/preparacion/` contiene plan corto de desarrollo, brief de pitch,
+presentación provisional editable/PDF, guion de respaldo y plantilla de
+transparencia. Son borradores: el deck identifica una maqueta y no acredita
+MVP, resultados de impacto ni checklist oficial validado.
 
 Hipótesis: ante un nuevo turno laboral, proyectar de forma condicional el efecto
 de las ausencias futuras sobre el mínimo exigido permite explorar apoyo antes
