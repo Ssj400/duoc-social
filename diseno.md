@@ -165,3 +165,84 @@ Un archivo para la carrera elegida; 2–3 escenarios de ramos de 2º–3º semes
 - Rótulo de simulación: «Es la experiencia de una persona, no de toda la carrera».
 - Tutor: «Esto lo declaró el estudiante. No es un diagnóstico».
 - Fallback: «La IA no respondió a tiempo. Puedes seguir con el escenario escrito por el tutor».
+
+## 8. Diagramas
+
+### 8.1 Componentes
+
+```mermaid
+flowchart LR
+  subgraph NAV["Navegador"]
+    E["Estudiante<br/>Simulación · Reflexión · Compartir"]
+    T["Tutor<br/>Casos · Paso acordado · Seguimiento"]
+  end
+  subgraph SRV["Servidor Next.js (un proceso)"]
+    S["/api/simulacion"]
+    B["/api/brechas"]
+    C["/api/casos"]
+    R["buscar(consulta, k)<br/>RAG · otro integrante"]
+    J[("JSON precargado<br/>malla + experiencias")]
+    A["Adaptador LLM<br/>timeout 10 s"]
+    V{"Validador<br/>¿citas ⊂ fragmentos?"}
+    F["Fallback<br/>escenario del tutor / formulario"]
+    M[("Casos en memoria<br/>con autorización")]
+  end
+  P["Groq gpt-oss-120b<br/>respaldo Gemini flash-lite"]
+  E --> S
+  E --> B
+  E --> C
+  T --> C
+  S --> R --> J
+  S --> A
+  B --> A
+  A <--> P
+  A --> V
+  V -- "válido" --> E
+  V -- "inválido o timeout" --> F --> E
+  C --> M
+```
+
+### 8.2 Recorrido de la demo
+
+```mermaid
+sequenceDiagram
+  actor Est as Estudiante
+  participant App as Servidor
+  participant RAG as buscar()
+  participant IA as LLM
+  actor Tut as Tutor
+  Est->>App: Responde en la simulación
+  App->>RAG: Consulta
+  RAG-->>App: Fragmentos (malla, tutor)
+  App->>IA: Escenario + fragmentos
+  IA-->>App: JSON {texto, citas}
+  App->>App: Validar citas
+  App-->>Est: Escenario con fuentes
+  Est->>App: Reflexión en texto libre
+  App->>IA: Extraer brechas
+  IA-->>App: Brechas propuestas
+  App-->>Est: Brechas para confirmar o editar
+  Est->>App: Confirma brechas y elige su motivo
+  Est->>App: Comparte (elige qué incluir)
+  Tut->>App: Ver casos compartidos
+  App-->>Tut: Solo casos con autorización activa
+  Tut->>App: Paso acordado (responsable, fecha)
+  Est->>App: Puede pausar o retirar en cualquier momento
+```
+
+### 8.3 Estados del caso
+
+```mermaid
+stateDiagram-v2
+  [*] --> SoloEstudiante: No comparte
+  [*] --> Nuevo: Comparte
+  Nuevo --> GestionIniciada: Tutor registra paso acordado
+  GestionIniciada --> AyudaRecibida: La ayuda se concreta
+  Nuevo --> NoAceptado: Estudiante no acepta
+  GestionIniciada --> NoAceptado: Estudiante no acepta
+  note right of Nuevo
+    En cualquier estado el estudiante puede
+    pausar o retirar la autorización:
+    el caso deja de verse para el tutor.
+  end note
+```
