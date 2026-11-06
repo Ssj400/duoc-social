@@ -23,7 +23,7 @@ educadex es una simulación de la carrera: escenas de la malla oficial contadas 
 ¿Por qué IA? Ningún tutor tiene tiempo de escribir escenas de juego con opciones y consecuencias. Con IA, 4 líneas se vuelven una escena en segundos, anclada a la malla oficial, y el tutor la aprueba. Un validador rechaza ramos o citas inventadas, y si la IA falla, la app sigue funcionando.
 
 *7 · Ética (2:30–3:05)*
-Hay 4 decisiones humanas: el tutor aprueba, el estudiante confirma, decide si comparte y el tutor acuerda el paso. No hay puntajes ni porcentajes de afinidad. El motivo lo elige el estudiante; la IA ni siquiera recibe su nombre, género, sede o jornada. Probamos el mismo caso firmado por Camila y por Matías: resultados equivalentes, en una muestra pequeña. Todo son datos ficticios.
+Hay 4 decisiones humanas: el tutor aprueba, el estudiante confirma, decide si comparte y el tutor acuerda el paso. No hay puntajes ni porcentajes de afinidad. El motivo lo elige el estudiante; la IA ni siquiera recibe su nombre, género, sede o jornada. Probamos el mismo caso cambiando solo el género y los resultados fueron equivalentes, en una muestra pequeña.
 
 *8 · Impacto y cierre (3:05–3:35)*
 Operar esto es simple: cada tutor escribe 4 líneas por ramo y aprueba. Funciona con cualquier carrera que tenga su malla pública. Proponemos un piloto en una carrera, semanas 2 a 6 del primer semestre, midiendo simulaciones, conversaciones con tutores y decisiones informadas, incluida la de cambiarse.
