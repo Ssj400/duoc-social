@@ -38,3 +38,5 @@ Alerta temprana explicable, acompañamiento académico o socioemocional e integr
 ## Recursos
 - Bases en `material_preparacion/`; evidencia y límites en `antecedentes.md`; reglas en `CONTRIBUTING.md`.
 - [Drive de la organización](https://drive.google.com/drive/folders/1ct76gYr3SsiRXQq7io_TXeZph4tDHzQO): bases, plantilla Lean Canvas y artículo Miranda/Vázquez. Preguntar si Lean Canvas es obligatorio.
+
+- **Sin porcentajes de afinidad ni puntajes.** Las recomendaciones son solo para explorar, se basan únicamente en lo que el estudiante marcó y explican por qué (ver `ia.md`, llamada 3).

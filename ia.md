@@ -201,3 +201,66 @@ Si cualquier regla falla, **se descarta la respuesta completa** y se usa el resp
 «Claude (Anthropic), con cuenta entregada por la organización; solo datos ficticios.
 La IA redacta escenas a partir de la experiencia de un tutor y propone brechas a partir
 de las reacciones del estudiante; tutor y estudiante revisan y deciden.»
+
+## Llamada 3 · Onboarding → recomendados para explorar (acordado 6/11 ~12:15)
+
+Reemplaza la idea de un «porcentaje de afinidad». **No existe ningún puntaje,
+porcentaje, ranking ni etiqueta de afinidad en la app.**
+
+**Onboarding (solo clicks, antes del juego):**
+1. ¿Qué te imaginas haciendo? — crear apps o páginas · resolver problemas lógicos ·
+   trabajar con datos · conversar con clientes o personas · trabajar en equipo ·
+   aún no lo sé.
+2. ¿Qué te entusiasma? (mismas etiquetas).
+3. ¿Qué te preocupa? — matemáticas · programar desde cero · trabajos en grupo ·
+   la carga de tiempo · prefiero no decir.
+
+Las respuestas son del estudiante, no se comparten con el tutor salvo que lo elija.
+
+**Qué se recomienda:** solo cosas para **explorar**, tomadas de un catálogo precargado:
+escenas para jugar, ramos para mirar en la malla, personas con quién conversar
+(estudiante de 3er año, tutor, orientación vocacional) y recursos. Otras carreras
+solo si su contenido existe en el catálogo (hoy no: fuera del MVP).
+
+**Entrada:** etiquetas elegidas en el onboarding + reacciones del juego + catálogo.
+**Salida (JSON):** 2–3 ítems `{ itemId, porQue, basadoEn: [etiquetas] }`.
+
+**Reglas contra la estigmatización (obligatorias):**
+- Base única: lo que el estudiante marcó o reaccionó. **Nunca** nombre, género, edad,
+  origen, colegio, ingresos, familia ni motivo (gusto/presión).
+- Lenguaje de invitación: «Podrías explorar…», «Te puede servir…». Prohibido: «eres»,
+  «ideal para ti», «no es para ti», «mejor opción», «deberías», porcentajes, notas o
+  comparaciones con otros estudiantes.
+- Cada recomendado dice **por qué**, citando la respuesta del propio estudiante
+  («Porque marcaste que te entusiasma crear apps»).
+- Siempre se ofrece también «Conversarlo con tu tutor» y «Seguir explorando». Nunca se
+  recomienda abandonar ni quedarse.
+- El estudiante puede ocultar cualquier recomendado. No se guardan ni se comparten por
+  defecto.
+
+**Validación:** `itemId` existe en el catálogo; `basadoEn` ⊂ etiquetas que marcó el
+estudiante; mismas frases prohibidas que arriba más «eres», «ideal», «mejor opción»,
+«deberías», «%». Si falla → respaldo.
+
+**Respaldo:** regla fija etiqueta → ítems del catálogo, con el texto «Porque marcaste…».
+
+**Prueba de sesgo:** mismas respuestas con nombres distintos (p. ej. «Camila» /
+«Matías») → mismos recomendados. Como la llamada no recibe el nombre, sirve además para
+demostrar al jurado que el dato no entra.
+
+**Prompt de sistema:**
+
+```
+Sugieres 2 o 3 cosas para EXPLORAR a un estudiante de primer año, elegidas SOLO del
+CATÁLOGO entregado, a partir de las etiquetas que él mismo marcó y de sus reacciones
+en la simulación.
+Reglas:
+- No evalúes a la persona ni su afinidad con la carrera. Sin porcentajes, puntajes,
+  rankings ni comparaciones con otros.
+- Usa lenguaje de invitación («Podrías explorar…»). Prohibido «eres», «ideal para ti»,
+  «no es para ti», «mejor opción», «deberías».
+- porQue: una oración que cite lo que el estudiante marcó.
+- basadoEn: ids de las etiquetas que usaste, solo entre las que marcó.
+- Nunca recomiendes dejar ni quedarse en la carrera.
+Responde solo con JSON que cumpla el esquema.
+```
