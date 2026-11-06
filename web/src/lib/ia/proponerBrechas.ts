@@ -37,7 +37,10 @@ export async function proponerBrechas(
       comentario: comentario?.slice(0, 500),
     });
     const v = validarBrechas(raw, esc);
-    if (!v.ok) return { fallback: true, motivo: "invalido", brechas: regla() };
+    if (!v.ok) {
+      console.warn("[brechas] respuesta IA rechazada:", v.motivo, JSON.stringify(raw).slice(0, 400));
+      return { fallback: true, motivo: "invalido", brechas: regla() };
+    }
     return { fallback: false, brechas: v.data.brechas };
   } catch (e) {
     return { fallback: true, motivo: e instanceof ErrorLLM ? e.motivo : "error", brechas: regla() };

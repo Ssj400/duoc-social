@@ -27,16 +27,23 @@ export function validarEscena(raw: unknown, ramoId: string, idsFragmentos: strin
 export function validarBrechas(
   raw: unknown,
   escenasMarcadas: { id: string; citas: string[] }[],
-): Resultado<BrechasIA> {
-  const p = BrechasIA.safeParse(raw);
+): Resultado<{ brechas: { escenaId: string; texto: string; citas: string[] }[] }> {
+  // Algunos modelos devuelven la lista suelta en vez de { brechas: [...] }.
+  const p = BrechasIA.safeParse(Array.isArray(raw) ? { brechas: raw } : raw);
   if (!p.success) return { ok: false, motivo: "esquema inválido" };
-  for (const b of p.data.brechas) {
-    const e = escenasMarcadas.find((x) => x.id === b.escenaId);
+  // Las fuentes de una brecha son siempre las de su escena: las pone el servidor,
+  // no el modelo (con el modelo real citaba el id de la escena en vez de sus fuentes).
+  const brechas: { escenaId: string; texto: string; citas: string[] }[] = [];
+  for (const [i, b] of p.data.brechas.entries()) {
+    // escenaId; si falta, la escena cuyas fuentes cita; si no, el mismo orden de entrada.
+    const e =
+      escenasMarcadas.find((x) => x.id === b.escenaId) ??
+      (b.escenaId ? undefined : escenasMarcadas.find((x) => !!b.citas?.length && b.citas.every((c) => x.citas.includes(c))) ?? escenasMarcadas[i]);
     if (!e) return { ok: false, motivo: "escena no marcada" };
-    if (b.citas.some((c) => !e.citas.includes(c))) return { ok: false, motivo: "cita ajena a la escena" };
+    brechas.push({ escenaId: e.id, texto: b.texto, citas: e.citas });
   }
-  const t = textoProhibido(p.data.brechas.map((b) => b.texto));
-  return t ? { ok: false, motivo: t } : { ok: true, data: p.data };
+  const t = textoProhibido(brechas.map((b) => b.texto));
+  return t ? { ok: false, motivo: t } : { ok: true, data: { brechas } };
 }
 
 const PROHIBIDAS_RECOMENDAR = ["no es para ti", "ideal", "mejor opción", "deberías", "%", "probabilidad", "ranking", "puntaje"];

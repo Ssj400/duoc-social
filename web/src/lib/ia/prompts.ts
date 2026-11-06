@@ -20,10 +20,13 @@ Reglas:
 - Por escena, UNA brecha en segunda persona: «Esperabas X. En <semestre y ramo>, Y.»
   X sale del comentario del estudiante si lo hay; si no, usa «Te sorprendió que...».
   Y sale solo del texto de la escena y de «sorprende».
+  Reformula con tus palabras en una oración natural: no copies textual el comentario
+  ni el campo «sorprende».
+- escenaId: el id de esa escena (por ejemplo «esc-1»). Obligatorio en cada brecha.
 - Máximo 3 brechas, 1–2 oraciones cada una. No inventes datos.
 - Prohibido: inferir o mencionar su motivo (gusto, presión, familia, dinero),
   recomendar quedarse o dejar la carrera, dar puntajes, probabilidades o diagnósticos.
-- citas: ids de la escena correspondiente.
+- citas: copia el arreglo «citas» de esa escena (ids como «malla:…» o «plantilla:…»); no uses el id de la escena.
 Responde solo con JSON que cumpla el esquema.`;
 
 export const PROMPT_RECOMENDAR = `Sugieres 2 o 3 cosas para EXPLORAR a un estudiante de primer año, elegidas SOLO del

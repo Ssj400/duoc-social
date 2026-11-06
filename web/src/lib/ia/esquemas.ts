@@ -12,7 +12,7 @@ export type EscenaIA = z.infer<typeof EscenaIA>;
 
 export const BrechasIA = z.object({
   brechas: z
-    .array(z.object({ escenaId: z.string(), texto: z.string().min(1).max(280), citas: z.array(z.string()).min(1) }))
+    .array(z.object({ escenaId: z.string().optional(), texto: z.string().min(1).max(280), citas: z.array(z.string()).optional() }))
     .max(3),
 });
 export type BrechasIA = z.infer<typeof BrechasIA>;
