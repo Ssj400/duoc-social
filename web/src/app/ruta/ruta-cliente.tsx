@@ -73,6 +73,13 @@ export function RutaCliente({ ramos, carrera, fuente, consultada }: {
       {modo === null && <Bienvenida alElegir={setModo} />}
 
       <main className="mx-auto w-full max-w-6xl px-5 pb-12 pt-4">
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+          <div role="group" aria-label="Modo" className="inline-flex gap-1 rounded-full bg-[#f5f3ff] p-1">
+            <Pildora activa={m === "estudiante"} onClick={() => setModo("estudiante")}><I.Persona width={14} height={14} />Mi ruta</Pildora>
+            <Pildora activa={m === "explorar"} onClick={() => setModo("explorar")}><I.Brujula width={14} height={14} />Explorar</Pildora>
+          </div>
+          <Link href="/estudiante" className="text-sm font-bold text-[#5b21b6] hover:underline">Jugar simulación →</Link>
+        </div>
         <section className="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end">
           <div>
             <div className="mb-3 flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.15em] text-[#7c3aed]">
@@ -306,6 +313,15 @@ function Bienvenida({ alElegir }: { alElegir: (m: Modo) => void }) {
         </button>
       </div>
     </div>
+  );
+}
+
+function Pildora({ activa, onClick, children }: { activa: boolean; onClick: () => void; children: ReactNode }) {
+  return (
+    <button onClick={onClick} aria-pressed={activa}
+      className={`flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold transition ${activa ? "bg-[#5b21b6] text-white shadow" : "text-[#5b21b6] hover:bg-white"}`}>
+      {children}
+    </button>
   );
 }
 
