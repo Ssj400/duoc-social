@@ -134,6 +134,13 @@ esquema y filtrado: la simplificación de infraestructura no elimina esas barrer
 
 @diagrama flujo-ia
 
+El recuadro «Salidas sin IA» es parte del diseño, no una nota al pie: sin permiso
+—o con una persona menor de edad, hasta acordar tratamiento— el recorrido usa
+formulario con las mismas reglas y no llama al modelo; si la llamada falla o
+excede el tiempo, se cae a formulario o catálogo con rótulo de modo identificado;
+ante una necesidad urgente se pausa el flujo y se muestra apoyo humano sin
+depender del modelo.
+
 La segunda llamada usa datos mínimos confirmados, cuenta calculada y fichas
 filtradas. No necesita el relato original otra vez. No hay navegación libre,
 embeddings, agentes que tramitan, ejecución de código ni acciones externas.

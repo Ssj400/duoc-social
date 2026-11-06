@@ -102,9 +102,13 @@ class VectorDiagram(Flowable):
                 c.setFillColor(colors.HexColor(INK))
                 c.drawCentredString(n["x"] + n["w"] / 2, h - top - i * line_height, line)
         c.setFont("DejaVu", 10.5)
-        c.setFillColor(colors.HexColor(INK))
         for e in d["edges"]:
             if e["label"]:
+                label_width = pdfmetrics.stringWidth(e["label"], "DejaVu", 10.5)
+                c.setFillColor(colors.white)
+                c.rect(e["lx"] - 2, h - e["ly"] - 3, label_width + 4, 13,
+                       stroke=0, fill=1)
+                c.setFillColor(colors.HexColor(INK))
                 c.drawString(e["lx"], h - e["ly"], e["label"])
         c.restoreState()
 

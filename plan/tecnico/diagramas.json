@@ -4,18 +4,19 @@
     {
       "id": "mapa",
       "title": "Mapa de la aplicación: dos paneles y una ficha compartida",
-      "width": 720, "height": 400,
+      "width": 720, "height": 460,
       "nodes": [
         {"id":"inicio","x":180,"y":15,"w":360,"h":65,"kind":"warning","lines":["Inicio de demo · datos ficticios","Cambiar rol solo cambia la vista; no autentica"]},
         {"id":"estudiante","x":15,"y":130,"w":315,"h":95,"kind":"screen","lines":["/estudiante/casos/[id]","Contar → confirmar → ver opciones","Autorizar resumen y destinatario"]},
         {"id":"tutor","x":390,"y":130,"w":315,"h":95,"kind":"screen","lines":["/tutor + /tutor/casos/[id]","Solo casos con resumen autorizado","Revisar → corregir → acordar paso"]},
-        {"id":"caso","x":180,"y":295,"w":360,"h":85,"kind":"success","lines":["Seguimiento /seguimiento/[shareId]","Misma copia autorizada, vistas filtradas","Paso · responsable · fecha · resultado"]}
+        {"id":"caso","x":180,"y":360,"w":360,"h":85,"kind":"success","lines":["Seguimiento /seguimiento/[shareId]","Misma copia autorizada, vistas filtradas","Paso · responsable · fecha · resultado"]}
       ],
       "edges": [
         {"from":"inicio","to":"estudiante","points":[[270,80],[172,130]],"label":"Abrir caso propio","lx":90,"ly":109},
-        {"from":"inicio","to":"tutor","points":[[450,80],[548,130]],"label":"Abrir bandeja","lx":500,"ly":109},
-        {"from":"estudiante","to":"caso","points":[[172,225],[270,295]],"label":"Consultar avance","lx":60,"ly":269},
-        {"from":"tutor","to":"caso","points":[[548,225],[450,295]],"label":"Registrar gestión","lx":500,"ly":269}
+        {"from":"inicio","to":"tutor","points":[[450,80],[680,80],[680,130]],"label":"Abrir bandeja: vacía sin permiso","lx":470,"ly":110},
+        {"from":"estudiante","to":"tutor","points":[[330,177],[360,177],[360,270],[600,270],[600,225]],"label":"Copia autorizada · solo si comparte","lx":375,"ly":258},
+        {"from":"estudiante","to":"caso","points":[[80,225],[80,345],[270,360]],"label":"Aceptar paso · confirmar ayuda","lx":95,"ly":323},
+        {"from":"tutor","to":"caso","points":[[640,225],[640,345],[450,360]],"label":"Registrar gestión","lx":450,"ly":323}
       ]
     },
     {
@@ -24,10 +25,10 @@
       "width": 720, "height": 615,
       "nodes": [
         {"id":"cabecera","x":15,"y":15,"w":690,"h":55,"kind":"screen","lines":["Puente · Mi situación · DEMO","Acceso visible a apoyo humano"]},
-        {"id":"pasos","x":15,"y":85,"w":690,"h":50,"kind":"neutral","lines":["1. Mi cambio   →   2. Confirmar datos   →   3. Opciones   →   4. Compartir"]},
+        {"id":"pasos","x":15,"y":85,"w":690,"h":50,"kind":"neutral","lines":["1. Mi cambio  →  2. Confirmar  →  3. Qué pasa y opciones  →  4. Compartir"]},
         {"id":"relato","x":15,"y":150,"w":440,"h":100,"kind":"screen","lines":["Área principal: un paso activo a la vez","Franja de edad y permiso de IA externo","Relato o formulario; confirmar datos del curso"]},
         {"id":"ayuda","x":475,"y":150,"w":230,"h":100,"kind":"warning","lines":["Ayuda siempre visible","Necesito apoyo ahora","Sin depender del modelo"]},
-        {"id":"calculo","x":15,"y":265,"w":690,"h":85,"kind":"success","lines":["En el paso 3: aviso explicable","22/25 hoy → 22/33 si pierde ocho sesiones","Ver cuenta, supuestos y requisito; corregir datos"]},
+        {"id":"calculo","x":15,"y":265,"w":690,"h":85,"kind":"success","lines":["Aviso explicable · ver cuenta y corregir datos","88% hoy → 66,7% si pierde las ocho restantes","Mínimo supuesto: 70%; faltan dos asistencias para cumplirlo"]},
         {"id":"opciones","x":15,"y":365,"w":690,"h":100,"kind":"screen","lines":["Debajo del aviso: hoja de ruta","Ahora / próximo período / apoyo humano opcional","Fuente + condiciones + pendientes; nunca cupo inventado"]},
         {"id":"compartir","x":15,"y":480,"w":690,"h":105,"kind":"warning","lines":["En el paso 4: vista previa del resumen","Elegir campos y destinatario; editar antes de autorizar","Botón Compartir solo con permiso explícito; alternativa No compartir"]}
       ], "edges": []
@@ -37,7 +38,7 @@
       "title": "Panel de tutor: bandeja breve y revisión de un caso",
       "width": 720, "height": 575,
       "nodes": [
-        {"id":"cabecera","x":15,"y":15,"w":690,"h":55,"kind":"screen","lines":["Puente · Acompañamiento · DEMO","Filtros por estado, no por puntuación de abandono"]},
+        {"id":"cabecera","x":15,"y":15,"w":690,"h":55,"kind":"screen","lines":["Puente · Acompañamiento · DEMO","Un caso sintético compartido; sin ranking de riesgo"]},
         {"id":"bandeja","x":15,"y":85,"w":210,"h":340,"kind":"neutral","lines":["Bandeja autorizada","Camila · por revisar","Caso sintético","Último movimiento","Próximo paso","Sin relatos privados"]},
         {"id":"resumen","x":245,"y":85,"w":460,"h":85,"kind":"screen","lines":["1. Resumen que la estudiante autorizó","Versión, destinatario y datos compartidos","No copiar automáticamente el relato original"]},
         {"id":"evidencia","x":245,"y":185,"w":460,"h":100,"kind":"success","lines":["2. Evidencia y opciones consultadas","Cálculo y supuestos solo si están autorizados","Artículos, condiciones y preguntas pendientes"]},
@@ -62,7 +63,7 @@
       "edges": [
         {"from":"web","to":"api","points":[[360,90],[360,140]],"label":"HTTPS / JSON","lx":375,"ly":119},
         {"from":"api","to":"casos","points":[[360,210],[360,250]],"label":"Solicitud validada","lx":375,"ly":233},
-        {"from":"casos","to":"reglas","points":[[245,325],[122,370]],"label":"Datos confirmados","lx":18,"ly":346},
+        {"from":"casos","to":"reglas","points":[[285,325],[122,370]],"label":"Datos confirmados","lx":180,"ly":344},
         {"from":"casos","to":"corpus","points":[[360,325],[360,370]],"label":"IDs y fuentes","lx":370,"ly":349},
         {"from":"casos","to":"adaptador","points":[[475,325],[597,370]],"label":"Tarea acotada","lx":540,"ly":346},
         {"from":"casos","to":"db","points":[[170,290],[5,290],[5,500],[240,500],[240,525]],"label":"Actualizar en bloque síncrono","lx":15,"ly":485},
@@ -74,13 +75,14 @@
       "title": "Dónde interviene la IA: dos llamadas, con revisión entre ambas",
       "width": 720, "height": 710,
       "nodes": [
-        {"id":"permiso","x":160,"y":10,"w":400,"h":65,"kind":"warning","lines":["1. Estudiante autoriza IA externa","Sin permiso: formulario, sin llamada al modelo"]},
-        {"id":"extraer","x":160,"y":115,"w":400,"h":65,"kind":"external","lines":["2. Llamada IA 1 · interpretar relato","Propone restricciones y preguntas; no confirma hechos"]},
-        {"id":"confirmar","x":160,"y":220,"w":400,"h":65,"kind":"screen","lines":["3. Estudiante confirma o corrige","Versión nueva si cambian datos"]},
-        {"id":"calcular","x":160,"y":325,"w":400,"h":65,"kind":"success","lines":["4. Servidor calcula sin IA","Superposición, proyección y condiciones conocidas"]},
-        {"id":"explicar","x":160,"y":430,"w":400,"h":75,"kind":"external","lines":["5. Llamada IA 2 · explicar y proponer resumen","Solo fuentes permitidas y datos confirmados","Borrador; validar citas y revisar pertinencia"]},
-        {"id":"compartir","x":160,"y":545,"w":400,"h":65,"kind":"warning","lines":["6. Estudiante elige campos y destinatario","Autoriza una copia concreta del resumen"]},
-        {"id":"tutor","x":160,"y":650,"w":400,"h":50,"kind":"screen","lines":["7. Tutor revisa; estudiante acepta el paso"]}
+        {"id":"permiso","x":140,"y":10,"w":400,"h":65,"kind":"warning","lines":["1. Estudiante autoriza IA externa","Sin permiso: formulario, sin llamada al modelo"]},
+        {"id":"extraer","x":140,"y":115,"w":400,"h":65,"kind":"external","lines":["2. Llamada IA 1 · interpretar relato","Propone restricciones y preguntas; no confirma hechos"]},
+        {"id":"confirmar","x":140,"y":220,"w":400,"h":65,"kind":"screen","lines":["3. Estudiante confirma o corrige","Versión nueva si cambian datos"]},
+        {"id":"calcular","x":140,"y":325,"w":400,"h":65,"kind":"success","lines":["4. Servidor calcula sin IA","Superposición, proyección y condiciones conocidas"]},
+        {"id":"explicar","x":140,"y":430,"w":400,"h":75,"kind":"external","lines":["5. Llamada IA 2 · explicar y proponer resumen","Solo fuentes permitidas y datos confirmados","Borrador; validar citas y revisar pertinencia"]},
+        {"id":"compartir","x":140,"y":545,"w":400,"h":65,"kind":"warning","lines":["6. Estudiante elige campos y destinatario","Autoriza una copia concreta del resumen"]},
+        {"id":"tutor","x":140,"y":650,"w":400,"h":50,"kind":"screen","lines":["7. Tutor revisa; estudiante acepta el paso"]},
+        {"id":"salidas","x":550,"y":150,"w":170,"h":150,"kind":"warning","lines":["Salidas sin IA","1 · sin permiso o menor","→ formulario, sin llamada","2 y 5 · falla o timeout","→ formulario o catálogo","modo identificado","Crisis: pausa el flujo","y apoyo humano"]}
       ],
       "edges": [
         {"from":"permiso","to":"extraer","points":[[360,75],[360,115]],"label":"Relato mínimo","lx":375,"ly":98},
@@ -100,14 +102,14 @@
         {"id":"acuerdo","x":255,"y":35,"w":210,"h":95,"kind":"success","lines":["GESTIÓN ACORDADA","Estudiante acepta el paso","Rol y fecha obligatorios"]},
         {"id":"seguimiento","x":495,"y":35,"w":210,"h":95,"kind":"screen","lines":["SEGUIMIENTO / CIERRE","Avance y resultado explícito","No confundir envío y ayuda"]},
         {"id":"permisos","x":15,"y":220,"w":330,"h":110,"kind":"warning","lines":["Permisos independientes","IA: autorizado o no","Compartir: versión + campos + destinatario","Retiro bloquea nuevos usos"]},
-        {"id":"cambios","x":375,"y":220,"w":330,"h":110,"kind":"neutral","lines":["Si cambian datos confirmados","Invalidar cálculos y borradores anteriores","No reautorizar una copia nueva por defecto","Tutor puede pedir aclaración"]},
+        {"id":"cambios","x":375,"y":220,"w":330,"h":110,"kind":"neutral","lines":["Si cambian datos confirmados","Invalidar cálculos y borradores anteriores","Una copia nueva requiere nueva autorización","Tutor puede pedir aclaración"]},
         {"id":"noauto","x":120,"y":365,"w":480,"h":65,"kind":"failure","lines":["Ningún estado aprueba trámites institucionales","Error, no respuesta o silencio no son consentimiento"]}
       ],
       "edges": [
-        {"from":"preparacion","to":"acuerdo","points":[[225,82],[255,82]],"label":"Paso aceptado","lx":210,"ly":22},
-        {"from":"acuerdo","to":"seguimiento","points":[[465,82],[495,82]],"label":"Registrar avance","lx":457,"ly":22},
-        {"from":"permisos","to":"preparacion","points":[[170,220],[120,130]],"label":"Se comprueban en cada acceso","lx":20,"ly":180},
-        {"from":"cambios","to":"preparacion","points":[[540,220],[540,165],[210,165],[210,130]],"label":"Reconfirmar antes de recalcular","lx":330,"ly":150}
+        {"from":"preparacion","to":"acuerdo","points":[[225,82],[255,82]],"label":"Paso aceptado","lx":201,"ly":152},
+        {"from":"acuerdo","to":"seguimiento","points":[[465,82],[495,82]],"label":"Registrar avance","lx":432,"ly":152},
+        {"from":"permisos","to":"preparacion","points":[[170,220],[120,130]],"label":"En cada acceso y etapa","lx":18,"ly":210},
+        {"from":"cambios","to":"preparacion","points":[[540,220],[540,185],[60,185],[60,130]],"label":"Reconfirmar antes de recalcular","lx":330,"ly":178}
       ]
     }
   ]
