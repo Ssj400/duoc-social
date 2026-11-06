@@ -1,5 +1,5 @@
 import { malla, ramoPorId } from "@/lib/contenido";
-import { BrechasIA, EscenaIA } from "./esquemas";
+import { BrechasIA, EscenaIA, RecomendadosIA } from "./esquemas";
 
 export type Resultado<T> = { ok: true; data: T } | { ok: false; motivo: string };
 
@@ -37,4 +37,22 @@ export function validarBrechas(
   }
   const t = textoProhibido(p.data.brechas.map((b) => b.texto));
   return t ? { ok: false, motivo: t } : { ok: true, data: p.data };
+}
+
+const PROHIBIDAS_RECOMENDAR = ["no es para ti", "ideal", "mejor opción", "deberías", "%", "probabilidad", "ranking", "puntaje"];
+
+export function validarRecomendados(
+  raw: unknown,
+  catalogoIds: string[],
+  etiquetasMarcadas: string[],
+): Resultado<RecomendadosIA> {
+  const p = RecomendadosIA.safeParse(raw);
+  if (!p.success) return { ok: false, motivo: "esquema inválido" };
+  for (const r of p.data.recomendados) {
+    if (!catalogoIds.includes(r.itemId)) return { ok: false, motivo: "ítem ajeno al catálogo" };
+    if (r.basadoEn.some((e) => !etiquetasMarcadas.includes(e))) return { ok: false, motivo: "etiqueta no marcada" };
+  }
+  const junto = p.data.recomendados.map((r) => r.porQue).join(" \n ").toLowerCase();
+  const f = PROHIBIDAS_RECOMENDAR.find((x) => junto.includes(x)) ?? (/\beres\b/.test(junto) ? "eres" : null);
+  return f ? { ok: false, motivo: `frase prohibida: ${f}` } : { ok: true, data: p.data };
 }

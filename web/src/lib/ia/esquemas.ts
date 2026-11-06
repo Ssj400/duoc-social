@@ -16,3 +16,11 @@ export const BrechasIA = z.object({
     .max(3),
 });
 export type BrechasIA = z.infer<typeof BrechasIA>;
+
+export const RecomendadosIA = z.object({
+  recomendados: z
+    .array(z.object({ itemId: z.string(), porQue: z.string().min(1).max(200), basadoEn: z.array(z.string()) }))
+    .min(1)
+    .max(3),
+});
+export type RecomendadosIA = z.infer<typeof RecomendadosIA>;

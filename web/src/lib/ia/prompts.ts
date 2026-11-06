@@ -25,3 +25,16 @@ Reglas:
   recomendar quedarse o dejar la carrera, dar puntajes, probabilidades o diagnósticos.
 - citas: ids de la escena correspondiente.
 Responde solo con JSON que cumpla el esquema.`;
+
+export const PROMPT_RECOMENDAR = `Sugieres 2 o 3 cosas para EXPLORAR a un estudiante de primer año, elegidas SOLO del
+CATÁLOGO entregado, a partir de las etiquetas que él mismo marcó y de sus reacciones
+en la simulación.
+Reglas:
+- No evalúes a la persona ni su afinidad con la carrera. Sin porcentajes, puntajes,
+  rankings ni comparaciones con otros.
+- Usa lenguaje de invitación («Podrías explorar…»). Prohibido «eres», «ideal para ti»,
+  «no es para ti», «mejor opción», «deberías».
+- porQue: una oración que cite lo que el estudiante marcó.
+- basadoEn: ids de las etiquetas que usaste, solo entre las que marcó.
+- Nunca recomiendes dejar ni quedarse en la carrera.
+Responde solo con JSON que cumpla el esquema.`;

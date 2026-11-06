@@ -1,0 +1,25 @@
+{
+  "_nota": "Catálogo FICTICIO de demo para «Para seguir explorando». No son servicios, cupos ni personas reales de UC o Duoc.",
+  "etiquetas": [
+    { "id": "crear-apps", "label": "Crear apps o páginas", "preguntas": [1, 2] },
+    { "id": "logica", "label": "Resolver problemas lógicos", "preguntas": [1, 2] },
+    { "id": "datos", "label": "Trabajar con datos", "preguntas": [1, 2] },
+    { "id": "clientes", "label": "Conversar con clientes o personas", "preguntas": [1, 2] },
+    { "id": "equipo", "label": "Trabajar en equipo", "preguntas": [1, 2] },
+    { "id": "no-se", "label": "Aún no lo sé", "preguntas": [1, 2] },
+    { "id": "mates", "label": "Matemáticas", "preguntas": [3] },
+    { "id": "programar-cero", "label": "Programar desde cero", "preguntas": [3] },
+    { "id": "grupos", "label": "Trabajos en grupo", "preguntas": [3] },
+    { "id": "tiempo", "label": "La carga de tiempo", "preguntas": [3] },
+    { "id": "no-decir", "label": "Prefiero no decir", "preguntas": [3] }
+  ],
+  "items": [
+    { "id": "esc-1", "tipo": "escena", "titulo": "Jugar la escena de Base de Datos Aplicada II", "etiquetas": ["logica", "datos", "equipo"] },
+    { "id": "esc-2", "tipo": "escena", "titulo": "Jugar la escena de Ingeniería de Software", "etiquetas": ["clientes", "equipo"] },
+    { "id": "malla:DSY1103", "tipo": "ramo", "titulo": "Mirar Desarrollo Full Stack I en la malla", "etiquetas": ["crear-apps", "programar-cero"] },
+    { "id": "persona-3er-anio", "tipo": "persona", "titulo": "Conversar con un estudiante de 3er año", "etiquetas": ["no-se", "programar-cero", "mates", "grupos", "tiempo"] },
+    { "id": "persona-tutor", "tipo": "persona", "titulo": "Conversar con tu tutor", "etiquetas": ["no-se", "grupos", "tiempo"] },
+    { "id": "orientacion", "tipo": "persona", "titulo": "Orientación vocacional", "etiquetas": ["no-se", "tiempo"] },
+    { "id": "recurso-malla", "tipo": "recurso", "titulo": "Revisar la malla completa", "etiquetas": ["no-se", "mates", "datos", "logica"] }
+  ]
+}

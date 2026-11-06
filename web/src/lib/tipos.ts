@@ -70,3 +70,9 @@ export type Caso = {
 
 // Respuesta estándar cuando la IA falla, tarda o devuelve algo inválido.
 export type Fallback = { fallback: true; motivo: "timeout" | "invalido" | "error" };
+
+// Catálogo de exploración (ver ia.md, Llamada 3). Demo ficticia.
+export type Etiqueta = { id: string; label: string; preguntas: number[] };
+export type ItemCatalogo = { id: string; tipo: "escena" | "ramo" | "persona" | "recurso"; titulo: string; etiquetas: string[] };
+export type Recomendado = { itemId: string; porQue: string; basadoEn: string[] };
+export type RecomendadoUI = Recomendado & { titulo: string; tipo: ItemCatalogo["tipo"] };

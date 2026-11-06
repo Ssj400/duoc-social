@@ -2,7 +2,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { malla } from "@/lib/malla-cliente";
 import { api, detenerNarracion, ICONOS, narrar, nuevoRequestId, rotuloEscena } from "@/lib/cliente";
-import type { Brecha, Caso, Escena, Motivo, Reaccion, Respuesta } from "@/lib/tipos";
+import catalogo from "@/data/catalogo.json";
+import type { Brecha, Caso, Escena, Etiqueta, Motivo, Reaccion, Respuesta, RecomendadoUI } from "@/lib/tipos";
 
 const btn = "rounded-lg bg-teal-700 text-white px-5 py-2 disabled:opacity-50";
 const btn2 = "rounded-lg border border-teal-700 text-teal-800 px-4 py-2";
@@ -57,7 +58,69 @@ function useRecorrido() {
   return { escenas, cargado, visitadas, actual, eleccion, elegir, reaccionActual, reaccionar, siguiente, respuestas, terminado };
 }
 
-function Recorrido({ rec, alTerminar }: { rec: ReturnType<typeof useRecorrido>; alTerminar: () => void }) {
+const ETIQUETAS = catalogo.etiquetas as Etiqueta[];
+const PREGUNTAS = [
+  { n: 1, t: "¿Qué te imaginas haciendo?" },
+  { n: 2, t: "¿Qué te entusiasma?" },
+  { n: 3, t: "¿Qué te preocupa?" },
+];
+
+function Onboarding({ alEmpezar }: { alEmpezar: (e: string[]) => void }) {
+  const [sel, setSel] = useState<Record<number, string[]>>({ 1: [], 2: [], 3: [] });
+  const tog = (n: number, id: string) =>
+    setSel((s) => ({ ...s, [n]: s[n].includes(id) ? s[n].filter((x) => x !== id) : [...s[n], id] }));
+  return (
+    <section className="space-y-5">
+      <h1 className="text-2xl font-bold">Antes de empezar</h1>
+      <p>Tus respuestas son tuyas: no se comparten con tu tutor salvo que lo elijas.</p>
+      {PREGUNTAS.map((q) => (
+        <fieldset key={q.n} className="space-y-2">
+          <legend className="font-semibold">{q.t} (puedes marcar varias o ninguna)</legend>
+          <div className="flex gap-2 flex-wrap">
+            {ETIQUETAS.filter((e) => e.preguntas.includes(q.n)).map((e) => (
+              <button key={e.id} aria-pressed={sel[q.n].includes(e.id)} onClick={() => tog(q.n, e.id)}
+                className={`rounded border-2 px-3 py-2 ${sel[q.n].includes(e.id) ? "border-teal-700 bg-teal-50" : "border-neutral-300 bg-white"}`}>{e.label}</button>
+            ))}
+          </div>
+        </fieldset>
+      ))}
+      <button className={btn} onClick={() => alEmpezar([...new Set(Object.values(sel).flat())])}>Empezar simulación</button>
+    </section>
+  );
+}
+
+function Explorar({ etiquetas, respuestas }: { etiquetas: string[]; respuestas: Respuesta[] }) {
+  const [items, setItems] = useState<RecomendadoUI[] | null>(null);
+  const [ocultos, setOcultos] = useState<string[]>([]);
+  const actual = useRef("");
+  useEffect(() => {
+    const requestId = nuevoRequestId();
+    actual.current = requestId;
+    api<{ recomendados?: RecomendadoUI[]; requestId?: string }>("/api/recomendados", "POST", {
+      etiquetas, reacciones: respuestas.map((r) => ({ escenaId: r.escenaId, reaccion: r.reaccion })), requestId,
+    }).then((r) => { if (r.data.requestId === actual.current) setItems(r.data.recomendados ?? []); });
+  }, [etiquetas, respuestas]);
+  const visibles = (items ?? []).filter((i) => !ocultos.includes(i.itemId));
+  return (
+    <section className="space-y-3 rounded border bg-white p-4" aria-label="Para seguir explorando">
+      <h2 className="text-xl font-bold">Para seguir explorando</h2>
+      {items === null && <p>Pensando ideas…</p>}
+      <ul className="space-y-2">
+        {visibles.map((i) => (
+          <li key={i.itemId} className="rounded border p-3 flex justify-between gap-3">
+            <div><strong>{i.titulo}</strong><div className="text-base">{i.porQue}</div></div>
+            <button className={btn2} onClick={() => setOcultos((o) => [...o, i.itemId])}>Ocultar</button>
+          </li>
+        ))}
+        <li className="rounded border p-3"><strong>Conversarlo con tu tutor</strong></li>
+        <li className="rounded border p-3"><strong>Seguir explorando</strong></li>
+      </ul>
+      <p className="text-sm">Esto no mide si la carrera es para ti: son ideas para explorar, basadas solo en lo que marcaste.</p>
+    </section>
+  );
+}
+
+function Recorrido({ rec, etiquetas, alTerminar }: { rec: ReturnType<typeof useRecorrido>; etiquetas: string[]; alTerminar: () => void }) {
   const { actual, eleccion, visitadas, escenas } = rec;
   const total = escenas.length;
   useEffect(() => {
@@ -89,6 +152,7 @@ function Recorrido({ rec, alTerminar }: { rec: ReturnType<typeof useRecorrido>; 
             );
           })}
         </ol>
+        <Explorar etiquetas={etiquetas} respuestas={rec.respuestas} />
         <button className={btn} onClick={alTerminar}>Ver qué noté</button>
       </section>
     );
@@ -267,10 +331,12 @@ function Compartir({ brechas, motivo }: { brechas: Brecha[]; motivo: { motivos: 
 
 export default function PaginaEstudiante() {
   const rec = useRecorrido();
-  const [fase, setFase] = useState<"recorrido" | "brechas" | "compartir">("recorrido");
+  const [fase, setFase] = useState<"onboarding" | "recorrido" | "brechas" | "compartir">("onboarding");
+  const [etiquetas, setEtiquetas] = useState<string[]>([]);
   const [conf, setConf] = useState<{ brechas: Brecha[]; motivo: { motivos: Motivo[]; otro: string } } | null>(null);
   const alTerminar = useCallback(() => setFase("brechas"), []);
-  if (fase === "recorrido") return <Recorrido rec={rec} alTerminar={alTerminar} />;
+  if (fase === "onboarding") return <Onboarding alEmpezar={(e) => { setEtiquetas(e); setFase("recorrido"); }} />;
+  if (fase === "recorrido") return <Recorrido rec={rec} etiquetas={etiquetas} alTerminar={alTerminar} />;
   if (fase === "brechas" || !conf) return <Brechas rec={rec} alContinuar={(brechas, motivo) => { setConf({ brechas, motivo }); setFase("compartir"); }} />;
   return <Compartir brechas={conf.brechas} motivo={conf.motivo} />;
 }
