@@ -22,3 +22,6 @@ node_modules/
 *.mov
 *.mp3
 *:Zone.Identifier
+
+# Solo el video de demo de ~1 min (datos ficticios) se versiona
+!demo_video/educadex_showcase_rapido.mp4

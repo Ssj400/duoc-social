@@ -1,0 +1,6 @@
+frames/
+_raw_*/
+tmp*.mp4
+_*.png
+# >100 MB (límite de GitHub): se regenera con el comando del README
+educadex_showcase_loop.mp4

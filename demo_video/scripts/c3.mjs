@@ -1,0 +1,18 @@
+import {start,BASE} from "./lib.mjs";
+const R=await start("c3",{w:1440,h:900}); const {page}=R;
+await page.goto(BASE+"/tutor"); await R.pause(1600);
+await R.click(page.getByRole("link",{name:/Ver caso/}),1800);
+await R.pause(800); await R.scroll(220,18); await R.pause(1200);
+await R.click(page.getByRole("button",{name:"Hablar con estudiante de 3er año"}),1000);
+const inp=page.locator("input:not([type=date])"); const n=await inp.count();
+const resp=inp.nth(n-1);
+await R.click(resp,300);
+await page.keyboard.press("Control+A");
+await page.keyboard.type("Tutor ficticio (demo)",{delay:35}); await R.pause(600);
+const d=page.locator("input[type=date]"); await R.click(d,300);
+await d.fill("2026-11-12"); await R.pause(1000);
+await page.screenshot({path:"c3pre.png"});
+await R.click(page.getByRole("button",{name:"Registrar"}),1800);
+await R.scroll(200,15); await R.pause(1800);
+console.log((await page.innerText("main")).slice(0,1800));
+await R.finish("escritorio_caso.mp4"); console.log("DONE");
