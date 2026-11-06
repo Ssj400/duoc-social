@@ -13,7 +13,7 @@ implementación no encargada ni atribuir resultados todavía inexistentes.
 | Plan de desarrollo corto (C) | Orden, responsables propuestos, pruebas y recortes | Recibidos aporte C y revisión #9 del Markdown de `b413c74`; buena estructura, ajustes C1–C8 pendientes de consolidación; no revisó PDF ni versión posterior |
 | Brief para pitch (D) | Mensaje central y resumen de presentación | Claude leyó Markdown/render de `b413c74/e0bfb6a`: correcto y honesto, incompleto; D1–D3 pendientes de integrar |
 | Presentación provisional (E) | Diapositivas editables y PDF de respaldo | Claude revisó JSON/PDF de `b413c74` y reportó render LibreOffice: técnicamente limpio, narrativa no lista; E1–E6 pendientes |
-| Guion y contingencia de demo (F) | Tiempo, fallos y afirmaciones permitidas | Revisión individual solicitada sobre `b413c74`; pendiente devolución |
+| Guion y contingencia de demo (F) | Tiempo, fallos y afirmaciones permitidas | Claude leyó Markdown de `b413c74`, no PDF: sólido en honestidad; F1–F5 pendientes de integrar |
 | Transparencia y preparación ética (G) | Distinguir herramientas, producto y validación oficial | Revisión individual solicitada sobre `b413c74`; pendiente devolución |
 
 La aprobación de una pieza no aprueba las otras. Cada revisión debe identificar

@@ -67,7 +67,8 @@ registrada para retomar; no reanuda implementación ni cierra C.
 - G: transparencia y preparación del checklist.
 
 Las solicitudes D–G se enviaron sobre `b413c74`; D y E ya tienen devolución y
-correcciones pendientes. F–G siguen esperando devolución.
+correcciones pendientes. F también tiene devolución registrada abajo; G sigue
+esperando revisión.
 Registrar para cada pieza la versión realmente leída, correcciones y veredicto.
 Una aprobación general no sustituye las revisiones individuales solicitadas.
 
@@ -125,6 +126,35 @@ Veredicto: técnicamente limpio, narrativamente no listo. Registrar para retomar
 
 No se modifica el deck durante la pausa ni se marca E cerrado. Queda actualizar
 fuente JSON, regenerar ambos formatos y repetir revisión/pruebas tras corregir.
+
+### Revisión F recibida después de la pausa
+
+Claude leyó solo `guion_y_contingencias.md` de `b413c74`, no el PDF. Veredicto:
+sólido en honestidad; cinco ajustes operativos/de defensa pendientes:
+
+- F1: mostrar relato coloquial y preguntas por datos faltantes, no una extracción
+  sin incertidumbre. Si la franja horaria no está clara, preguntarla también;
+  no fijar 21:30 por una frase ambigua sin contexto suficiente.
+- F2: concretar escalera de cinco modos: funcional → parcial → misma app manual
+  rotulada → capturas/video de versión real congelada → maqueta explícita.
+  Ocho segundos es sugerencia de ensayo, no medición ni timeout validado.
+  Definir frase exacta, ensayar transición sin reintento en vivo e invalidar
+  resultados tardíos para que no sustituyan lo confirmado en modo manual.
+- F3: añadir respuesta sobre sesgos. No afirmar pruebas ejecutadas si solo están
+  previstas. Invitación universal no elimina barreras de acceso/respuesta;
+  género/origen no son multiplicadores de riesgo, pero jornada/modalidad sí
+  pueden ser contexto necesario para calendario y condiciones de un trámite.
+- F4: responder sobre adopción, alcance y datos institucionales. Piloto/carrera/
+  cuatro semanas son propuestas; responsable sin confirmar. No asegurar motor
+  para cualquier asignatura ni cobertura automática de cuidadores. Acceso real
+  a registros requiere base de tratamiento y permisos apropiados, no solo una
+  casilla de consentimiento; respetar derecho a no ser perfilado.
+- F5: explicar aporte concreto IA —lenguaje cotidiano, preguntas y conexión con
+  normas—, manteniendo comparación pendiente si no hay resultados. No rellenar
+  marcadores con metas o cifras inventadas para fortalecer el pitch.
+
+Al retomar, alinear esta escalera con el aporte C, brief, notas y deck. No se
+modificó el guion durante la pausa ni se marca F cerrado.
 
 ## 4. Antes de entregar al participante
 
