@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { api, ESTADOS } from "@/lib/cliente";
+import { Card, Eyebrow, Badge, LinkButton } from "@/components/ui";
 import type { Caso } from "@/lib/tipos";
 
 export default function PaginaTutor() {
@@ -13,17 +14,21 @@ export default function PaginaTutor() {
     return () => clearInterval(t);
   }, []);
   return (
-    <div className="space-y-4">
-      <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Casos compartidos</h1>
-        <Link href="/tutor/plantilla" className="underline">Crear escena (plantilla)</Link>
+    <div className="space-y-5">
+      <div className="space-y-2">
+        <Eyebrow>Seguimiento</Eyebrow>
+        <h1 className="text-2xl font-extrabold tracking-tight text-slate-900">Casos compartidos</h1>
       </div>
-      {casos.length === 0 && <p>Aún no hay casos compartidos con autorización activa.</p>}
-      <ul className="space-y-2">
+      <LinkButton href="/tutor/plantilla" variant="secondary">Crear escena (plantilla)</LinkButton>
+      {casos.length === 0 && <Card><p>Aún no hay casos compartidos con autorización activa.</p></Card>}
+      <ul className="space-y-3">
         {casos.map((c) => (
           <li key={c.id}>
-            <Link href={`/tutor/caso/${c.id}`} className="block rounded border bg-white p-3 hover:border-teal-700">
-              <strong>{c.alias}</strong> · {c.brechas.length} brecha(s) · {ESTADOS[c.estado]}
+            <Link href={`/tutor/caso/${c.id}`} className="block">
+              <Card className="flex items-center justify-between gap-3 hover:border-violet-200">
+                <span><strong className="text-slate-900">{c.alias}</strong> · {c.brechas.length} brecha(s) · {ESTADOS[c.estado]}</span>
+                <Badge tono="violet">{ESTADOS[c.estado]}</Badge>
+              </Card>
             </Link>
           </li>
         ))}

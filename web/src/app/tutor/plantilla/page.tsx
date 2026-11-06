@@ -2,11 +2,11 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { malla } from "@/lib/malla-cliente";
-import { api, nuevoRequestId, rotuloEscena, TIPOS, TXT_FALLBACK } from "@/lib/cliente";
+import { api, ICONOS, nuevoRequestId, rotuloEscena, TIPOS, TXT_FALLBACK } from "@/lib/cliente";
+import { Button, Card, Chip, Badge, SceneCard, SourceChip, claseCampo } from "@/components/ui";
 import type { Escena, Opcion, Plantilla } from "@/lib/tipos";
 
-const campo = "w-full rounded border border-neutral-400 p-2 bg-white";
-const btn = "rounded-lg bg-teal-700 text-white px-5 py-2 disabled:opacity-50";
+const campo = claseCampo;
 
 type OpEd = { texto: string; loQueSuelePasar: string };
 const vacias = (): OpEd[] => [0, 1, 2].map(() => ({ texto: "", loQueSuelePasar: "" }));
@@ -67,67 +67,71 @@ export default function PaginaPlantilla() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Plantilla de escena <span className="text-sm bg-amber-200 text-amber-950 px-2 rounded">Demo</span></h1>
-        <Link href="/tutor" className="underline">Ver casos</Link>
+        <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 flex items-center gap-2">Plantilla de escena <Badge tono="amber">Demo</Badge></h1>
+        <Link href="/tutor" className="text-sm font-semibold text-violet-700 hover:underline">Ver casos</Link>
       </div>
-      {publicada && <p role="status" className="rounded bg-teal-50 border border-teal-700 p-3">Escena publicada. Ya la ve el estudiante.</p>}
+      {publicada && <p role="status" className="rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 p-4">Escena publicada. Ya la ve el estudiante.</p>}
+      <Card className="space-y-4">
       <div className="grid gap-4 sm:grid-cols-2">
-        <label>Ramo
+        <label className="block space-y-1 font-semibold text-slate-800">Ramo
           <select className={campo} value={p.id} onChange={(e) => { setP(plantillas.find((x) => x.id === e.target.value) ?? p); g.setEscena(null); g.setFallback(false); }}>
             {plantillas.map((x) => (
               <option key={x.id} value={x.id}>{malla.find((r) => r.id === x.ramoId)?.nombre}</option>
             ))}
           </select>
         </label>
-        <label>Momento
+        <label className="block space-y-1 font-semibold text-slate-800">Momento
           <input className={campo} value={p.momento} onChange={(e) => set("momento", e.target.value)} />
         </label>
       </div>
       <fieldset>
-        <legend>Tipo</legend>
-        <div className="flex gap-3 flex-wrap">
+        <legend className="font-semibold text-slate-800 mb-2">Tipo</legend>
+        <div className="flex gap-2 flex-wrap">
           {TIPOS.map((t) => (
-            <label key={t} className="flex gap-1 items-center"><input type="radio" name="tipo" checked={p.tipo === t} onChange={() => set("tipo", t)} />{t}</label>
+            <Chip key={t} selected={p.tipo === t} onClick={() => set("tipo", t)}>{ICONOS[t]} {t}</Chip>
           ))}
         </div>
       </fieldset>
-      <label className="block">Situación típica (tus palabras)
+      <label className="block space-y-1 font-semibold text-slate-800">Situación típica (tus palabras)
         <textarea className={campo} rows={3} value={p.situacion} onChange={(e) => set("situacion", e.target.value)} />
       </label>
-      <label className="block">¿Qué suele sorprender a los de primer año?
+      <label className="block space-y-1 font-semibold text-slate-800">¿Qué suele sorprender a los de primer año?
         <textarea className={campo} rows={2} value={p.sorprende} onChange={(e) => set("sorprende", e.target.value)} />
       </label>
-      <label className="block">¿Qué hace quien le va bien?
+      <label className="block space-y-1 font-semibold text-slate-800">¿Qué hace quien le va bien?
         <textarea className={campo} rows={2} value={p.leVaBien} onChange={(e) => set("leVaBien", e.target.value)} />
       </label>
-      <label className="block">Tu rol (sin nombre si prefieres)
+      <label className="block space-y-1 font-semibold text-slate-800">Tu rol (sin nombre si prefieres)
         <input className={campo} value={p.rolAutor} onChange={(e) => set("rolAutor", e.target.value)} />
       </label>
-      <p className="text-sm text-neutral-600">Ramos del 3er semestre disponibles en la demo: {ramosSem3.map((r) => r.nombre).join(", ")}.</p>
-      <button className={btn} disabled={g.cargando} onClick={() => { setPublicada(false); g.generar(p); }}>
+      <p className="text-sm text-slate-500">Ramos del 3er semestre disponibles en la demo: {ramosSem3.map((r) => r.nombre).join(", ")}.</p>
+      <Button className="w-full" disabled={g.cargando} onClick={() => { setPublicada(false); g.generar(p); }}>
         {g.cargando ? "Generando…" : "✨ Generar escena con IA"}
-      </button>
+      </Button>
+      </Card>
 
       {g.escena && (
-        <section aria-label="Vista previa" className="space-y-3 rounded border border-neutral-300 bg-white p-4">
-          <h2 className="font-bold">Vista previa (editable)</h2>
-          <input aria-label="Título" className={campo} value={g.escena.titulo} onChange={(e) => g.setEscena({ ...g.escena!, titulo: e.target.value })} />
-          <textarea aria-label="Narración" className={campo} rows={3} value={g.escena.narracion} onChange={(e) => g.setEscena({ ...g.escena!, narracion: e.target.value })} />
-          {g.escena.opciones.map((o, i) => (
-            <div key={o.id} className="grid gap-2 sm:grid-cols-2">
-              <input aria-label={`Opción ${i + 1}`} className={campo} value={o.texto} onChange={(e) => setOp(i, "texto", e.target.value)} />
-              <input aria-label={`Lo que suele pasar ${i + 1}`} className={campo} value={o.loQueSuelePasar} onChange={(e) => setOp(i, "loQueSuelePasar", e.target.value)} />
-            </div>
-          ))}
-          <p className="flex gap-2 flex-wrap items-center">Fuentes: {g.escena.citas.map((c) => <span key={c} className="rounded-full bg-neutral-200 px-2 text-sm">{c}</span>)}</p>
-          <p className="text-sm">{rotuloEscena(p.rolAutor)}</p>
-          <button className={btn} onClick={aprobar}>Aprobar y publicar</button>
+        <section aria-label="Vista previa" className="space-y-3">
+          <h2 className="font-extrabold tracking-tight text-slate-900 text-lg">Vista previa (editable)</h2>
+          <SceneCard tipo={p.tipo} icono={ICONOS[p.tipo]} momento={p.momento}
+            titulo={<input aria-label="Título" className={campo} value={g.escena.titulo} onChange={(e) => g.setEscena({ ...g.escena!, titulo: e.target.value })} />}
+            narracion={<textarea aria-label="Narración" className={`${campo} text-base`} rows={3} value={g.escena.narracion} onChange={(e) => g.setEscena({ ...g.escena!, narracion: e.target.value })} />}>
+            {g.escena.opciones.map((o, i) => (
+              <div key={o.id} className="grid gap-2 sm:grid-cols-2 rounded-2xl border border-slate-200 p-3">
+                <input aria-label={`Opción ${i + 1}`} className={campo} value={o.texto} onChange={(e) => setOp(i, "texto", e.target.value)} />
+                <input aria-label={`Lo que suele pasar ${i + 1}`} className={campo} value={o.loQueSuelePasar} onChange={(e) => setOp(i, "loQueSuelePasar", e.target.value)} />
+              </div>
+            ))}
+            <p className="flex gap-2 flex-wrap items-center text-sm">Fuentes: {g.escena.citas.map((c) => <SourceChip key={c}>{c}</SourceChip>)}</p>
+            <p className="text-sm text-slate-500">{rotuloEscena(p.rolAutor)}</p>
+            <Button className="w-full" onClick={aprobar}>Aprobar y publicar</Button>
+          </SceneCard>
         </section>
       )}
 
       {g.fallback && (
-        <section aria-label="Escena manual" className="space-y-3 rounded border border-neutral-300 bg-white p-4">
-          <p role="alert">{TXT_FALLBACK}</p>
+        <section aria-label="Escena manual" className="space-y-3 rounded-3xl border border-slate-100 bg-white p-5 shadow-sm">
+          <p role="alert" className="rounded-xl bg-slate-100 p-3 text-sm">{TXT_FALLBACK}</p>
           <input aria-label="Título" placeholder="Título" className={campo} value={manual.titulo} onChange={(e) => setManual({ ...manual, titulo: e.target.value })} />
           <textarea aria-label="Narración" placeholder="Narración (termina con ¿Qué haces?)" className={campo} rows={3} value={manual.narracion} onChange={(e) => setManual({ ...manual, narracion: e.target.value })} />
           {manual.opciones.map((o, i) => (
@@ -137,7 +141,7 @@ export default function PaginaPlantilla() {
             </div>
           ))}
           {error && <p role="alert">{error}</p>}
-          <button className={btn} onClick={publicarManual}>Publicar escena</button>
+          <Button className="w-full" onClick={publicarManual}>Publicar escena</Button>
         </section>
       )}
     </div>

@@ -3,13 +3,12 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { malla } from "@/lib/malla-cliente";
 import { api, detenerNarracion, ICONOS, narrar, nuevoRequestId, rotuloEscena } from "@/lib/cliente";
 import catalogo from "@/data/catalogo.json";
+import { Button, Card, Chip, DexCard, Eyebrow, SceneCard, SourceChip, Titulo, claseCampo } from "@/components/ui";
 import type { Brecha, Caso, Escena, Etiqueta, Motivo, Reaccion, Respuesta, RecomendadoUI } from "@/lib/tipos";
 
-const btn = "rounded-lg bg-teal-700 text-white px-5 py-2 disabled:opacity-50";
-const btn2 = "rounded-lg border border-teal-700 text-teal-800 px-4 py-2";
-const campo = "w-full rounded border border-neutral-400 p-2 bg-white";
+const campo = claseCampo;
 const REACCIONES: { r: Reaccion; t: string }[] = [
-  { r: "imaginaba", t: "😀 Sí, así lo imaginaba" },
+  { r: "imaginaba", t: "😀 Así lo imaginaba" },
   { r: "sorprendio", t: "😮 Me sorprendió" },
   { r: "no_gusto", t: "🙁 No me gustó" },
 ];
@@ -65,29 +64,39 @@ const PREGUNTAS = [
   { n: 3, t: "¿Qué te preocupa?" },
 ];
 
+
 function Onboarding({ alEmpezar }: { alEmpezar: (e: string[]) => void }) {
   const [sel, setSel] = useState<Record<number, string[]>>({ 1: [], 2: [], 3: [] });
   const tog = (n: number, id: string) =>
     setSel((s) => ({ ...s, [n]: s[n].includes(id) ? s[n].filter((x) => x !== id) : [...s[n], id] }));
   return (
     <section className="space-y-5">
-      <h1 className="text-2xl font-bold">Antes de empezar</h1>
-      <p>Tus respuestas son tuyas: no se comparten con tu tutor salvo que lo elijas.</p>
+      <div className="space-y-2">
+        <Eyebrow>Antes de empezar</Eyebrow>
+        <Titulo>Cuéntanos qué te imaginas</Titulo>
+      </div>
+      <div className="rounded-2xl bg-slate-100 p-4 text-sm text-slate-600">Tus respuestas son tuyas: no se comparten con tu tutor salvo que lo elijas.</div>
       {PREGUNTAS.map((q) => (
-        <fieldset key={q.n} className="space-y-2">
-          <legend className="font-semibold">{q.t} (puedes marcar varias o ninguna)</legend>
-          <div className="flex gap-2 flex-wrap">
-            {ETIQUETAS.filter((e) => e.preguntas.includes(q.n)).map((e) => (
-              <button key={e.id} aria-pressed={sel[q.n].includes(e.id)} onClick={() => tog(q.n, e.id)}
-                className={`rounded border-2 px-3 py-2 ${sel[q.n].includes(e.id) ? "border-teal-700 bg-teal-50" : "border-neutral-300 bg-white"}`}>{e.label}</button>
-            ))}
-          </div>
-        </fieldset>
+        <Card key={q.n}>
+          <fieldset className="space-y-3">
+            <legend className="space-y-1">
+              <span className="block text-xs font-semibold text-slate-500">Paso {q.n} de 3</span>
+              <span className="block text-lg font-extrabold tracking-tight text-slate-900">{q.t} <span className="text-sm font-normal text-slate-500">(puedes marcar varias o ninguna)</span></span>
+            </legend>
+            <div className="flex gap-2 flex-wrap">
+              {ETIQUETAS.filter((e) => e.preguntas.includes(q.n)).map((e) => (
+                <Chip key={e.id} selected={sel[q.n].includes(e.id)} onClick={() => tog(q.n, e.id)}>{e.label}</Chip>
+              ))}
+            </div>
+          </fieldset>
+        </Card>
       ))}
-      <button className={btn} onClick={() => alEmpezar([...new Set(Object.values(sel).flat())])}>Empezar simulación</button>
+      <Button className="w-full" onClick={() => alEmpezar([...new Set(Object.values(sel).flat())])}>Empezar simulación</Button>
     </section>
   );
 }
+
+const ICONO_ITEM: Record<string, string> = { escena: "🎮", ramo: "📘", persona: "💬", recurso: "🗺️" };
 
 function Explorar({ etiquetas, respuestas }: { etiquetas: string[]; respuestas: Respuesta[] }) {
   const [items, setItems] = useState<RecomendadoUI[] | null>(null);
@@ -102,20 +111,23 @@ function Explorar({ etiquetas, respuestas }: { etiquetas: string[]; respuestas: 
   }, [etiquetas, respuestas]);
   const visibles = (items ?? []).filter((i) => !ocultos.includes(i.itemId));
   return (
-    <section className="space-y-3 rounded border bg-white p-4" aria-label="Para seguir explorando">
-      <h2 className="text-xl font-bold">Para seguir explorando</h2>
+    <section className="space-y-3" aria-label="Para seguir explorando">
+      <h2 className="text-xl font-extrabold tracking-tight text-slate-900">Para seguir explorando</h2>
       {items === null && <p>Pensando ideas…</p>}
-      <ul className="space-y-2">
+      <ul className="space-y-3">
         {visibles.map((i) => (
-          <li key={i.itemId} className="rounded border p-3 flex justify-between gap-3">
-            <div><strong>{i.titulo}</strong><div className="text-base">{i.porQue}</div></div>
-            <button className={btn2} onClick={() => setOcultos((o) => [...o, i.itemId])}>Ocultar</button>
+          <li key={i.itemId}>
+            <Card className="flex gap-3 items-start">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-violet-50 text-xl" aria-hidden>{ICONO_ITEM[i.tipo] ?? "✨"}</span>
+              <div className="flex-1 min-w-0"><strong className="text-slate-900">{i.titulo}</strong><div className="text-base">{i.porQue}</div></div>
+              <Button variant="ghost" className="!px-3 !py-1 text-sm" onClick={() => setOcultos((o) => [...o, i.itemId])}>Ocultar</Button>
+            </Card>
           </li>
         ))}
-        <li className="rounded border p-3"><strong>Conversarlo con tu tutor</strong></li>
-        <li className="rounded border p-3"><strong>Seguir explorando</strong></li>
+        <li><Button variant="secondary" className="w-full justify-start">Conversarlo con tu tutor</Button></li>
+        <li><Button variant="secondary" className="w-full justify-start">Seguir explorando</Button></li>
       </ul>
-      <p className="text-sm">Esto no mide si la carrera es para ti: son ideas para explorar, basadas solo en lo que marcaste.</p>
+      <div className="rounded-2xl bg-slate-100 p-4 text-sm text-slate-600">Esto no mide si la carrera es para ti: son ideas para explorar, basadas solo en lo que marcaste.</div>
     </section>
   );
 }
@@ -136,63 +148,87 @@ function Recorrido({ rec, etiquetas, alTerminar }: { rec: ReturnType<typeof useR
   if (!rec.cargado) return <p>Cargando…</p>;
   if (rec.terminado || !actual)
     return (
-      <section className="space-y-4">
-        <h1 className="text-2xl font-bold">Tu recorrido</h1>
+      <section className="space-y-5">
+        <div className="space-y-2">
+          <Eyebrow>Lo que viviste</Eyebrow>
+          <Titulo>Tu recorrido</Titulo>
+        </div>
         {rec.respuestas.length === 0 && <p>No hay escenas publicadas todavía.</p>}
-        <ol className="space-y-2">
-          {rec.respuestas.map((r) => {
+        <ol className="relative space-y-3 border-l-2 border-violet-200 ml-4 pl-6">
+          {rec.respuestas.map((r, n) => {
             const e = escenas.find((x) => x.id === r.escenaId)!;
             const op = e.opciones.find((o) => o.id === r.opcionId);
+            const re = REACCIONES.find((x) => x.r === r.reaccion)?.t ?? "";
             return (
-              <li key={r.escenaId} className="rounded border bg-white p-3">
-                <strong>{e.titulo}</strong>
-                <div>Elegiste: {op?.texto}</div>
-                <div>{REACCIONES.find((x) => x.r === r.reaccion)?.t}</div>
+              <li key={r.escenaId} className="relative">
+                <span className="absolute -left-[41px] top-4 grid h-8 w-8 place-items-center rounded-full bg-violet-600 text-white text-sm font-bold ring-4 ring-slate-50">{n + 1}</span>
+                <Card className="space-y-1">
+                  <strong className="text-slate-900">{e.titulo}</strong>
+                  <div>Elegiste: {op?.texto}</div>
+                  <div className="text-lg">{re}</div>
+                </Card>
               </li>
             );
           })}
         </ol>
         <Explorar etiquetas={etiquetas} respuestas={rec.respuestas} />
-        <button className={btn} onClick={alTerminar}>Ver qué noté</button>
+        <Button className="w-full" onClick={alTerminar}>Ver qué noté</Button>
       </section>
     );
 
   const op = actual.opciones.find((o) => o.id === eleccion);
+  const n = visitadas.length + 1;
   return (
     <section className="space-y-4" aria-live="polite">
-      <div className="flex justify-between text-base">
-        <ol className="flex gap-2">{["Sem 1", "Sem 2", "Sem 3"].map((s, i) => <li key={s} className={i === 2 ? "font-bold" : "text-neutral-500"}>{i === 2 ? "● " : ""}{s}{i < 2 ? " ─" : ""}</li>)}</ol>
-        <span>Escena {visitadas.length + 1} de {total}</span>
+      <div className="flex items-center justify-between gap-2 text-sm">
+        <ol className="flex items-center gap-1.5">
+          {["Sem 1", "Sem 2", "Sem 3"].map((s, i) => (
+            <li key={s} className="flex items-center gap-1.5">
+              <span className={`h-3 w-3 rounded-full ${i === 2 ? "bg-violet-600" : "bg-violet-200"}`} aria-hidden />
+              <span className={i === 2 ? "font-bold text-slate-900" : "text-slate-500"}>{i === 2 ? "● " : ""}{s}{i < 2 ? " ─" : ""}</span>
+            </li>
+          ))}
+        </ol>
+        <span className="font-semibold text-slate-700">Escena {n} de {total}</span>
       </div>
-      <div className="text-5xl" aria-hidden>{ICONOS[actual.tipo]}</div>
-      <p className="text-base">3er semestre · {actual.momento} · {nombreRamo(actual.ramoId)} · {actual.tipo} <span className="bg-amber-200 text-amber-950 px-2 rounded text-sm">Simulación</span></p>
-      <h1 className="text-xl font-bold">{actual.titulo}</h1>
-      <p>{actual.narracion}</p>
-      <button className={btn2} onClick={() => narrar(`${actual.narracion}`)} aria-label="Escuchar la escena">🔊 Escuchar</button>
-      <p className="font-semibold">¿Qué harías?</p>
-      <ul className="space-y-2">
+      <div><span className="inline-flex rounded-full bg-violet-50 border border-violet-100 text-violet-700 px-3 py-1 text-xs font-bold">🧭 Exploraste {visitadas.length} {visitadas.length === 1 ? "situación" : "situaciones"}</span></div>
+      <SceneCard tipo={actual.tipo} icono={ICONOS[actual.tipo]}
+        momento={`3er semestre · ${actual.momento} · ${nombreRamo(actual.ramoId)} · ${actual.tipo}`}
+        titulo={<h1>{actual.titulo}</h1>} narracion={<p>{actual.narracion}</p>}>
+        <Button variant="secondary" className="!rounded-full !px-4 !py-2 text-sm" onClick={() => narrar(`${actual.narracion}`)} aria-label="Escuchar la escena">🔊 Escuchar</Button>
+      </SceneCard>
+      <p className="font-extrabold tracking-tight text-slate-900 text-lg">¿Qué harías?</p>
+      <ul className="space-y-3">
         {actual.opciones.map((o, i) => (
           <li key={o.id}>
             <button disabled={!!eleccion} onClick={() => rec.elegir(o.id)} aria-pressed={eleccion === o.id}
-              className={`w-full text-left rounded border-2 p-3 ${eleccion === o.id ? "border-teal-700 bg-teal-50" : "border-neutral-300 bg-white"}`}>
-              [{i + 1}] {o.texto}
+              className={`w-full text-left flex gap-3 items-start rounded-2xl border-2 p-4 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 ${eleccion === o.id ? "border-violet-600 bg-violet-50" : "border-slate-200 bg-white hover:border-violet-300"} ${eleccion && eleccion !== o.id ? "opacity-60" : ""}`}>
+              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-violet-100 text-violet-700 font-bold text-sm">{i + 1}</span>
+              <span className="text-slate-800">{o.texto}</span>
             </button>
           </li>
         ))}
       </ul>
       {op && (
-        <div className="space-y-3 rounded bg-white border p-4">
-          <p><strong>Lo que suele pasar:</strong> {op.loQueSuelePasar}</p>
-          <p className="flex gap-2 flex-wrap items-center text-base">Fuente: {actual.citas.map((c) => <span key={c} className="rounded-full bg-neutral-200 px-2 text-sm">{c.startsWith("malla:") ? `malla · ${nombreRamo(c)}` : "experiencia del tutor"}</span>)}</p>
-          <p className="text-sm">{rotuloEscena("un tutor (ficticio)")}</p>
-          <p className="font-semibold">¿Esto es lo que imaginabas de tu carrera?</p>
-          <div className="flex gap-2 flex-wrap">
-            {REACCIONES.map((x) => (
-              <button key={x.r} onClick={() => rec.reaccionar(x.r)} aria-pressed={rec.reaccionActual === x.r}
-                className={`rounded border-2 px-3 py-2 ${rec.reaccionActual === x.r ? "border-teal-700 bg-teal-50" : "border-neutral-300"}`}>{x.t}</button>
-            ))}
+        <div className="space-y-4">
+          <Card className="space-y-3 !bg-violet-50 !border-violet-100">
+            <p className="text-slate-700"><strong>Lo que suele pasar:</strong> {op.loQueSuelePasar}</p>
+            <p className="flex gap-2 flex-wrap items-center text-sm">Fuente: {actual.citas.map((c) => <SourceChip key={c} icono={c.startsWith("malla:") ? "📘" : "📎"}>{c.startsWith("malla:") ? `malla · ${nombreRamo(c)}` : "experiencia del tutor"}</SourceChip>)}</p>
+            <p className="text-sm text-slate-500">{rotuloEscena("un tutor (ficticio)")}</p>
+          </Card>
+          <p className="font-extrabold tracking-tight text-slate-900 text-lg">¿Esto es lo que imaginabas de tu carrera?</p>
+          <div className="grid grid-cols-3 gap-2">
+            {REACCIONES.map((x) => {
+              const [emo, ...txt] = x.t.split(" ");
+              return (
+                <button key={x.r} onClick={() => rec.reaccionar(x.r)} aria-pressed={rec.reaccionActual === x.r} aria-label={x.t}
+                  className={`flex flex-col items-center gap-1 rounded-2xl border-2 px-2 py-3 text-center text-xs font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 ${rec.reaccionActual === x.r ? "border-violet-600 bg-violet-600 text-white" : "border-slate-200 bg-white text-slate-700 hover:border-violet-300"}`}>
+                  <span className="text-3xl" aria-hidden>{emo}</span><span>{txt.join(" ")}</span>
+                </button>
+              );
+            })}
           </div>
-          <button className={btn} disabled={!rec.reaccionActual} onClick={rec.siguiente}>Siguiente escena →</button>
+          <Button className="w-full" disabled={!rec.reaccionActual} onClick={rec.siguiente}>Siguiente escena →</Button>
         </div>
       )}
     </section>
@@ -227,49 +263,57 @@ function Brechas({ rec, alContinuar }: { rec: ReturnType<typeof useRecorrido>; a
   if (!brechas)
     return (
       <section className="space-y-4">
-        <h1 className="text-2xl font-bold">Antes de seguir</h1>
-        <label className="block">¿Quieres agregar algo? (opcional)
-          <textarea className={campo} rows={3} value={comentario} onChange={(e) => setComentario(e.target.value)} />
-        </label>
-        <button className={btn} disabled={cargando} onClick={ver}>{cargando ? "Pensando…" : "Ver qué noté"}</button>
+        <Titulo>Antes de seguir</Titulo>
+        <Card>
+          <label className="block space-y-2 font-semibold text-slate-800">¿Quieres agregar algo? (opcional)
+            <textarea className={campo} rows={3} placeholder="Ej.: pensé que iba a programar más solo" value={comentario} onChange={(e) => setComentario(e.target.value)} />
+            <span className="block text-xs font-normal text-slate-500">No escribas datos personales (nombre, RUT, salud). Este comentario se usa para proponer tus brechas.</span>
+          </label>
+        </Card>
+        <Button className="w-full" disabled={cargando} onClick={ver}>{cargando ? "Pensando…" : "Ver qué noté"}</Button>
       </section>
     );
 
   return (
     <section className="space-y-4">
-      <h1 className="text-2xl font-bold">Según lo que marcaste, esto podría no calzar con lo que esperabas</h1>
+      <DexCard eyebrow="Propuesto por Dex (IA) · tú decides" title="Según lo que marcaste, esto podría no calzar con lo que esperabas" />
       {fallback && <p className="text-sm">Esta vez las armamos con una regla simple, sin IA.</p>}
       {brechas.length === 0 && <p>No marcaste nada que sorprendiera. No hay nada que compartir.</p>}
       <ul className="space-y-3">
         {brechas.map((b) => (
-          <li key={b.id} className={`rounded border bg-white p-3 space-y-2 ${b.estado === "descartada" ? "opacity-50" : ""}`}>
+          <li key={b.id}>
+          <Card className={`space-y-3 ${b.estado === "descartada" ? "opacity-50" : ""}`}>
             {b.editando ? (
               <textarea aria-label="Editar brecha" className={campo} value={b.texto} onChange={(e) => upd(b.id, { texto: e.target.value })} />
-            ) : <p>{b.texto}</p>}
-            <p className="text-sm">Escena {b.escenaId} · {b.citas.join(", ")} · estado: {b.estado}</p>
-            <div className="flex gap-2">
+            ) : <p className="text-slate-800 flex gap-2">{(b.estado === "confirmada" || b.estado === "editada") && <span aria-hidden className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-emerald-100 text-emerald-700 text-sm">✓</span>}<span>{b.texto}</span></p>}
+            <div className="flex gap-1.5 flex-wrap items-center text-xs">
+              <SourceChip icono="🎮">Escena {b.escenaId}</SourceChip>
+              {b.citas.map((c) => <SourceChip key={c}>{c}</SourceChip>)}
+              <span className="text-slate-500">estado: {b.estado}</span>
+            </div>
+            <div className="flex gap-2 flex-wrap">
               {b.editando
-                ? <button className={btn2} onClick={() => upd(b.id, { editando: false, estado: "editada" })}>Guardar</button>
+                ? <Button variant="secondary" className="!px-4 !py-2 text-sm" onClick={() => upd(b.id, { editando: false, estado: "editada" })}>Guardar</Button>
                 : <>
-                    <button className={btn2} onClick={() => upd(b.id, { estado: "confirmada" })}>Confirmar</button>
-                    <button className={btn2} onClick={() => upd(b.id, { editando: true })}>Editar</button>
-                    <button className={btn2} onClick={() => upd(b.id, { estado: "descartada" })}>Descartar</button>
+                    <Button variant="secondary" className="!px-4 !py-2 text-sm" onClick={() => upd(b.id, { estado: "confirmada" })}>Confirmar</Button>
+                    <Button variant="secondary" className="!px-4 !py-2 text-sm" onClick={() => upd(b.id, { editando: true })}>Editar</Button>
+                    <Button variant="ghost" className="!py-2 text-sm" onClick={() => upd(b.id, { estado: "descartada" })}>Descartar</Button>
                   </>}
             </div>
+          </Card>
           </li>
         ))}
       </ul>
-      <fieldset className="space-y-2">
-        <legend>¿Qué pesó más al elegir esta carrera? (varias o ninguna; solo tú lo marcas)</legend>
+      <Card><fieldset className="space-y-3">
+        <legend className="font-extrabold tracking-tight text-slate-900 mb-2">¿Qué pesó más al elegir esta carrera? <span className="text-sm font-normal text-slate-500">(varias o ninguna; solo tú lo marcas)</span></legend>
         <div className="flex gap-2 flex-wrap">
           {MOTIVOS.map((m) => (
-            <button key={m.m} aria-pressed={motivos.includes(m.m)} onClick={() => tog(m.m)}
-              className={`rounded border-2 px-3 py-2 ${motivos.includes(m.m) ? "border-teal-700 bg-teal-50" : "border-neutral-300"}`}>{m.t}</button>
+            <Chip key={m.m} selected={motivos.includes(m.m)} onClick={() => tog(m.m)}>{m.t}</Chip>
           ))}
         </div>
         {motivos.includes("otro") && <input aria-label="Otro motivo" className={campo} value={otro} onChange={(e) => setOtro(e.target.value)} />}
-      </fieldset>
-      <button className={btn} disabled={!utiles.length} onClick={() => alContinuar(utiles.map((b) => ({ id: b.id, texto: b.texto, escenaId: b.escenaId, citas: b.citas, estado: b.estado })), { motivos, otro })}>Continuar →</button>
+      </fieldset></Card>
+      <Button className="w-full" disabled={!utiles.length} onClick={() => alContinuar(utiles.map((b) => ({ id: b.id, texto: b.texto, escenaId: b.escenaId, citas: b.citas, estado: b.estado })), { motivos, otro })}>Continuar →</Button>
       {!utiles.length && brechas.length > 0 && <p className="text-sm">Confirma o edita al menos una para continuar.</p>}
     </section>
   );
@@ -298,32 +342,36 @@ function Compartir({ brechas, motivo }: { brechas: Brecha[]; motivo: { motivos: 
     if (r.ok) setAut(r.data.autorizacion);
   }
 
-  if (fin === "privado") return <p role="status">Listo. Nada se compartió; solo tú ves este resumen.</p>;
+  if (fin === "privado") return <Card><p role="status" className="text-slate-800 font-semibold">Listo. Nada se compartió; solo tú ves este resumen.</p></Card>;
   if (caso)
     return (
       <section className="space-y-3" aria-live="polite">
-        <h1 className="text-2xl font-bold">Compartido</h1>
-        <p role="status">Estado: {aut === "activa" ? "Compartido con tu tutor" : aut === "pausada" ? "Pausado: tu tutor no lo ve" : "Autorización retirada: tu tutor ya no lo ve"}</p>
-        <div className="flex gap-2">
-          {aut === "activa" && <button className={btn2} onClick={() => cambiar("pausada")}>Pausar</button>}
-          {aut === "pausada" && <button className={btn2} onClick={() => cambiar("activa")}>Reactivar</button>}
-          {aut !== "retirada" && <button className={btn2} onClick={() => cambiar("retirada")}>Retirar autorización</button>}
-        </div>
+        <Titulo>Compartido</Titulo>
+        <Card className="space-y-4">
+          <p role="status" className="text-slate-800 font-semibold flex gap-2 items-center"><span aria-hidden className={`grid h-7 w-7 place-items-center rounded-full text-sm ${aut === "activa" ? "bg-emerald-100 text-emerald-700" : "bg-slate-100 text-slate-500"}`}>{aut === "activa" ? "✓" : "•"}</span>Estado: {aut === "activa" ? "Compartido con tu tutor" : aut === "pausada" ? "Pausado: tu tutor no lo ve" : "Autorización retirada: tu tutor ya no lo ve"}</p>
+          <div className="flex gap-2 flex-wrap">
+            {aut === "activa" && <Button variant="secondary" onClick={() => cambiar("pausada")}>Pausar</Button>}
+            {aut === "pausada" && <Button variant="secondary" onClick={() => cambiar("activa")}>Reactivar</Button>}
+            {aut !== "retirada" && <Button variant="ghost" onClick={() => cambiar("retirada")}>Retirar autorización</Button>}
+          </div>
+        </Card>
       </section>
     );
   return (
     <section className="space-y-4">
-      <h1 className="text-2xl font-bold">¿Quieres compartir tu resumen con tu tutor?</h1>
-      <fieldset className="space-y-1">
-        <legend>Elige qué incluir</legend>
-        <label className="flex gap-2"><input type="checkbox" checked={incBrechas} onChange={(e) => setIncBrechas(e.target.checked)} /> Brechas</label>
-        <label className="flex gap-2"><input type="checkbox" checked={incMotivo} onChange={(e) => setIncMotivo(e.target.checked)} /> Motivo</label>
-      </fieldset>
-      <p>Puedes pausarlo o retirarlo cuando quieras. Si no compartes, nada cambia y nadie más lo verá.</p>
+      <Titulo>¿Quieres compartir tu resumen con tu tutor?</Titulo>
+      <Card className="space-y-3">
+        <fieldset className="space-y-2">
+          <legend className="font-extrabold tracking-tight text-slate-900 mb-2">Elige qué incluir</legend>
+          <label className="flex gap-3 items-center rounded-2xl border border-slate-200 p-3 text-slate-800"><input className="h-5 w-5 accent-violet-600" type="checkbox" checked={incBrechas} onChange={(e) => setIncBrechas(e.target.checked)} /> Brechas</label>
+          <label className="flex gap-3 items-center rounded-2xl border border-slate-200 p-3 text-slate-800"><input className="h-5 w-5 accent-violet-600" type="checkbox" checked={incMotivo} onChange={(e) => setIncMotivo(e.target.checked)} /> Motivo</label>
+        </fieldset>
+        <p className="text-sm text-slate-600">Puedes pausarlo o retirarlo cuando quieras. Si no compartes, nada cambia y nadie más lo verá.</p>
+      </Card>
       {error && <p role="alert">{error}</p>}
-      <div className="flex gap-2 flex-wrap">
-        <button className={btn} onClick={compartir}>Compartir con mi tutor</button>
-        <button className={btn2} onClick={() => setFin("privado")}>No, guardarlo solo para mí</button>
+      <div className="flex gap-2 flex-col">
+        <Button onClick={compartir}>Compartir con mi tutor</Button>
+        <Button variant="secondary" onClick={() => setFin("privado")}>No, guardarlo solo para mí</Button>
       </div>
     </section>
   );

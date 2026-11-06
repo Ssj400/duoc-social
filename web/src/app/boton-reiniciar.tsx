@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { Button } from "@/components/ui";
 
 export function BotonReiniciar() {
   const [ok, setOk] = useState(false);
@@ -8,9 +9,9 @@ export function BotonReiniciar() {
     setOk(true);
   }
   return (
-    <div>
-      <button onClick={reiniciar} className="rounded border border-neutral-400 px-4 py-2 text-base">Reiniciar demo</button>
-      {ok && <span role="status" className="ml-3 text-base">Demo reiniciada.</span>}
+    <div className="text-center">
+      <Button variant="ghost" onClick={reiniciar} className="text-sm">Reiniciar demo</Button>
+      {ok && <span role="status" className="ml-2 text-sm">Demo reiniciada.</span>}
     </div>
   );
 }

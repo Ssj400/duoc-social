@@ -39,10 +39,10 @@ const rango = (r: RamoRuta) => (r.categoria === "Especialidad" ? 0 : 1);
 
 function estilo(linea: string): { fg: string; bg: string; Icono: typeof I.Codigo } {
   if (linea.startsWith("Desarrollo")) return { fg: "#7656d7", bg: "#f0ecff", Icono: I.Codigo };
-  if (linea.startsWith("Gestión de Req")) return { fg: "#159b8e", bg: "#e8f8f5", Icono: I.BaseDatos };
-  if (linea.startsWith("Ingeniería de Soft")) return { fg: "#f36f4b", bg: "#fff0eb", Icono: I.Capas };
+  if (linea.startsWith("Gestión de Req")) return { fg: "#7c3aed", bg: "#ede9fe", Icono: I.BaseDatos };
+  if (linea.startsWith("Ingeniería de Soft")) return { fg: "#8b5cf6", bg: "#f5f3ff", Icono: I.Capas };
   if (linea.startsWith("Evaluación")) return { fg: "#b7791f", bg: "#fdf3e1", Icono: I.Maletin };
-  return { fg: "#52716d", bg: "#eef2ed", Icono: I.Libro };
+  return { fg: "#6d5bb0", bg: "#f1f5f9", Icono: I.Libro };
 }
 
 const TIPO: Record<string, string> = { clase: "Clase", laboratorio: "Laboratorio", prueba: "Prueba", practica: "Práctica", equipo: "Trabajo en equipo" };
@@ -70,39 +70,39 @@ export function RutaCliente({ ramos, carrera, fuente, consultada }: {
   const m: Modo = modo ?? "estudiante";
 
   return (
-    <div style={FUENTE} className="-m-6 min-h-screen bg-[#f6f7f3] text-[#152f2d]">
+    <div style={FUENTE} className="min-h-screen bg-[#f8fafc] text-[#1e1b4b]">
       {modo === null && <Bienvenida alElegir={setModo} />}
 
-      <header className="sticky top-0 z-30 border-b border-[#dce3dc] bg-[#f6f7f3]/95 backdrop-blur">
+      <header className="sticky top-0 z-30 border-b border-[#e2e8f0] bg-[#f8fafc]/95 backdrop-blur">
         <div className="mx-auto flex h-[76px] items-center justify-between px-5">
           <button className="flex items-center gap-3" aria-label="Ir al inicio" onClick={() => setModo(null)}>
-            <span className="grid h-10 w-10 place-items-center rounded-xl bg-[#173f3a] text-white"><I.Brujula /></span>
+            <span className="grid h-10 w-10 place-items-center rounded-xl bg-[#5b21b6] text-white"><I.Brujula /></span>
             <span className="text-left">
               <span className="block text-[18px] font-extrabold leading-none tracking-[-0.03em]">RUTA</span>
-              <span className="mt-1 block text-[9px] font-bold tracking-[0.2em] text-[#52716d]">SIMULADOR ACADÉMICO</span>
+              <span className="mt-1 block text-[9px] font-bold tracking-[0.2em] text-[#6d5bb0]">SIMULADOR ACADÉMICO</span>
             </span>
           </button>
           <div className="hidden items-center gap-2 sm:flex">
             <Pildora activa={m === "estudiante"} onClick={() => setModo("estudiante")}><I.Persona width={14} height={14} />Mi ruta</Pildora>
             <Pildora activa={m === "explorar"} onClick={() => setModo("explorar")}><I.Brujula width={14} height={14} />Explorar</Pildora>
-            <Link href="/estudiante" className="ml-2 rounded-full bg-[#173f3a] px-4 py-2 text-xs font-bold text-white">Jugar simulación</Link>
+            <Link href="/estudiante" className="ml-2 rounded-full bg-[#5b21b6] px-4 py-2 text-xs font-bold text-white">Jugar simulación</Link>
           </div>
           <button className="p-2 sm:hidden" aria-label={menu ? "Cerrar menú" : "Abrir menú"} onClick={() => setMenu(!menu)}>
             {menu ? <I.Cerrar /> : <I.Menu />}
           </button>
         </div>
         {menu && (
-          <div className="border-t border-[#dce3dc] px-5 py-4 sm:hidden">
+          <div className="border-t border-[#e2e8f0] px-5 py-4 sm:hidden">
             <p className="mb-3 text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#687b77]">Elige cómo mirar</p>
             <div className="grid grid-cols-2 gap-2">
               {(["estudiante", "explorar"] as const).map((x) => (
                 <button key={x} onClick={() => { setModo(x); setMenu(false); }}
-                  className={`rounded-xl border px-4 py-3 text-sm font-bold ${m === x ? "border-[#173f3a] bg-[#173f3a] text-white" : "border-[#d7dfd8] bg-white text-[#173f3a]"}`}>
+                  className={`rounded-xl border px-4 py-3 text-sm font-bold ${m === x ? "border-[#5b21b6] bg-[#5b21b6] text-white" : "border-[#ddd6fe] bg-white text-[#5b21b6]"}`}>
                   {x === "estudiante" ? "Mi ruta" : "Explorar"}
                 </button>
               ))}
             </div>
-            <Link href="/estudiante" className="mt-2 block rounded-xl bg-[#f7a386] px-4 py-3 text-center text-sm font-extrabold text-[#173f3a]">Jugar simulación</Link>
+            <Link href="/estudiante" className="mt-2 block rounded-xl bg-[#c4b5fd] px-4 py-3 text-center text-sm font-extrabold text-[#5b21b6]">Jugar simulación</Link>
           </div>
         )}
       </header>
@@ -110,10 +110,10 @@ export function RutaCliente({ ramos, carrera, fuente, consultada }: {
       <main className="mx-auto px-5 pb-12 pt-8">
         <section className="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end">
           <div>
-            <div className="mb-3 flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.15em] text-[#d15a3b]">
-              <span className="h-px w-7 bg-[#d15a3b]" />Ingeniería en Informática · Duoc UC
+            <div className="mb-3 flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.15em] text-[#7c3aed]">
+              <span className="h-px w-7 bg-[#7c3aed]" />Ingeniería en Informática · Duoc UC
             </div>
-            <h1 className="max-w-3xl text-[34px] font-extrabold leading-[1.05] tracking-[-0.045em] text-[#163b37] sm:text-[44px]">
+            <h1 className="max-w-3xl text-[34px] font-extrabold leading-[1.05] tracking-[-0.045em] text-[#4c1d95] sm:text-[44px]">
               {m === "estudiante" ? "Tu ruta, a tu manera." : "Explora lo que viene."}
             </h1>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-[#667975] sm:text-base">
@@ -122,13 +122,13 @@ export function RutaCliente({ ramos, carrera, fuente, consultada }: {
                 : "Conoce los ramos de cada semestre con los datos de la malla oficial y, donde existan, experiencias de tutores."}
             </p>
           </div>
-          <div className="flex items-center gap-3 rounded-2xl border border-[#dfe5df] bg-white p-3 pr-5 shadow-[0_8px_30px_rgba(27,56,51,0.05)]">
-            <div className="grid h-11 w-11 place-items-center rounded-xl bg-[#e7f1e8] font-extrabold text-[#26554e]">
+          <div className="flex items-center gap-3 rounded-2xl border border-[#e2e8f0] bg-white p-3 pr-5 shadow-[0_8px_30px_rgba(27,56,51,0.05)]">
+            <div className="grid h-11 w-11 place-items-center rounded-xl bg-[#ede9fe] font-extrabold text-[#6d28d9]">
               {m === "estudiante" ? "TF" : <I.Destello />}
             </div>
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#85938f]">{m === "estudiante" ? "Tutor asignado" : "Modo exploración"}</p>
-              <p className="mt-0.5 text-sm font-extrabold text-[#254742]">{m === "estudiante" ? "Tutor ficticio (demo)" : "Malla oficial + experiencias de muestra"}</p>
+              <p className="mt-0.5 text-sm font-extrabold text-[#4c1d95]">{m === "estudiante" ? "Tutor ficticio (demo)" : "Malla oficial + experiencias de muestra"}</p>
             </div>
           </div>
         </section>
@@ -136,20 +136,20 @@ export function RutaCliente({ ramos, carrera, fuente, consultada }: {
         <nav aria-label="Semestres" className="mb-6 flex gap-2 overflow-x-auto pb-1">
           {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
             <button key={n} onClick={() => elegirSemestre(n)} aria-pressed={semestre === n}
-              className={`shrink-0 rounded-full px-4 py-2 text-xs font-extrabold transition ${semestre === n ? "bg-[#173f3a] text-white" : "border border-[#d7dfd8] bg-white text-[#52716d] hover:border-[#173f3a]"}`}>
-              {n}° sem{n >= 2 && n <= 4 ? " ·" : ""}{n >= 2 && n <= 4 && <span className={semestre === n ? "text-[#f7a386]" : "text-[#d15a3b]"}> lo que viene</span>}
+              className={`shrink-0 rounded-full px-4 py-2 text-xs font-extrabold transition ${semestre === n ? "bg-[#5b21b6] text-white" : "border border-[#ddd6fe] bg-white text-[#6d5bb0] hover:border-[#5b21b6]"}`}>
+              {n}° sem{n >= 2 && n <= 4 ? " ·" : ""}{n >= 2 && n <= 4 && <span className={semestre === n ? "text-[#c4b5fd]" : "text-[#7c3aed]"}> lo que viene</span>}
             </button>
           ))}
         </nav>
 
         <section className="grid gap-6 md:grid-cols-[300px_minmax(0,1fr)]">
-          <aside className="h-fit rounded-[24px] border border-[#dfe5df] bg-white p-5 shadow-[0_15px_40px_rgba(25,58,52,0.04)]">
+          <aside className="h-fit rounded-[24px] border border-[#e2e8f0] bg-white p-5 shadow-[0_15px_40px_rgba(25,58,52,0.04)]">
             <div className="mb-5 flex items-center justify-between">
               <div>
                 <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#82918e]">{semestre}° semestre</p>
                 <p className="mt-1 text-lg font-extrabold tracking-[-0.02em]">{delSemestre.length} asignaturas</p>
               </div>
-              <span className="rounded-full bg-[#eef2ed] px-3 py-1.5 text-[11px] font-bold text-[#58706c]">{sct} SCT</span>
+              <span className="rounded-full bg-[#f1f5f9] px-3 py-1.5 text-[11px] font-bold text-[#6d5bb0]">{sct} SCT</span>
             </div>
             <div className="space-y-2">
               {delSemestre.map((r) => {
@@ -157,17 +157,17 @@ export function RutaCliente({ ramos, carrera, fuente, consultada }: {
                 const e = estilo(r.linea);
                 return (
                   <button key={r.id} onClick={() => { setRamoId(r.id); setPestana("general"); }}
-                    className={`group w-full rounded-2xl border p-4 text-left transition-all ${activo ? "border-[#173f3a] bg-[#173f3a] text-white shadow-[0_10px_25px_rgba(23,63,58,0.15)]" : "border-transparent bg-[#f6f7f3] hover:border-[#cad6ce]"}`}>
+                    className={`group w-full rounded-2xl border p-4 text-left transition-all ${activo ? "border-[#5b21b6] bg-[#5b21b6] text-white shadow-[0_10px_25px_rgba(23,63,58,0.15)]" : "border-transparent bg-[#f8fafc] hover:border-[#ddd6fe]"}`}>
                     <div className="flex items-start gap-3">
                       <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl"
                         style={activo ? { backgroundColor: "rgba(255,255,255,0.12)", color: "white" } : { backgroundColor: e.bg, color: e.fg }}>
                         <e.Icono />
                       </span>
                       <span className="min-w-0 flex-1">
-                        <span className={`block text-[10px] font-bold uppercase tracking-wider ${activo ? "text-[#b8d0ca]" : "text-[#87938f]"}`}>{r.codigo}</span>
+                        <span className={`block text-[10px] font-bold uppercase tracking-wider ${activo ? "text-[#ddd6fe]" : "text-[#87938f]"}`}>{r.codigo}</span>
                         <span className="mt-1 block text-sm font-extrabold leading-[1.25]">{r.nombre}</span>
                         {r.experiencias.length > 0 && (
-                          <span className={`mt-2 inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-extrabold ${activo ? "bg-white/15 text-[#f7a386]" : "bg-[#fff0eb] text-[#d15a3b]"}`}>
+                          <span className={`mt-2 inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-extrabold ${activo ? "bg-white/15 text-[#c4b5fd]" : "bg-[#f5f3ff] text-[#7c3aed]"}`}>
                             <I.Jugar width={10} height={10} />Escena disponible
                           </span>
                         )}
@@ -178,9 +178,9 @@ export function RutaCliente({ ramos, carrera, fuente, consultada }: {
                 );
               })}
             </div>
-            <div className="mt-5 rounded-2xl border border-dashed border-[#cad6ce] bg-[#fbfcf9] p-4">
+            <div className="mt-5 rounded-2xl border border-dashed border-[#ddd6fe] bg-[#faf8ff] p-4">
               <div className="flex gap-3">
-                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#e7f1e8] text-[#2b6259]"><I.Reloj /></span>
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#ede9fe] text-[#6d28d9]"><I.Reloj /></span>
                 <div>
                   <p className="text-xs font-extrabold">Carga del semestre: {carga} horas pedagógicas</p>
                   <p className="mt-1 text-[11px] leading-4 text-[#70817e]">
@@ -190,9 +190,9 @@ export function RutaCliente({ ramos, carrera, fuente, consultada }: {
               </div>
             </div>
             {m === "estudiante" && (
-              <Link href="/estudiante" className="mt-3 block rounded-2xl border border-[#dfe5df] p-4 hover:border-[#173f3a]">
+              <Link href="/estudiante" className="mt-3 block rounded-2xl border border-[#e2e8f0] p-4 hover:border-[#5b21b6]">
                 <div className="flex gap-3">
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#fff0eb] text-[#d15a3b]"><I.Mensaje /></span>
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#f5f3ff] text-[#7c3aed]"><I.Mensaje /></span>
                   <div>
                     <p className="text-xs font-extrabold">Conversar con tu tutor</p>
                     <p className="mt-1 text-[11px] leading-4 text-[#70817e]">Solo si tú decides compartir tu resumen después de jugar. Si no, nadie más lo ve.</p>
@@ -203,7 +203,7 @@ export function RutaCliente({ ramos, carrera, fuente, consultada }: {
           </aside>
 
           {ramo && (
-            <article className="overflow-hidden rounded-[24px] border border-[#dfe5df] bg-white shadow-[0_15px_40px_rgba(25,58,52,0.05)]">
+            <article className="overflow-hidden rounded-[24px] border border-[#e2e8f0] bg-white shadow-[0_15px_40px_rgba(25,58,52,0.05)]">
               <div className="relative overflow-hidden px-6 pb-7 pt-6 sm:px-8 sm:pt-8">
                 <div className="absolute right-0 top-0 h-full w-1/2 opacity-40" style={GRILLA} />
                 <div className="relative">
@@ -211,12 +211,12 @@ export function RutaCliente({ ramos, carrera, fuente, consultada }: {
                     <span className="rounded-full px-3 py-1.5 text-[11px] font-extrabold"
                       style={{ color: estilo(ramo.linea).fg, backgroundColor: estilo(ramo.linea).bg }}>{ramo.linea}</span>
                     <div className="flex gap-2 text-[11px] font-bold text-[#667975]">
-                      <span className="flex items-center gap-1.5 rounded-full bg-[#f3f5f1] px-3 py-1.5"><I.Reloj width={12} height={12} />{ramo.semestre}° semestre</span>
-                      <span className="flex items-center gap-1.5 rounded-full bg-[#f3f5f1] px-3 py-1.5"><I.Libro width={12} height={12} />{ramo.horas} horas</span>
+                      <span className="flex items-center gap-1.5 rounded-full bg-[#f1f5f9] px-3 py-1.5"><I.Reloj width={12} height={12} />{ramo.semestre}° semestre</span>
+                      <span className="flex items-center gap-1.5 rounded-full bg-[#f1f5f9] px-3 py-1.5"><I.Libro width={12} height={12} />{ramo.horas} horas</span>
                     </div>
                   </div>
                   <p className="text-xs font-extrabold tracking-[0.12em] text-[#8a9895]">{ramo.codigo}</p>
-                  <h2 className="mt-2 max-w-3xl text-[28px] font-extrabold leading-[1.1] tracking-[-0.04em] text-[#173f3a] sm:text-[36px]">{ramo.nombre}</h2>
+                  <h2 className="mt-2 max-w-3xl text-[28px] font-extrabold leading-[1.1] tracking-[-0.04em] text-[#5b21b6] sm:text-[36px]">{ramo.nombre}</h2>
                   <p className="mt-4 max-w-2xl text-sm leading-6 text-[#667975]">
                     {ramo.experiencias.length > 0
                       ? `${ramo.experiencias.length === 1 ? "Hay una experiencia de un tutor" : `Hay ${ramo.experiencias.length} experiencias de tutores`} sobre este ramo. Cada una es la experiencia de una persona, no de toda la carrera.`
@@ -225,7 +225,7 @@ export function RutaCliente({ ramos, carrera, fuente, consultada }: {
                 </div>
               </div>
 
-              <div className="border-y border-[#e5e9e4] px-6 sm:px-8">
+              <div className="border-y border-[#e2e8f0] px-6 sm:px-8">
                 <div className="flex gap-7">
                   <Pestana activa={pestana === "general"} onClick={() => setPestana("general")}>Vista general</Pestana>
                   <Pestana activa={pestana === "experiencias"} onClick={() => setPestana("experiencias")}>
@@ -249,7 +249,7 @@ export function RutaCliente({ ramos, carrera, fuente, consultada }: {
                       {ramo.prerrequisitos.map((p) => <FilaRuta key={p.codigo} rotulo="Vienes de" ramo={p} />)}
                       {ramo.habilita.map((p) => <FilaRuta key={p.codigo} rotulo="Te abre" ramo={p} />)}
                       {!ramo.prerrequisitos.length && !ramo.habilita.length && (
-                        <p className="rounded-xl bg-[#f6f7f3] p-3 text-xs font-bold text-[#38544f]">Este ramo no tiene prerrequisitos ni habilita otros según la malla.</p>
+                        <p className="rounded-xl bg-[#f8fafc] p-3 text-xs font-bold text-[#475569]">Este ramo no tiene prerrequisitos ni habilita otros según la malla.</p>
                       )}
                     </div>
                   </div>
@@ -257,20 +257,20 @@ export function RutaCliente({ ramos, carrera, fuente, consultada }: {
                   <div className="space-y-3">
                     <p className={etiqueta}>Experiencias de tutores</p>
                     {ramo.experiencias.length === 0 && (
-                      <p className="rounded-xl bg-[#f6f7f3] p-4 text-sm text-[#38544f]">Aún no hay experiencias aprobadas para este ramo.</p>
+                      <p className="rounded-xl bg-[#f8fafc] p-4 text-sm text-[#475569]">Aún no hay experiencias aprobadas para este ramo.</p>
                     )}
                     {ramo.experiencias.map((x) => (
-                      <div key={x.escenaId} className="rounded-2xl border border-[#e1e7e1] p-5">
-                        <p className="text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#d15a3b]">{x.momento} · {TIPO[x.tipo] ?? x.tipo}</p>
-                        <p className="mt-2 text-sm font-extrabold leading-6 text-[#274843]">{x.situacion}</p>
+                      <div key={x.escenaId} className="rounded-2xl border border-[#e2e8f0] p-5">
+                        <p className="text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#7c3aed]">{x.momento} · {TIPO[x.tipo] ?? x.tipo}</p>
+                        <p className="mt-2 text-sm font-extrabold leading-6 text-[#4c1d95]">{x.situacion}</p>
                         <dl className="mt-4 grid gap-3 sm:grid-cols-2">
-                          <div className="rounded-xl bg-[#fff0eb] p-3">
-                            <dt className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#d15a3b]">Lo que suele sorprender</dt>
-                            <dd className="mt-1 text-xs leading-5 text-[#38544f]">{x.sorprende}</dd>
+                          <div className="rounded-xl bg-[#f5f3ff] p-3">
+                            <dt className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#7c3aed]">Lo que suele sorprender</dt>
+                            <dd className="mt-1 text-xs leading-5 text-[#475569]">{x.sorprende}</dd>
                           </div>
-                          <div className="rounded-xl bg-[#e8f8f5] p-3">
-                            <dt className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#159b8e]">Qué hace a quien le va bien</dt>
-                            <dd className="mt-1 text-xs leading-5 text-[#38544f]">{x.leVaBien}</dd>
+                          <div className="rounded-xl bg-[#ede9fe] p-3">
+                            <dt className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#7c3aed]">Qué hace a quien le va bien</dt>
+                            <dd className="mt-1 text-xs leading-5 text-[#475569]">{x.leVaBien}</dd>
                           </div>
                         </dl>
                         <p className="mt-3 text-[11px] text-[#82918e]">Experiencia de {x.rolAutor}. Es la experiencia de una persona, no de toda la carrera.</p>
@@ -279,23 +279,23 @@ export function RutaCliente({ ramos, carrera, fuente, consultada }: {
                   </div>
                 )}
 
-                <div className="rounded-[20px] bg-[#173f3a] p-6 text-white">
-                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-[#f6a58b]"><I.Destello /></span>
-                  <p className="mt-6 text-[10px] font-extrabold uppercase tracking-[0.15em] text-[#a9c3bd]">Vista previa</p>
+                <div className="rounded-[20px] bg-[#5b21b6] p-6 text-white">
+                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-[#c4b5fd]"><I.Destello /></span>
+                  <p className="mt-6 text-[10px] font-extrabold uppercase tracking-[0.15em] text-[#ddd6fe]">Vista previa</p>
                   {ramo.experiencias.length > 0 ? (
                     <>
                       <p className="mt-3 text-lg font-extrabold leading-6">Así se siente estudiar {ramo.nombre}.</p>
-                      <p className="mt-3 text-xs leading-5 text-[#bad0cb]">Juega una situación real del ramo: eliges qué harías y ves lo que suele pasar. Sin puntaje y sin respuestas correctas.</p>
-                      <Link href="/estudiante" className="mt-6 flex w-full items-center justify-between rounded-xl bg-[#f7a386] px-4 py-3 text-xs font-extrabold text-[#173f3a] transition hover:bg-[#ffb49b]">
+                      <p className="mt-3 text-xs leading-5 text-[#ddd6fe]">Juega una situación real del ramo: eliges qué harías y ves lo que suele pasar. Sin puntaje y sin respuestas correctas.</p>
+                      <Link href="/estudiante" className="mt-6 flex w-full items-center justify-between rounded-xl bg-[#c4b5fd] px-4 py-3 text-xs font-extrabold text-[#5b21b6] transition hover:bg-[#c4b5fd]">
                         Jugar la simulación<I.Flecha width={16} height={16} />
                       </Link>
                     </>
                   ) : (
                     <>
                       <p className="mt-3 text-lg font-extrabold leading-6">Este ramo aún no tiene escena.</p>
-                      <p className="mt-3 text-xs leading-5 text-[#bad0cb]">Las escenas nacen de la experiencia de un tutor y se publican solo después de que esa persona las revisa.</p>
+                      <p className="mt-3 text-xs leading-5 text-[#ddd6fe]">Las escenas nacen de la experiencia de un tutor y se publican solo después de que esa persona las revisa.</p>
                       {conEscena && (
-                        <button onClick={() => irARamo(conEscena)} className="mt-6 flex w-full items-center justify-between rounded-xl bg-[#f7a386] px-4 py-3 text-xs font-extrabold text-[#173f3a] transition hover:bg-[#ffb49b]">
+                        <button onClick={() => irARamo(conEscena)} className="mt-6 flex w-full items-center justify-between rounded-xl bg-[#c4b5fd] px-4 py-3 text-xs font-extrabold text-[#5b21b6] transition hover:bg-[#c4b5fd]">
                           Ver un ramo con escena<I.Flecha width={16} height={16} />
                         </button>
                       )}
@@ -318,26 +318,26 @@ export function RutaCliente({ ramos, carrera, fuente, consultada }: {
 
 function Bienvenida({ alElegir }: { alElegir: (m: Modo) => void }) {
   return (
-    <div className="fixed inset-0 z-50 grid place-items-center bg-[#173f3a]/60 p-4" role="dialog" aria-modal="true" aria-labelledby="bienvenida-titulo">
-      <div className="relative w-full max-w-md rounded-[28px] bg-[#f6f7f3] p-7 shadow-2xl">
-        <button onClick={() => alElegir("estudiante")} aria-label="Cerrar" className="absolute right-5 top-5 grid h-9 w-9 place-items-center rounded-full bg-white text-[#52716d] shadow">
+    <div className="fixed inset-0 z-50 grid place-items-center bg-[#5b21b6]/60 p-4" role="dialog" aria-modal="true" aria-labelledby="bienvenida-titulo">
+      <div className="relative w-full max-w-md rounded-[28px] bg-[#f8fafc] p-7 shadow-2xl">
+        <button onClick={() => alElegir("estudiante")} aria-label="Cerrar" className="absolute right-5 top-5 grid h-9 w-9 place-items-center rounded-full bg-white text-[#6d5bb0] shadow">
           <I.Cerrar width={16} height={16} />
         </button>
-        <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#173f3a] text-white"><I.Brujula /></span>
-        <p className="mt-6 text-xs font-extrabold uppercase tracking-[0.18em] text-[#d15a3b]">Bienvenido a RUTA</p>
-        <h2 id="bienvenida-titulo" className="mt-2 text-[30px] font-extrabold leading-[1.1] tracking-[-0.04em] text-[#163b37]">Una experiencia hecha para tu próximo paso.</h2>
+        <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#5b21b6] text-white"><I.Brujula /></span>
+        <p className="mt-6 text-xs font-extrabold uppercase tracking-[0.18em] text-[#7c3aed]">Bienvenido a RUTA</p>
+        <h2 id="bienvenida-titulo" className="mt-2 text-[30px] font-extrabold leading-[1.1] tracking-[-0.04em] text-[#4c1d95]">Una experiencia hecha para tu próximo paso.</h2>
         <p className="mt-3 text-sm leading-6 text-[#667975]">Cuéntanos desde dónde quieres mirar. Puedes cambiarlo en cualquier momento.</p>
-        <button onClick={() => alElegir("estudiante")} className="mt-6 w-full rounded-[20px] bg-[#173f3a] p-5 text-left text-white">
+        <button onClick={() => alElegir("estudiante")} className="mt-6 w-full rounded-[20px] bg-[#5b21b6] p-5 text-left text-white">
           <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/10"><I.Persona /></span>
           <span className="mt-5 block text-lg font-extrabold">Mi ruta</span>
-          <span className="mt-1 block text-xs leading-5 text-[#bad0cb]">Mira los semestres que vienen con experiencias de tutores y juega la simulación.</span>
-          <span className="mt-4 flex items-center gap-2 text-xs font-extrabold text-[#f7a386]">Entrar a mi ruta <I.Flecha width={14} height={14} /></span>
+          <span className="mt-1 block text-xs leading-5 text-[#ddd6fe]">Mira los semestres que vienen con experiencias de tutores y juega la simulación.</span>
+          <span className="mt-4 flex items-center gap-2 text-xs font-extrabold text-[#c4b5fd]">Entrar a mi ruta <I.Flecha width={14} height={14} /></span>
         </button>
-        <button onClick={() => alElegir("explorar")} className="mt-3 w-full rounded-[20px] border border-[#dfe5df] bg-white p-5 text-left">
-          <span className="grid h-10 w-10 place-items-center rounded-xl bg-[#e7f1e8] text-[#26554e]"><I.Brujula /></span>
-          <span className="mt-5 block text-lg font-extrabold text-[#173f3a]">Explorar la malla</span>
+        <button onClick={() => alElegir("explorar")} className="mt-3 w-full rounded-[20px] border border-[#e2e8f0] bg-white p-5 text-left">
+          <span className="grid h-10 w-10 place-items-center rounded-xl bg-[#ede9fe] text-[#6d28d9]"><I.Brujula /></span>
+          <span className="mt-5 block text-lg font-extrabold text-[#5b21b6]">Explorar la malla</span>
           <span className="mt-1 block text-xs leading-5 text-[#667975]">Conoce cómo es la carrera por dentro, semestre a semestre.</span>
-          <span className="mt-4 flex items-center gap-2 text-xs font-extrabold text-[#d15a3b]">Explorar la carrera <I.Flecha width={14} height={14} /></span>
+          <span className="mt-4 flex items-center gap-2 text-xs font-extrabold text-[#7c3aed]">Explorar la carrera <I.Flecha width={14} height={14} /></span>
         </button>
       </div>
     </div>
@@ -347,7 +347,7 @@ function Bienvenida({ alElegir }: { alElegir: (m: Modo) => void }) {
 function Pildora({ activa, onClick, children }: { activa: boolean; onClick: () => void; children: ReactNode }) {
   return (
     <button onClick={onClick} aria-pressed={activa}
-      className={`flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold transition ${activa ? "bg-[#dce9df] text-[#173f3a]" : "border border-[#d7dfd8] bg-white text-[#173f3a]"}`}>
+      className={`flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold transition ${activa ? "bg-[#ede9fe] text-[#5b21b6]" : "border border-[#ddd6fe] bg-white text-[#5b21b6]"}`}>
       {children}
     </button>
   );
@@ -355,18 +355,18 @@ function Pildora({ activa, onClick, children }: { activa: boolean; onClick: () =
 
 function Pestana({ activa, onClick, children }: { activa: boolean; onClick: () => void; children: ReactNode }) {
   return (
-    <button onClick={onClick} aria-pressed={activa} className={`relative py-4 text-xs font-extrabold ${activa ? "text-[#173f3a]" : "text-[#82918e]"}`}>
+    <button onClick={onClick} aria-pressed={activa} className={`relative py-4 text-xs font-extrabold ${activa ? "text-[#5b21b6]" : "text-[#82918e]"}`}>
       {children}
-      {activa && <span className="absolute inset-x-0 bottom-0 h-0.5 bg-[#f36f4b]" />}
+      {activa && <span className="absolute inset-x-0 bottom-0 h-0.5 bg-[#8b5cf6]" />}
     </button>
   );
 }
 
 function Dato({ n, titulo, detalle }: { n: string; titulo: string; detalle: string }) {
   return (
-    <div className="rounded-2xl border border-[#e1e7e1] p-4">
-      <span className="mb-5 grid h-8 w-8 place-items-center rounded-full bg-[#fff0eb] text-xs font-extrabold text-[#f36f4b]">{n}</span>
-      <p className="text-sm font-extrabold leading-5 text-[#274843]">{titulo}</p>
+    <div className="rounded-2xl border border-[#e2e8f0] p-4">
+      <span className="mb-5 grid h-8 w-8 place-items-center rounded-full bg-[#f5f3ff] text-xs font-extrabold text-[#8b5cf6]">{n}</span>
+      <p className="text-sm font-extrabold leading-5 text-[#4c1d95]">{titulo}</p>
       <p className="mt-1 text-[11px] text-[#7c8b88]">{detalle}</p>
     </div>
   );
@@ -374,9 +374,9 @@ function Dato({ n, titulo, detalle }: { n: string; titulo: string; detalle: stri
 
 function FilaRuta({ rotulo, ramo }: { rotulo: string; ramo: { codigo: string; nombre: string } }) {
   return (
-    <div className="flex w-full items-center gap-3 rounded-xl bg-[#f6f7f3] p-3">
-      <span className="rounded-full border border-[#ccd6cf] bg-white px-2 py-1 text-[10px] font-bold text-[#52716d]">{rotulo}</span>
-      <span className="flex-1 text-xs font-extrabold text-[#38544f]">{ramo.nombre}</span>
+    <div className="flex w-full items-center gap-3 rounded-xl bg-[#f8fafc] p-3">
+      <span className="rounded-full border border-[#e2e8f0] bg-white px-2 py-1 text-[10px] font-bold text-[#6d5bb0]">{rotulo}</span>
+      <span className="flex-1 text-xs font-extrabold text-[#475569]">{ramo.nombre}</span>
       <span className="text-[10px] font-bold text-[#94a19d]">{ramo.codigo}</span>
     </div>
   );
