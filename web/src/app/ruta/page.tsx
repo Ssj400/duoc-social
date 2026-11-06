@@ -1,8 +1,11 @@
 // /ruta: vista «RUTA · Simulador académico» portada desde el prototipo de Figma Make.
-// Datos: malla pública de Duoc (malla-detalle.json) + escenas APROBADAS de contenido.json.
+// Datos: malla pública de Duoc (malla-detalle.json) + escenas APROBADAS del estado en memoria,
+// incluidas las que el tutor aprueba durante la demo.
 // Solo llegan al estudiante plantillas cuya escena ya fue aprobada (ver diseno.md §5.1).
 import detalle from "@/data/malla-detalle.json";
+import { connection } from "next/server";
 import { contenido } from "@/lib/contenido";
+import { estado } from "@/lib/store";
 import { RutaCliente, type RamoRuta } from "./ruta-cliente";
 
 type RamoDetalle = {
@@ -10,10 +13,12 @@ type RamoDetalle = {
   horas: number; sct: number; formato: string; prerrequisitos: string[]; habilita: string[]; certificacion?: string;
 };
 
-export default function PaginaRuta() {
+export const instant = false; // página dinámica: lee el estado en cada petición
+export default async function PaginaRuta() {
+  await connection();
   const ramos = detalle.malla as RamoDetalle[];
   const nombre = (codigo: string) => ramos.find((r) => r.codigo === codigo)?.nombre ?? codigo;
-  const aprobadas = contenido.escenas.filter((e) => e.estado === "aprobada");
+  const aprobadas = [...estado().escenas.values()].filter((e) => e.estado === "aprobada");
 
   const datos: RamoRuta[] = ramos.map((r) => ({
     id: r.id,

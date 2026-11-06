@@ -9,7 +9,8 @@ const g = globalThis as unknown as { __estadoDemo?: Estado };
 
 function inicial(): Estado {
   return {
-    escenas: new Map(contenido.escenas.map((e) => [e.id, e])),
+    // Copias: aprobar edita la escena en el sitio; sin copiar, «Reiniciar demo» no deshacía esas ediciones.
+    escenas: new Map(contenido.escenas.map((e) => [e.id, structuredClone(e)])),
     casos: new Map(),
     seqEscena: contenido.escenas.length,
     seqCaso: 0,
