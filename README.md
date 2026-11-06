@@ -3,7 +3,13 @@
 Repositorio del equipo para el desafío 2: prevención de la deserción en educación superior, con foco en primer año.
 
 ## Estado actual
-Equipo fusionado; idea reportada: **simulación de la carrera para explorar expectativas y desajuste vocacional**. Alcance pendiente de acuerdo; sin aplicación ni resultados propios.
+MVP implementado en [`web/`](web/README.md): **simulación de la carrera para explorar expectativas y desajuste vocacional**.
+
+- **Estudiante** (`/estudiante`): juega escenas de ramos reales de la malla de Duoc, marca lo que le sorprendió, revisa las brechas que propone la IA y decide si comparte su resumen con el tutor; puede pausar o retirar la autorización.
+- **Tutor** (`/tutor`): escribe plantillas desde su experiencia, revisa y aprueba las escenas que genera la IA antes de que lleguen a estudiantes, y ve solo los casos compartidos con autorización activa.
+- **Ruta** (`/ruta`): malla oficial por semestre con las experiencias de tutores ya aprobadas.
+
+Datos de tutores, estudiantes y casos son ficticios. Verificado con la prueba de punta a punta de `web/` (modo simulado); no hay validación con usuarios reales.
 
 ## Contexto y recursos
 
